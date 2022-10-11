@@ -1,0 +1,30 @@
+{
+  "name": "onlinerdv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "npm run sass:start",
+    "sass-build": "node-sass --omit-source-map-url ressources/scss/style.scss public/css/style.css",
+    "sass-watch": "npm run sass-build -- --watch",
+    "sass:start": "npm run sass-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DjoffonHarold/projet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DjoffonHarold/projet/issues"
+  },
+  "homepage": "https://github.com/DjoffonHarold/projet#readme",
+  "dependencies": {
+    "sass": "^1.52.3"
+  },
+  "devDependencies": {
+    "node-sass": "^7.0.1"
+  }
+
+}

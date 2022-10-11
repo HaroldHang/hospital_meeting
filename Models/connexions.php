@@ -2,26 +2,24 @@
     //require '../connect.php';
 
     function inscription($conn) {
-        if (isset($_POST['Nom'])) {
-            $nom = $_POST['Nom'];
-            $prenom = $_POST['Prenom'];
-            $date = $_POST['Date'];
-            $quartier = $_POST['Quatier'];
-            $numero = $_POST['Numero'];
-            $profession = $_POST['Profession'];
+        if (isset($_POST['submit'])) {
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $date = $_POST['date'];
+            $quartier = $_POST['adresse'];
+            $numero = $_POST['numero'];
+            $profession = $_POST['profession'];
+            $sexe = $_POST['sexe'];
           }
+          // Verifier si le client existe deja
           $sql = "SELECT * FROM clients WHERE Nom=:Nom AND Prenom=:Prenom";
           $query=$conn->prepare($sql);
-          $query->bindValue(":Nom",$_POST["Nom"] , PDO::PARAM_STR);
-          $query->bindValue(":Prenom", $_POST["Prenom"], PDO::PARAM_STR);
+          $query->bindValue(":Nom",$nom , PDO::PARAM_STR);
+          $query->bindValue(":Prenom", $prenom, PDO::PARAM_STR);
           $query -> execute();
           $result = count($query -> fetchAll());
-          //var_dump($result);
-          //exit;
+          
           if ($result > 0) {
-            $erreur = "exist";
-            //header("Location: index.php?erreur=$erreur&nom=$nom&prenom=$prenom");
-            //exit;
             return [
                 "erreur" => true,
                 "message" => "Le nom et premom existe deja"
@@ -30,17 +28,18 @@
           //Genere l'identifiant de l'utilisateur;
           $uid = uniqid();
           // Inserer le client
-          $sql="INSERT INTO `clients`(`identifiant`, `Nom`,`Prenom`,`Date`,`Quatier`,`Numero`,`Profession`) VALUES(:identifiant, :Nom, :Prenom, :Date, :Quatier, :Numero, :Profession)";
+          $sql="INSERT INTO `clients`(`identifiant`, `Nom`,`Prenom`,`Date`,`Quatier`,`Numero`,`Profession`, `Sexe`) VALUES(:identifiant, :Nom, :Prenom, :Date, :Quatier, :Numero, :Profession, :Sexe)";
             
             $query=$conn->prepare($sql);
     
             $query->bindValue(":identifiant",$uid , PDO::PARAM_STR);
-            $query->bindValue(":Nom",$_POST["Nom"] , PDO::PARAM_STR);
-            $query->bindValue(":Prenom", $_POST["Prenom"], PDO::PARAM_STR);
-            $query->bindValue(":Date", $_POST["Date"], PDO::PARAM_STR);
-            $query->bindValue(":Quatier", $_POST["Quatier"], PDO::PARAM_STR);
-            $query->bindValue(":Numero", $_POST["Numero"], PDO::PARAM_STR);
-            $query->bindValue(":Profession", $_POST["Profession"], PDO::PARAM_STR);
+            $query->bindValue(":Nom",$nom , PDO::PARAM_STR);
+            $query->bindValue(":Prenom", $prenom, PDO::PARAM_STR);
+            $query->bindValue(":Date", $date, PDO::PARAM_STR);
+            $query->bindValue(":Quatier", $quartier, PDO::PARAM_STR);
+            $query->bindValue(":Numero", $numero, PDO::PARAM_STR);
+            $query->bindValue(":Profession", $profession, PDO::PARAM_STR);
+            $query->bindValue(":Sexe", $sexe, PDO::PARAM_STR);
          
             $query->execute();
 
@@ -57,7 +56,7 @@
               "identifiant" => $uid,
             ]
           ];
-          header("Location: ./views/acceuil.php");
+          //header("Location: ./views/acceuil.php");
           } else {
             return [
               "erreur" => true,
@@ -66,23 +65,26 @@
           }
     }
     function connexionClient($conn) {
-      if (isset($_POST['Nom'])) {
-        $nom = $_POST["Nom"];
-        $prenom = $_POST["Prenom"];
+      if (isset($_POST['nom']) && isset($_POST["prenom"]) && isset($_POST['identifiant'])) {
+        $nom = $_POST["nom"];
+        $prenom = $_POST["prenom"];
+        $identifiant = $_POST['identifiant'];
         // Verifie existance dans la base de donné
-             $sql = "SELECT * FROM clients WHERE Nom=:Nom AND Prenom=:Prenom";
+            $sql = "SELECT * FROM clients WHERE Nom=:Nom AND Prenom=:Prenom AND identifiant=:identifiant";
             $query=$conn->prepare($sql);
             $query->bindValue(":Nom",$nom , PDO::PARAM_STR);
             $query->bindValue(":Prenom", $prenom, PDO::PARAM_STR);
+            $query->bindValue(":identifiant", $identifiant, PDO::PARAM_STR);
             $query -> execute();
-            $result = count($query -> fetchAll());
+            $result = $query -> fetch(PDO::FETCH_ASSOC);
             //var_dump($result);
             //exit;
-            if ($result > 0) {
+            if ($result) {
               //$erreur=exit;
               return [
                   "success" => true,
-                 // "message" => "Le nom et premom existe deja"
+                 // "message" => "Le nom et premom existe deja",
+                  "client" => $result
               ];
             } else {
               return [
