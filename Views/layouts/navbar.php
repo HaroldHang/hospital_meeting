@@ -16,9 +16,16 @@
         </form>-->
         <?php if ($pageTitle == "Inscription") {?>
             <a href="index.php?action=seconnecter" class="btn btn-sm btn-outline-primary ml-lg-4">Se connecter</a>
-        <?php } else {?>
+        <?php } else if ($pageTitle == "Connexion") {?>
             <a href="index.php" class="btn btn-sm btn-outline-primary ml-lg-4">S'inscrire</a>
         <?php }?>
+        <?php 
+          if (isset($_SESSION['client_active']) && $_SESSION['client_active']) {
+        ?>
+            <a href="index.php?action=deconnecter" class="btn btn-sm btn-outline-primary ml-lg-4">Deconnecter</a>
+        <?php 
+          }
+        ?>
         <!-- <a href="contact.html" class="btn btn-sm btn-primary ml-lg-4">contact</a> -->
       </div>
       <!--<form class="form-inline search-wrapper d-block d-lg-none my-3" class="search-wrapper" action="search.html">
