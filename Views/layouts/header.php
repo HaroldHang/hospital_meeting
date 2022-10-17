@@ -17,3 +17,5 @@
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
 </head>
 <body >
+    <script src="public/js/script.js"></script>
+    <script src="public/js/calendar.js"></script>

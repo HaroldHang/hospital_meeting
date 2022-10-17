@@ -3,6 +3,7 @@
     require 'connect.php';
     require './Controlleurs/connexionControlleur.php';
     require './Controlleurs/homeControlleur.php';
+    require './Controlleurs/servicesControlleur.php';
 
     // Routeur de l'application : Pour rediriger vers le controlleur specifique a effectue l'action
     if (isset($_GET['action'])) {
@@ -17,11 +18,13 @@
                 connexion($conn);
         } else if ($action == "acceuil") {
             acceuil();
-        } else if ($action = "deconnecter") {
+        } else if ($action == "deconnecter") {
             //echo "okay";
             //exit;
             deconnecter();
-        } 
+        } else if ($action == "services") {
+            pageService();
+        }
         
 
     } else {
