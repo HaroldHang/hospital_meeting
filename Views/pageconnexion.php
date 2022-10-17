@@ -15,7 +15,7 @@
 
     <div class="welcome">
     <h2>Bon retour sur MeetMed</h2>
-    <p>Sur MeetMed, la perte de temps est resuite</p>
+    <p>Sur MeetMed, la perte de temps est reduite</p>
   </div>
   <div class="banner-inscription banner-connexion">
     <section class="section">

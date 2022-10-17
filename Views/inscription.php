@@ -26,8 +26,8 @@
         ?>
 
   <div class="welcome">
-    <h2>MeetMed vous souhaite la bienvenu</h2>
-    <p>Sur MeetMed, la perte de temps est resuite</p>
+    <h2>MeetMed vous souhaite la bienvenue</h2>
+    <p>Sur MeetMed, la perte de temps est reduite</p>
   </div>
   <div class="banner-inscription">
     <section class="section">
@@ -67,11 +67,11 @@
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="numero">Telephone</label>
-                      <input type="number" class="form-control" id="numero" name="numero" placeholder="22965479632" required>
+                      <input type="number" class="form-control" id="numero" name="numero" placeholder="+229 ........" required>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="profession">Profession</label>
-                      <input type="text" class="form-control" id="profession" name="profession" placeholder="Profesion">
+                      <input type="text" class="form-control" id="profession" name="profession" placeholder="Profession">
                     </div>
                   </div>
                   <div class="form-group col-md-6">

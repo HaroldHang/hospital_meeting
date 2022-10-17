@@ -18,7 +18,7 @@
         <p>Choisir le type de spécialiter pour la consultation médical voulu</p></h1>
 
    <h3><?= $_SESSION['client']['identifiant'] ?></h3>
-   <h3><?= $_SESSION['client']['Nom'] ?> <?= $_SESSION['client']['Prenom'] ?></h3>
+   <h3><?= $_SESSION['client']['nom'] ?> <?= $_SESSION['client']['prenom'] ?></h3>
     <ol>
         <ul>Cardiologie</ul>
         <ul>Ophtamologie</ul>
