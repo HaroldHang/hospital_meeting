@@ -17,6 +17,13 @@
             </div>
             <div class="content">
                 <h5 id="tables">Tables</h5>
+                <?php
+                      if (!empty($messageErreur)) { 
+                    ?>
+                    <div class="badge security">
+                        <?= $messageErreur ?>
+                    </div>
+                    <?php }?>
                 <p>Colons can be used to align columns.</p>
                 <div class="calendar-container" id="calendar">
                     <div>
@@ -62,49 +69,49 @@
                                 <div class="hour-even">09h</div>
                                 <div>10h</div>
                                 <div class="hour-even">11h</div>
-                                <div>12</div>
+                                <div>12h</div>
                             </td>
                             <td align="center">
                                 <div>08h</div>
                                 <div class="hour-even">09h</div>
                                 <div>10h</div>
                                 <div class="hour-even">11h</div>
-                                <div>12</div>
+                                <div>12h</div>
                             </td>
                             <td align="center">
                                 <div>08h</div>
                                 <div class="hour-even">09h</div>
                                 <div>10h</div>
                                 <div class="hour-even">11h</div>
-                                <div>12</div>
+                                <div>12h</div>
                             </td>
                             <td align="center">
                                 <div>08h</div>
                                 <div class="hour-even">09h</div>
                                 <div>10h</div>
                                 <div class="hour-even">11h</div>
-                                <div>12</div>
+                                <div>12h</div>
                             </td>
                             <td align="center">
                                 <div>08h</div>
                                 <div class="hour-even">09h</div>
                                 <div>10h</div>
                                 <div class="hour-even">11h</div>
-                                <div>12</div>
+                                <div>12h</div>
                             </td>
                             <td align="center">
                                 <div>08h</div>
                                 <div class="hour-even">09h</div>
                                 <div>10h</div>
                                 <div class="hour-even">11h</div>
-                                <div>12</div>
+                                <div>12h</div>
                             </td>
                             <td align="center">
                                 <div>08h</div>
                                 <div class="hour-even">09h</div>
                                 <div>10h</div>
                                 <div class="hour-even">11h</div>
-                                <div>12</div>
+                                <div>12h</div>
                             </td>
                         </tr>
                         <tr>

@@ -19,8 +19,7 @@
         } else if ($action == "acceuil") {
             acceuil();
         } else if ($action == "deconnecter") {
-            //echo "okay";
-            //exit;
+           
             deconnecter();
         } else if ($action == "services") {
             pageService();

@@ -14,11 +14,7 @@
         <p>Choisir le type de spécialiter pour la consultation médical voulu</p></h1>
 
    <h3><?= $_SESSION['client']['identifiant'] ?></h3>
-<<<<<<< HEAD
-   <h3><?= $_SESSION['client']['nom'] ?> <?= $_SESSION['client']['prenom'] ?></h3>
-    <ol>
-        <ul>Cardiologie</ul>
-        <ul>O
+
    <h3><?= $_SESSION['client']['Nom'] ?> <?= $_SESSION['client']['Prenom'] ?></h3>
 
 
@@ -57,7 +53,8 @@
           <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
             <div class="card match-height">
               <div class="card-body">
-                <i class="card-icon ti-package mb-4"></i>
+              <!--  <i class="card-icon ti-package mb-4"></i>-->
+                <img src="pubic/image/dermato.jpg" class="img-service"/>
                 <h3 class="card-title h4">Dermatologie</h3>
                 <p class="card-text">Cras at dolor eget urna varius faucibus tempus in elit dolor sit amet.</p>
                 <a href="index.php?action=services" class="stretched-link"></a>
@@ -68,7 +65,8 @@
           <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
             <div class="card match-height">
               <div class="card-body">
-                <i class="card-icon ti-settings mb-4"></i>
+              <!--  <i class="card-icon ti-settings mb-4"></i>-->
+                <img src="public/image/mental-health.webp" class="img-service" />
                 <h3 class="card-title h4">Neurologie</h3>
                 <p class="card-text">Cras at dolor eget urna varius faucibus tempus in elit dolor sit amet.</p>
                 <a href="index.php?action=services" class="stretched-link"></a>
@@ -79,7 +77,8 @@
           <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
             <div class="card match-height">
               <div class="card-body">
-                <i class="card-icon ti-settings mb-4"></i>
+              <!--  <i class="card-icon ti-settings mb-4"></i>-->
+                <img src="public/image/orl.jpg" class="img-service"/>
                 <h3 class="card-title h4">ORI</h3>
                 <p class="card-text">Cras at dolor eget urna varius faucibus tempus in elit dolor sit amet.</p>
                 <a href="index.php?action=services" class="stretched-link"></a>
@@ -90,7 +89,8 @@
           <div class="col-lg-4 col-sm-6 mb-4">
             <div class="card match-height">
               <div class="card-body">
-                <i class="card-icon ti-settings mb-4"></i>
+              <!--  <i class="card-icon ti-settings mb-4"></i>-->
+                <img src="public/image/dentist.webp" class="img-service" />
                 <h3 class="card-title h4">Stomatologie</h3>
                 <p class="card-text">Cras at dolor eget urna varius faucibus tempus in elit dolor sit amet.</p>
                 <a href="index.php?action=services" class="stretched-link"></a>
@@ -100,8 +100,8 @@
         </div>
       </div>
     </section>
-    <!-- /topics -->
+
 
 </div>
 
->>>>>>> 534d6ccc7e1010a993dd9b2ba8afa9d67eb3616e
+
