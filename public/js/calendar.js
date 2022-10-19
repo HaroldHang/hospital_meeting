@@ -13,6 +13,15 @@ const months = [
     "Decembre"
 ];
 const daysOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const days = [
+    "Dimanche",
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi",
+]
 
 function handleMonth(type = 'right', monthElm) {
     let monthArray = monthElm.innerText.split('/');
@@ -43,17 +52,22 @@ function updateMonth(monthElm, month, year) {
     monthElm.innerText = months[month] + " / " + year;
 }
 function getMonthElm(monthElm) {
-    return monthElm.innerText.split('/');
+    return (monthElm.innerText.split('/')).map((el) => el.trim());
 }
 function handleWeeks(type= 'right', weekElm, monthElm) {
     let numOfWeek = getNumOfWeek(monthElm);
     let currentWeek = getCurWeek(weekElm);
     if (type == 'right') {
         currentWeek++;
+        updateWeek(weekElm, currentWeek);
+        handleDays("right", currentWeek)
     } else if (type == 'left') {
         currentWeek--;
+        updateWeek(weekElm, currentWeek);
+        handleDays("left", currentWeek)
+
     }
-    updateWeek(weekElm, currentWeek);
+    //updateWeek(weekElm, currentWeek);
     
 }
 
@@ -77,6 +91,10 @@ function setCurrentWeek(weekElm, currentDay) {
 
     updateWeek(weekElm, weekNum);
 }
+function getCurrentWeek() {
+    let weekNum = weekNumber();
+    return weekNum
+}
 function getNumOfWeek(monthElm) {
     let monthArray = getMonthElm(monthElm);
     let month = monthArray[0].trim();
@@ -96,9 +114,79 @@ function getNumOfWeek(monthElm) {
 function weekNumber(date = new Date())
 {
     var firstJanuary = new Date(date.getFullYear(), 0, 1);
-    var dayNr = Math.ceil((date - firstJanuary) / (24 * 60 * 60 * 1000));
-    var weekNr = Math.ceil((dayNr + firstJanuary.getDay()) / 7);
+    var dayNr = Math.round((date - firstJanuary) / (24 * 60 * 60 * 1000));
+    var weekNr = Math.round((dayNr + firstJanuary.getDay()) / 7);
+    console.log(weekNr)
     return weekNr;
+}
+
+function handleDays(type = "current", weekStateNum) {
+    let date = new Date();
+    let aDay = 24 * 60 * 60 * 1000;
+    let numberOfLastDay = 0;
+    if (type == "current") {
+        let numberOfLastDay = (date.getDay()) * aDay
+        console.log(date.valueOf() - numberOfLastDay)
+        numberOfLastDay = date.valueOf() - numberOfLastDay;
+        let nowDate = new Date(numberOfLastDay);
+        console.log(nowDate);
+        properHandeDays(numberOfLastDay);
+    } else if (type == "right") {
+        let weekElm = weekStateNum;
+        let curWeek = getCurrentWeek();
+        let numberOfLastDay = ((7 - date.getDay()) + (((weekElm - curWeek) - 1)) * 7) * aDay;
+        numberOfLastDay = date.valueOf() + numberOfLastDay;
+        properHandeDays(numberOfLastDay, "right");
+        numberOfLastDay = new Date(numberOfLastDay)
+        console.log(numberOfLastDay);
+        if (date.getMonth() != numberOfLastDay.getMonth()) {
+            const month = document.getElementById("calendarMonth");
+            
+            updateMonth (month, numberOfLastDay.getMonth(), numberOfLastDay.getFullYear());
+        }
+    } else if (type == "left") {
+        let weekElm = weekStateNum;
+        let curWeek = getCurrentWeek();
+        let numberOfLastDay = ((date.getDay() ) + (((curWeek - weekElm))) * 7) * aDay;
+        numberOfLastDay = date.valueOf() - numberOfLastDay;
+        properHandeDays(numberOfLastDay, "left");
+        numberOfLastDay = new Date(numberOfLastDay)
+        console.log(numberOfLastDay);
+        if (date.getMonth() != numberOfLastDay.getMonth()) {
+            const month = document.getElementById("calendarMonth");
+            updateMonth (month, numberOfLastDay.getMonth(), numberOfLastDay.getFullYear());
+            
+        }
+    }
+    //let monthElm = getMonthElm(monthState);
+    //let firstJanuary = new Date(parseInt(monthElm[1]), 0, 1);
+    //let firstDayOfMonth = new Date(parseInt(monthElm[1]), months.indexOf(monthElm[0]), 1);
+    //let numberOfDay = Math.round((firstDayOfMonth - firstJanuary) / (24 * 60 * 60 * 1000));
+    //let numWeek = Math.round((numberOfDay + firstJanuary.getDay()) / 7);
+}
+
+function properHandeDays(startDate, type="left") {
+    let days = document.getElementsByClassName("days");
+    let aDay = 24 * 60 * 60 * 1000;
+    
+    for (let index = 0; index < days.length; index++) {
+        const day = days[index];
+        let date = new Date (startDate + (index * aDay));
+        day.innerText = date.getDate();
+        const hoursDate = document.getElementsByClassName(`date-day-${index + 1}`)
+        for (let j = 0; j < hoursDate.length; j++) {
+            const hourDate = hoursDate[j];
+            const nowHours = hourDate.children
+            for (let k = 0; k < nowHours.length; k++) {
+                const hourTime = nowHours[k];
+                //console.log(hourTime);
+                hourTime.setAttribute("data-date", [date.getDate(), (date.getMonth() + 1), date.getFullYear()].join("-") )
+            }
+        }
+        let previousDay = new Date(startDate + ((index - 1) * aDay))
+        
+    }
+    
 }
 
 function checkYear(year) {
@@ -106,12 +194,10 @@ function checkYear(year) {
     // then it is a leap year
     if (year % 400 == 0)
         return true;
-
     // Else If a year is multiple of 100,
     // then it is not a leap year
     if (year % 100 == 0)
         return false;
-
     // Else If a year is multiple of 4,
     // then it is a leap year
     if (year % 4 == 0)
@@ -133,7 +219,8 @@ window.addEventListener("load", ()=> {
 
     month.innerText = months[currentDate.getMonth()] + " / " + currentDate.getFullYear();
     setCurrentWeek(week, currentDate.getDate());
-    console.log(Math.ceil(29 / 7));
+    handleDays("current", week)
+    //console.log(Math.ceil(29 / 7));
     //console.log(checkYear(2023))
     monthRight.addEventListener('click', ()=> {
         handleMonth('right', month);
@@ -143,7 +230,7 @@ window.addEventListener("load", ()=> {
     });
 
     weekLeft.addEventListener('click', ()=> {
-        handleWeeks('left', week, month)
+        handleWeeks('left', week, month);
     })
     weekRight.addEventListener('click', ()=> {
         handleWeeks('right', week, month)

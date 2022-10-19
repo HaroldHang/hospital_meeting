@@ -4,6 +4,7 @@
     require './Controlleurs/connexionControlleur.php';
     require './Controlleurs/homeControlleur.php';
     require './Controlleurs/servicesControlleur.php';
+    require './Controlleurs/rendezvousControlleur.php';
 
     // Routeur de l'application : Pour rediriger vers le controlleur specifique a effectue l'action
     if (isset($_GET['action'])) {
@@ -23,6 +24,12 @@
             deconnecter();
         } else if ($action == "services") {
             pageService();
+        } else if ($action == "rendezvous") {
+            if (isset($_GET['dateStart']) && isset($_GET['dateEnd'])) {
+
+            }
+        } else if ($action == "rendezvous/create") {
+            insertRendezvous($conn);
         }
         
 

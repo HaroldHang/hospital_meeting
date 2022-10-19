@@ -1,3 +1,4 @@
+@use "sass:color";
 body {
     min-height: 100vh;
 }
@@ -112,10 +113,36 @@ body {
                         align-items: center;
                     }
                     .hour-even {
-                        background-color: $light;
+                        background-color: $text-color-light;
+                        //cursor : pointer
+                    }
+
+                    .hour-ctrl {
+                        cursor : pointer;
                     }
                 }
             }
         }
+    }
+}
+
+.form-rdv {
+    display : none;
+    position : fixed;
+    top : 50%;
+    left : 50%;
+    width : 70%;
+    transform : translate(-50%, -50%);
+    & .content {
+        background-color : $white;
+        & button {
+            outline: none;
+            background: transparent;
+        }
+    }
+    z-index : 500;
+
+    &--open {
+        display : block
     }
 }

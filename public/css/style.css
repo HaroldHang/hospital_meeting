@@ -678,6 +678,7 @@ pre {
   margin-bottom: 0 !important;
   font-size: 100%; }
 
+@use "sass:color";
 body {
   min-height: 100vh; }
 
@@ -766,4 +767,22 @@ body {
     justify-content: center;
     align-items: center; }
   .calendar-container table tbody > tr td .hour-even {
-    background-color: #FBFBFB; }
+    background-color: #999; }
+  .calendar-container table tbody > tr td .hour-ctrl {
+    cursor: pointer; }
+
+.form-rdv {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  transform: translate(-50%, -50%);
+  z-index: 500; }
+  .form-rdv .content {
+    background-color: #fff; }
+    .form-rdv .content button {
+      outline: none;
+      background: transparent; }
+  .form-rdv--open {
+    display: block; }

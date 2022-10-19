@@ -19,3 +19,4 @@
 <body >
     <script src="public/js/script.js"></script>
     <script src="public/js/calendar.js"></script>
+    <script src="public/js/rendezvous.js"></script>

@@ -54,6 +54,7 @@
               "prenom" => $prenom,
               "profession" => $profession,
               "identifiant" => $uid,
+              "id_client" => $query -> lastInsertId()
             ]
           ];
           //header("Location: ./views/acceuil.php");

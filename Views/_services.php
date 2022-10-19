@@ -52,116 +52,179 @@
                       <thead>
                         <tr>
                             <th align="center">Horaires</th>
-                            <th align="center">Lundi</th>
-                            <th align="center">Mardi</th>
-                            <th align="center">Mercredi</th>
-                            <th align="center">Jeudi</th>
-                            <th align="center">Vendredi</th>
-                            <th align="center">Samedi</th>
-                            <th align="center">Dimanche</th>
+                            <th align="center">
+                                Dimanche
+                                <br>
+                                <span class="days">0</span>
+                            </th>
+                            <th align="center">
+                                Lundi
+                                <br>
+                                <span class="days">0</span>
+                            </th>
+                            <th align="center">
+                                Mardi
+                                <br>
+                                <span class="days">0</span>
+                            </th>
+                            <th align="center">
+                                Mercredi
+                                <br>
+                                <span class="days">0</span>
+                            </th>
+                            <th align="center">
+                                Jeudi
+                                <br>
+                                <span class="days">0</span>
+                            </th>
+                            <th align="center">
+                                Vendredi
+                                <br>
+                                <span class="days">0</span>
+                            </th>
+                            <th align="center">
+                                Samedi
+                                <br>
+                                <span class="days">0</span>
+                            </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                             <td>col 3 is</td>
-                            <td align="center">
-                                <div>08h</div>
-                                <div class="hour-even">09h</div>
-                                <div>10h</div>
-                                <div class="hour-even">11h</div>
-                                <div>12h</div>
+                            <td align="center" class="date-day-1">
+                                <div class="hour-ctrl" data-hour="08h">08h</div>
+                                <div class="hour-even hour-ctrl" data-hour="09h">09h</div>
+                                <div class="hour-ctrl" data-hour="10h">10h</div>
+                                <div class="hour-even hour-ctrl" data-hour="11h">11h</div>
+                                <div class="hour-ctrl" data-hour="12h">12h</div>
                             </td>
-                            <td align="center">
-                                <div>08h</div>
-                                <div class="hour-even">09h</div>
-                                <div>10h</div>
-                                <div class="hour-even">11h</div>
-                                <div>12h</div>
+                            <td align="center" class="date-day-2">
+                                <div class="hour-ctrl" data-hour="08h">08h</div>
+                                <div class="hour-even hour-ctrl" data-hour="09h">09h</div>
+                                <div class="hour-ctrl" data-hour="10h">10h</div>
+                                <div class="hour-even hour-ctrl" data-hour="11h">11h</div>
+                                <div class="hour-ctrl" data-hour="12h">12h</div>
                             </td>
-                            <td align="center">
-                                <div>08h</div>
-                                <div class="hour-even">09h</div>
-                                <div>10h</div>
-                                <div class="hour-even">11h</div>
-                                <div>12h</div>
+                            <td align="center" class="date-day-3">
+                                <div class="hour-ctrl" data-hour="08h">08h</div>
+                                <div class="hour-even hour-ctrl" data-hour="09h">09h</div>
+                                <div class="hour-ctrl" data-hour="10h">10h</div>
+                                <div class="hour-even hour-ctrl" data-hour="11h">11h</div>
+                                <div class="hour-ctrl" data-hour="12h">12h</div>
                             </td>
-                            <td align="center">
-                                <div>08h</div>
-                                <div class="hour-even">09h</div>
-                                <div>10h</div>
-                                <div class="hour-even">11h</div>
-                                <div>12h</div>
+                            <td align="center" class="date-day-4">
+                                <div class="hour-ctrl" data-hour="08h">08h</div>
+                                <div class="hour-even hour-ctrl" data-hour="09h">09h</div>
+                                <div class="hour-ctrl" data-hour="10h">10h</div>
+                                <div class="hour-even hour-ctrl" data-hour="11h">11h</div>
+                                <div class="hour-ctrl" data-hour="12h">12h</div>
                             </td>
-                            <td align="center">
-                                <div>08h</div>
-                                <div class="hour-even">09h</div>
-                                <div>10h</div>
-                                <div class="hour-even">11h</div>
-                                <div>12h</div>
+                            <td align="center" class="date-day-5">
+                                <div class="hour-ctrl" data-hour="08h">08h</div>
+                                <div class="hour-even hour-ctrl" data-hour="09h">09h</div>
+                                <div class="hour-ctrl" data-hour="10h">10h</div>
+                                <div class="hour-even hour-ctrl" data-hour="11h">11h</div>
+                                <div class="hour-ctrl" data-hour="12h">12h</div>
                             </td>
-                            <td align="center">
-                                <div>08h</div>
-                                <div class="hour-even">09h</div>
-                                <div>10h</div>
-                                <div class="hour-even">11h</div>
-                                <div>12h</div>
+                            <td align="center" class="date-day-6">
+                                <div class="hour-ctrl" data-hour="08h">08h</div>
+                                <div class="hour-even hour-ctrl" data-hour="09h">09h</div>
+                                <div class="hour-ctrl" data-hour="10h">10h</div>
+                                <div class="hour-even hour-ctrl" data-hour="11h">11h</div>
+                                <div class="hour-ctrl" data-hour="12h">12h</div>
                             </td>
-                            <td align="center">
-                                <div>08h</div>
-                                <div class="hour-even">09h</div>
-                                <div>10h</div>
-                                <div class="hour-even">11h</div>
-                                <div>12h</div>
+                            <td align="center" class="date-day-7">
+                                <div class="hour-ctrl" data-hour="08h">08h</div>
+                                <div class="hour-even hour-ctrl" data-hour="09h">09h</div>
+                                <div class="hour-ctrl" data-hour="10h">10h</div>
+                                <div class="hour-even hour-ctrl" data-hour="11h">11h</div>
+                                <div class="hour-ctrl" data-hour="12h">12h</div>
                             </td>
                         </tr>
                         <tr>
                             <td>col 3 is</td>
-                            <td align="center">
-                                <div>14h</div>
-                                <div class="hour-even">15h</div>
-                                <div>16h</div>
+                            <td align="center" class="date-day-1">
+                                <div class="hour-ctrl" data-hour="14h">14h</div>
+                                <div class="hour-even hour-ctrl" data-hour="15h">15h</div>
+                                <div class="hour-ctrl" data-hour="16h">16h</div>
                                 
                             </td>
-                            <td align="center">
-                                <div>14h</div>
-                                <div class="hour-even">15h</div>
-                                <div>16h</div>
+                            <td align="center" class="date-day-2">
+                                <div class="hour-ctrl" data-hour="14h">14h</div>
+                                <div class="hour-even hour-ctrl" data-hour="15h">15h</div>
+                                <div class="hour-ctrl" data-hour="16h">16h</div>
                                 
                             </td>
-                            <td align="center">
-                                <div>14h</div>
-                                <div class="hour-even">15h</div>
-                                <div>16h</div>
+                            <td align="center" class="date-day-3">
+                                <div class="hour-ctrl" data-hour="14h">14h</div>
+                                <div class="hour-even hour-ctrl" data-hour="15h">15h</div>
+                                <div class="hour-ctrl" data-hour="16h">16h</div>
                                 
                             </td>
-                            <td align="center">
-                                <div>14h</div>
-                                <div class="hour-even">15h</div>
-                                <div>16h</div>
+                            <td align="center" class="date-day-4">
+                                <div class="hour-ctrl" data-hour="14h">14h</div>
+                                <div class="hour-even hour-ctrl" data-hour="15h">15h</div>
+                                <div class="hour-ctrl" data-hour="16h">16h</div>
                                 
                             </td>
-                            <td align="center">
-                                <div>14h</div>
-                                <div class="hour-even">15h</div>
-                                <div>16h</div>
+                            <td align="center" class="date-day-5">
+                                <div class="hour-ctrl" data-hour="14h">14h</div>
+                                <div class="hour-even hour-ctrl" data-hour="15h">15h</div>
+                                <div class="hour-ctrl" data-hour="16h">16h</div>
                                 
                             </td>
-                            <td align="center">
-                                <div>14h</div>
-                                <div class="hour-even">15h</div>
-                                <div>16h</div>
+                            <td align="center" class="date-day-6">
+                                <div class="hour-ctrl" data-hour="14h">14h</div>
+                                <div class="hour-even hour-ctrl" data-hour="15h">15h</div>
+                                <div class="hour-ctrl" data-hour="16h">16h</div>
                                 
                             </td>
-                            <td align="center">
-                                <div>14h</div>
-                                <div class="hour-even">15h</div>
-                                <div>16h</div>
+                            <td align="center" class="date-day-7">
+                                <div class="hour-ctrl" data-hour="14h">14h</div>
+                                <div class="hour-even hour-ctrl" data-hour="15h">15h</div>
+                                <div class="hour-ctrl" data-hour="16h">16h</div>
                                 
                             </td>
                         </tr>
                         
                       </tbody>
                     </table>
+                </div>
+            </div>
+            <div id="formulaire-rdv" class="form-rdv">
+                <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-8">
+                        <div class="p-5 shadow rounded content">
+                            <div class="row d-flex justify-content-end">
+                                <button class="col-1" id="close-rdv">
+                                    <i class="ti-close ml-auto"></i>
+                                </button>
+                            </div>
+                          <h3 class="section-title">Prenez votre rendez-vous</h3>
+                          <form method="POST" action="index.php?action=inscription">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="date">Date</label>
+                                <input type="text" class="form-control" id="form-date" name="rdv-date" placeholder="Date" required disabled>
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="hour">Hour</label>
+                                <input type="text" class="form-control" id="form-hour" name="rdv-hour" placeholder="Heure" disabled>
+                                <input type="hidden" value="<?= $_SESSION['client']['id_client']?>" name="id_patient"/>
+                              </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="Nom">Object</label>
+                                <textarea type="text" class="form-control" id="Nom" name="object" placeholder="Decrivez un pourquoi vous preniez ce rendez-vous" required> </textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" name="submit">Soumettre</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
             <div>
