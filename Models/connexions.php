@@ -2,20 +2,20 @@
     //require '../connect.php';
 
     function inscription($conn) {
-        if (isset($_POST['submit'])) {
-            $nom = $_POST['nom'];
-            $prenom = $_POST['prenom'];
-            $date = $_POST['date'];
-            $quartier = $_POST['adresse'];
-            $numero = $_POST['numero'];
-            $profession = $_POST['profession'];
-            $sexe = $_POST['sexe'];
+        if (isset($_POST["submit"])) {
+            $nom = $_POST["nom"];
+            $prenom = $_POST["prenom"];
+            $date = $_POST["date"];
+            $quartier = $_POST["adresse"];
+            $numero = $_POST["numero"];
+            $profession = $_POST["profession"];
+            $sexe = $_POST["sexe"];
           }
           // Verifier si le client existe deja
-          $sql = "SELECT * FROM clients WHERE Nom=:Nom AND Prenom=:Prenom";
+          $sql = "SELECT * FROM clients WHERE nom=:nom AND prenom=:prenom";
           $query=$conn->prepare($sql);
-          $query->bindValue(":Nom",$nom , PDO::PARAM_STR);
-          $query->bindValue(":Prenom", $prenom, PDO::PARAM_STR);
+          $query->bindValue(":nom",$nom , PDO::PARAM_STR);
+          $query->bindValue(":prenom", $prenom, PDO::PARAM_STR);
           $query -> execute();
           $result = count($query -> fetchAll());
           
@@ -28,18 +28,18 @@
           //Genere l'identifiant de l'utilisateur;
           $uid = uniqid();
           // Inserer le client
-          $sql="INSERT INTO `clients`(`identifiant`, `Nom`,`Prenom`,`Date`,`Quatier`,`Numero`,`Profession`, `Sexe`) VALUES(:identifiant, :Nom, :Prenom, :Date, :Quatier, :Numero, :Profession, :Sexe)";
+          $sql="INSERT INTO `clients`(`identifiant`, `nom`,`prenom`,`date`,`quatier`,`numero`,`profession`, `sexe`) VALUES(:identifiant, :nom, :prenom, :date, :quatier, :numero, :profession, :sexe)";
             
             $query=$conn->prepare($sql);
     
             $query->bindValue(":identifiant",$uid , PDO::PARAM_STR);
-            $query->bindValue(":Nom",$nom , PDO::PARAM_STR);
-            $query->bindValue(":Prenom", $prenom, PDO::PARAM_STR);
-            $query->bindValue(":Date", $date, PDO::PARAM_STR);
-            $query->bindValue(":Quatier", $quartier, PDO::PARAM_STR);
-            $query->bindValue(":Numero", $numero, PDO::PARAM_STR);
-            $query->bindValue(":Profession", $profession, PDO::PARAM_STR);
-            $query->bindValue(":Sexe", $sexe, PDO::PARAM_STR);
+            $query->bindValue(":nom",$nom , PDO::PARAM_STR);
+            $query->bindValue(":prenom", $prenom, PDO::PARAM_STR);
+            $query->bindValue(":date", $date, PDO::PARAM_STR);
+            $query->bindValue(":quatier", $quartier, PDO::PARAM_STR);
+            $query->bindValue(":numero", $numero, PDO::PARAM_STR);
+            $query->bindValue(":profession", $profession, PDO::PARAM_STR);
+            $query->bindValue(":sexe", $sexe, PDO::PARAM_STR);
          
             $query->execute();
 
@@ -54,7 +54,6 @@
               "prenom" => $prenom,
               "profession" => $profession,
               "identifiant" => $uid,
-              "id_client" => $query -> lastInsertId()
             ]
           ];
           //header("Location: ./views/acceuil.php");
@@ -66,15 +65,15 @@
           }
     }
     function connexionClient($conn) {
-      if (isset($_POST['nom']) && isset($_POST["prenom"]) && isset($_POST['identifiant'])) {
+      if (isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["identifiant"])) {
         $nom = $_POST["nom"];
         $prenom = $_POST["prenom"];
-        $identifiant = $_POST['identifiant'];
+        $identifiant = $_POST["identifiant"];
         // Verifie existance dans la base de donné
-            $sql = "SELECT * FROM clients WHERE Nom=:Nom AND Prenom=:Prenom AND identifiant=:identifiant";
+            $sql = "SELECT * FROM clients WHERE nom=:nom AND prenom=:prenom AND identifiant=:identifiant";
             $query=$conn->prepare($sql);
-            $query->bindValue(":Nom",$nom , PDO::PARAM_STR);
-            $query->bindValue(":Prenom", $prenom, PDO::PARAM_STR);
+            $query->bindValue(":nom",$nom , PDO::PARAM_STR);
+            $query->bindValue(":prenom", $prenom, PDO::PARAM_STR);
             $query->bindValue(":identifiant", $identifiant, PDO::PARAM_STR);
             $query -> execute();
             $result = $query -> fetch(PDO::FETCH_ASSOC);

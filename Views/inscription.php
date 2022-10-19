@@ -16,7 +16,7 @@
     <?php 
       if (!empty($_POST)) {
   
-           if (isset($_POST["Valider"]) && !empty($_POST["Nom"]) && !empty($_POST["Prenom"]) && !empty($_POST["Date"]) && !empty($_POST["Quatier"]) && !empty($_POST["Numero"]) && !empty($_POST["Profession"]) && !empty($_POST["Sexe"])) {
+           if (isset($_POST["Valider"]) && !empty($_POST["nom"]) && !empty($_POST["prenom"]) && !empty($_POST["date"]) && !empty($_POST["quatier"]) && !empty($_POST["numero"]) && !empty($_POST["profession"]) && !empty($_POST["sexe"])) {
     
               }else {
                echo "veillez remplir tous les champs";
@@ -47,11 +47,11 @@
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="Nom">Nom</label>
-                      <input type="text" class="form-control" id="Nom" name="nom" placeholder="Votre Nom" required>
+                      <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre Nom" required>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="Prenom">Prenom</label>
-                      <input type="text" class="form-control" id="Prenom" name="prenom" placeholder="Votre Prenom">
+                      <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Votre Prenom">
                     </div>
                   </div>
                   <div class="form-row">

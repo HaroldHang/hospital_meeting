@@ -207,17 +207,17 @@
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="date">Date</label>
-                                <input type="text" class="form-control" id="form-date" name="rdv-date" placeholder="Date" required disabled>
+                                <input type="text" class="form-control" id="form-date" name="rdv_date" placeholder="Date" required disabled>
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="hour">Hour</label>
-                                <input type="text" class="form-control" id="form-hour" name="rdv-hour" placeholder="Heure" disabled>
-                                <input type="hidden" value="<?= $_SESSION['client']['id_client']?>" name="id_patient"/>
+                                <input type="text" class="form-control" id="form-hour" name="rdv_hour" placeholder="Heure" disabled>
+                             <!--   <input type="hidden" value="<?= $_SESSION['client']['id_client']?>" name="id_patient"/> -->
                               </div>
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="Nom">Object</label>
-                                <textarea type="text" class="form-control" id="Nom" name="object" placeholder="Decrivez un pourquoi vous preniez ce rendez-vous" required> </textarea>
+                                <label for="object">Object</label>
+                                <textarea type="text" class="form-control" id="object" name="object" placeholder="Decrivez  pourquoi vous preniez ce rendez-vous" required> </textarea>
                             </div>
                             
                             <button type="submit" class="btn btn-primary" name="submit">Soumettre</button>
