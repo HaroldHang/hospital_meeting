@@ -24,31 +24,72 @@ function rendezvousclient($conn) {
 }  
   
 
-function selectrendezvous($conn) {
-  if (isset($_POST['rdv_date']) && isset($_POST["rdv_hour"]) && isset($_POST['object'])) {
-        $rdv_date = $_POST["rdv_date"];
-        $rdv_hour = $_POST['rdv_hour'];
-        $object = $_POST['object'];
-// Verifie existance dans la base de donné
+function insertRdv($conn, $api) {
+    //echo "First";
+    if (isset($_POST['submit']) || $api) {
+      //echo "Second";
+      if ($api) {
+        $data = json_decode(file_get_contents("php://input"));
+        $rdvDate = $data->rdv_date;
+        $rdvHour = $data->rdv_hour;
+        $idPatient = $data->id_patient;
+        $description = $data->objet;
+      } else {
+        $rdvDate = $_POST['rdv_date'];
+        $rdvHour = $_POST['rdv_hour'];
+        $idPatient = $_POST['id_patient'];
+        $description = $_POST['objet'];
 
-    $sql = "SELECT * FROM rendez-vous WHERE object=:object AND rdv_date=:rdv_date AND rdv_hour=:rdv_hour ";
-    $query=$conn->prepare($sql);
-    $query->bindValue(":object",$object , PDO::PARAM_STR);
-    $query->bindValue(":rdv_date", $rdv_date, PDO::PARAM_STR);
-    $query->bindValue(":rdv_hour", $rdv_hour, PDO::PARAM_STR);
-    $query -> execute();
-    $result = $query -> fetch(PDO::FETCH_ASSOC);
-    
-    if ($result) {
-      return [
+      }
+      //var_dump($_POST['rdv_hour']);
+      //exit;
+      $sql="INSERT INTO `rendezvous`(`description`,`date_rdv`, `heure_rdv`, `id_patient`, `id_specialite`) VALUES(:description,:date_rdv, :heure_rdv, :id_patient, :id_specialite)";
+      $query=$conn->prepare($sql);
+      $query->bindValue(":description",$description , PDO::PARAM_STR);
+      $query->bindValue(":date_rdv", $rdvDate, PDO::PARAM_STR);
+      $query->bindValue(":heure_rdv", $rdvHour, PDO::PARAM_STR);
+      $query->bindValue(":id_patient", $idPatient, PDO::PARAM_STR);
+      $query->bindValue(":id_specialite", 1, PDO::PARAM_STR);
+      $query -> execute();
+
+
+      if ($query-> rowCount() > 0) {
+        return [
           "success" => true,
-          "message" => "occuper",
-          "client" => $result
-      ];
-    } 
-}  
+          "message" => "Rendez vous pris avec success"
+        ];
+      }
+    }
 }
 
-function getRendezVous($conn) {
-  
+function getRendezVous($conn, $startDate = null, $endDate = null, $api) {
+
+  if (isset($_POST['submit']) || $api) {
+    //echo "Second";
+    if ($api) {
+      $data = json_decode(file_get_contents("php://input"));
+      $startDate = $data->startDate;
+      //$endDate = $data->endDate;
+    } else {
+      $startDate = $_POST['start_date'];
+      $endDate = $_POST['end_date'];
+    }
+    //var_dump($_POST['rdv_hour']);
+    //exit;
+    //$sql="INSERT INTO `rendezvous`(`description`,`date_rdv`, `heure_rdv`, `id_patient`, `id_specialite`) VALUES(:description,:date_rdv, :heure_rdv, :id_patient, :id_specialite)";
+    //$sql = "SELECT * FROM rendezvous WHERE date_rdv BETWEEN $startDate AND $endDate";
+    $sql = "SELECT * FROM rendezvous WHERE date_rdv=:date_rdv";
+
+    $query=$conn->prepare($sql);
+    $query->bindValue(":date_rdv",$startDate , PDO::PARAM_STR);
+    //$query->bindValue(":date_rdv", $rdvDate, PDO::PARAM_STR);
+    //$query->bindValue(":heure_rdv", $rdvHour, PDO::PARAM_STR);
+    //$query->bindValue(":id_patient", $idPatient, PDO::PARAM_STR);
+    //$query->bindValue(":id_specialite", 1, PDO::PARAM_STR);
+    $query -> execute();
+    $result = $query -> fetchAll(PDO::FETCH_ASSOC);
+    if ($result) {
+      return $result;
+    }
+  }
 }

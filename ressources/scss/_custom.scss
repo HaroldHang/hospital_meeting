@@ -120,6 +120,18 @@ body {
                     .hour-ctrl {
                         cursor : pointer;
                     }
+
+                    .hour-filled {
+                        background-color: $primary-color;
+                        color : $white;
+                    }
+                    .hour-filled-shade {
+                        background-color: rgba($primary-color, .7);
+                        color : $white;
+                    }
+                    .hour-gone {
+                        opacity: .3;
+                    }
                 }
             }
         }
@@ -141,7 +153,13 @@ body {
         }
     }
     z-index : 500;
-
+    
+    .success-box {
+        display  : none;
+        &--active {
+            display: unset;
+        }
+    }
     &--open {
         display : block
     }

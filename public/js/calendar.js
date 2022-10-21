@@ -165,7 +165,9 @@ function handleDays(type = "current", weekStateNum) {
     //let numWeek = Math.round((numberOfDay + firstJanuary.getDay()) / 7);
 }
 
-function properHandeDays(startDate, type="left") {
+async function properHandeDays(startDate, type="left") {
+
+    let url = "index.php?action=rendezvous&api=true"
     let days = document.getElementsByClassName("days");
     let aDay = 24 * 60 * 60 * 1000;
     
@@ -173,6 +175,14 @@ function properHandeDays(startDate, type="left") {
         const day = days[index];
         let date = new Date (startDate + (index * aDay));
         day.innerText = date.getDate();
+        convertedDate = new Date (startDate);
+        const payload = {
+            //startDate : [convertedDate.getFullYear(), (convertedDate.getMonth() + 1), convertedDate.getDate()].join("-"),
+            startDate : [date.getFullYear(), (date.getMonth() + 1), date.getDate()].join("-")
+        }
+        console.log(payload.startDate)
+        const requestResponse = await ajaxRequest(url, "POST", payload);
+        console.log(requestResponse);
         const hoursDate = document.getElementsByClassName(`date-day-${index + 1}`)
         for (let j = 0; j < hoursDate.length; j++) {
             const hourDate = hoursDate[j];
@@ -180,7 +190,36 @@ function properHandeDays(startDate, type="left") {
             for (let k = 0; k < nowHours.length; k++) {
                 const hourTime = nowHours[k];
                 //console.log(hourTime);
-                hourTime.setAttribute("data-date", [date.getDate(), (date.getMonth() + 1), date.getFullYear()].join("-") )
+                let curDate = new Date();
+                hourTime.classList.remove("hour-gone");
+
+                if (curDate.getDate() > date.getDate()) {
+                    //console.log("yeah date");
+                    if (curDate.getMonth() >= date.getMonth()) {
+                        hourTime.classList.add("hour-gone");
+                    }
+                }
+                if (k % 2 == 0) {
+                    hourTime.classList.remove("hour-filled");
+                } else {
+                    hourTime.classList.remove("hour-filled-shade");
+                }
+                hourTime.setAttribute("data-date", [date.getFullYear(), (date.getMonth() + 1), date.getDate()].join("-") )
+                let hour  = hourTime.getAttribute("data-hour");
+                if (requestResponse) {
+                    requestResponse.forEach(meets => {
+                        if (meets.heure_rdv == hour) {
+                            /*hourTime.removeEventListener("click", ()=> {
+                                return;
+                            });*/
+                            if (k % 2 == 0) {
+                                hourTime.classList.add("hour-filled");
+                            } else {
+                                hourTime.classList.add("hour-filled-shade");
+                            }
+                        }
+                    });
+                }
             }
         }
         let previousDay = new Date(startDate + ((index - 1) * aDay))
@@ -236,3 +275,25 @@ window.addEventListener("load", ()=> {
         handleWeeks('right', week, month)
     })
 })
+
+function ajaxRequest(url, verb, payload = false) {
+    return new Promise((resolve, reject)=> {
+        let xmlhttp = new XMLHttpRequest();
+            xmlhttp.open(verb, url);
+            xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            if (verb == "POST") {
+                xmlhttp.send(JSON.stringify(payload));
+            } else {
+                xmlhttp.send();
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    //console.log(xmlhttp.responseText);
+                    resolve (JSON.parse(xmlhttp.responseText));
+                    
+                } else {
+                }
+            };
+
+    })
+}

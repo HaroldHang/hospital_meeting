@@ -770,6 +770,14 @@ body {
     background-color: #999; }
   .calendar-container table tbody > tr td .hour-ctrl {
     cursor: pointer; }
+  .calendar-container table tbody > tr td .hour-filled {
+    background-color: #006eff;
+    color: #fff; }
+  .calendar-container table tbody > tr td .hour-filled-shade {
+    background-color: rgba(0, 110, 255, 0.7);
+    color: #fff; }
+  .calendar-container table tbody > tr td .hour-gone {
+    opacity: .3; }
 
 .form-rdv {
   display: none;
@@ -784,5 +792,9 @@ body {
     .form-rdv .content button {
       outline: none;
       background: transparent; }
+  .form-rdv .success-box {
+    display: none; }
+    .form-rdv .success-box--active {
+      display: unset; }
   .form-rdv--open {
     display: block; }

@@ -203,24 +203,29 @@
                                 </button>
                             </div>
                           <h3 class="section-title">Prenez votre rendez-vous</h3>
-                          <form method="POST" action="index.php?action=inscription">
+                          <form method="POST" >
+                            <div class="notices tip success-box" id="success-box">
+                                <p>This is a simple tip.</p>
+                            </div>
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="date">Date</label>
-                                <input type="text" class="form-control" id="form-date" name="rdv_date" placeholder="Date" required disabled>
+                                <input type="text"  id="form-date" class="form-control"  placeholder="Date" required disabled>
+                                <input type="hidden" id="form-date-true" name="rdv_date" placeholder="Date">
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="hour">Hour</label>
-                                <input type="text" class="form-control" id="form-hour" name="rdv_hour" placeholder="Heure" disabled>
-                             <!--   <input type="hidden" value="<?= $_SESSION['client']['id_client']?>" name="id_patient"/> -->
-                              </div>
+                                <input type="text" class="form-control" id="form-hour" placeholder="Heure" disabled>
+                                <input type="hidden" id="form-hour-true" name="rdv_hour" placeholder="Heure">
+                            </div>
+                            <input type="hidden" value="<?= $_SESSION['client']['id_client']?>" name="id_patient" id="client-id"/>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="object">Object</label>
-                                <textarea type="text" class="form-control" id="object" name="object" placeholder="Decrivez  pourquoi vous preniez ce rendez-vous" required> </textarea>
+                                <textarea type="text" class="form-control" id="object" name="objet" placeholder="Decrivez  pourquoi vous preniez ce rendez-vous" required> </textarea>
                             </div>
                             
-                            <button type="submit" class="btn btn-primary" name="submit">Soumettre</button>
+                            <button type="submit" class="btn btn-primary" id="btn-rdv" name="submit">Soumettre</button>
                           </form>
                         </div>
                       </div>
