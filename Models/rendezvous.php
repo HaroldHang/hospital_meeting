@@ -19,12 +19,6 @@ function rendezvousclient($conn) {
       
       return [
         "success" => true,
-       /*[
-          "date_création" => $date_création,
-          "date_rdv" => $date_rdv,
-          "heur_rdv" => $heur_rdv,
-          "id_patient" => $id_patient,
-        ]*/
       ];
     }  
     }
