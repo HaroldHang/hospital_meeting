@@ -15,7 +15,7 @@
 
    <h3><?= $_SESSION['client']['identifiant'] ?></h3>
 
-   <h3><?= $_SESSION['client']['Nom'] ?> <?= $_SESSION['client']['Prenom'] ?></h3>
+   <h3><?= $_SESSION['client']['nom'] ?> <?= $_SESSION['client']['prenom'] ?></h3>
 
 
 <div class="home sup-container">
@@ -79,7 +79,7 @@
               <div class="card-body">
               <!--  <i class="card-icon ti-settings mb-4"></i>-->
                 <img src="public/image/orl.jpg" class="img-service"/>
-                <h3 class="card-title h4">ORI</h3>
+                <h3 class="card-title h4">ORL</h3>
                 <p class="card-text">Cras at dolor eget urna varius faucibus tempus in elit dolor sit amet.</p>
                 <a href="index.php?action=services" class="stretched-link"></a>
               </div>
