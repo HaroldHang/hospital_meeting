@@ -13,7 +13,6 @@ function rendezvousclient($conn) {
         $query->bindValue(":rdv_date", $rdv_date, PDO::PARAM_STR);
         $query->bindValue(":rdv_hour", $rdv_hour, PDO::PARAM_STR);
         $query -> execute();
-     
 
       if ($query -> rowCount() > 0){
       
@@ -54,4 +53,8 @@ function selectrendezvous($conn) {
       ];
     } 
 }  
+}
+
+function getRendezVous($conn) {
+  
 }
