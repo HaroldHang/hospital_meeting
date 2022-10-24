@@ -45,8 +45,10 @@ window.addEventListener("load", ()=> {
             rdv_date : formDateTrue.value,
             rdv_hour : formHourTrue.value,
             id_patient : idElm.value,
-            objet : objetElm.value
+            objet : objetElm.value,
+            id : document.getElementById("id_spec").value
         }
+        console.log(payload)
         let url = "index.php?action=rendezvous/create&api=true";
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open('POST', url);

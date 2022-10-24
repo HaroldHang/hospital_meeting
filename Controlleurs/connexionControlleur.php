@@ -48,4 +48,26 @@
         header("Location: index.php?action=acceuil");
     }
     
+    function pageConnMed($conn) {
+        if (isset($_SESSION['medecin'])) {
+            header("Location: index.php?action=acceuilmed");
+            exit;
+        }
+        $messageErreur = "";
+        $services = getServices($conn);
+        require './views/connexionMed.php';
+    }
+
+    function connexionMed($connect) {
+        $connMed = medConnexion($connect);
+        if (isset($connMed['erreur'])) {
+            $messageErreur = $connMed['message'];
+            $services = getServices($connect);
+            require './views/connexionMed.php';
+            exit;
+        }
+        $_SESSION['medecin'] = $connMed['medecin'];
+        header("Location: index.php?action=acceuilmed");
+        //echo "Okay";
+    }
 

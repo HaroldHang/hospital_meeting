@@ -18,5 +18,9 @@
 </head>
 <body >
     <script src="public/js/script.js"></script>
+    <?php if ($pageTitle == "Service") {?>
     <script src="public/js/calendar.js"></script>
     <script src="public/js/rendezvous.js"></script>
+    <?php } else if ($pageTitle == "Medecin Acceuil") {?>
+    <script src="public/js/medecin.js"></script>
+    <?php }?>

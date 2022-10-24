@@ -94,4 +94,36 @@
             }
       } 
     }
+
+    function medConnexion($conn) {
+      if (isset($_POST["email"]) && isset($_POST["motdepasse"])) {
+        $email = $_POST["email"];
+        $mdp = $_POST["motdepasse"];
+        $idSpec = $_POST['id_spec'];
+          // Verifie existance dans la base de donné
+          $sql = "SELECT * FROM medecins WHERE email=:email AND mdp=:mdp AND id_specialite=:id_specialite";
+          $query=$conn->prepare($sql);
+          //$query->bindValue(":nom",$nom , PDO::PARAM_STR);
+          $query->bindValue(":email", $email, PDO::PARAM_STR);
+          $query->bindValue(":mdp", $mdp, PDO::PARAM_STR);
+          $query->bindValue(":id_specialite", $idSpec, PDO::PARAM_STR);
+          $query -> execute();
+          $result = $query -> fetch(PDO::FETCH_ASSOC);
+            //var_dump($result);
+            //exit;
+            if ($result) {
+              //$erreur=exit;
+              return [
+                  "success" => true,
+                 // "message" => "Le nom et premom existe deja",
+                  "medecin" => $result
+              ];
+            } else {
+              return [
+                "erreur" => true,
+                "message" => "Les informations entrée sont incorrect"
+              ];
+            }
+      }
+    }
       

@@ -798,3 +798,38 @@ body {
       display: unset; }
   .form-rdv--open {
     display: block; }
+
+.medecin-container > div {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px; }
+  .medecin-container > div:first-child {
+    background-color: #FBFBFB; }
+  .medecin-container > div > button {
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    background: transparent; }
+    .medecin-container > div > button:hover {
+      background: #006eff;
+      color: #fff; }
+
+.medecin-container table tbody .line-even {
+  background-color: #999; }
+
+.medecin-container table tbody > tr td > div {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.sup-container {
+  margin-bottom: 100px; }

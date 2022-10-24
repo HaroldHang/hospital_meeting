@@ -20,7 +20,7 @@
             <a href="index.php" class="btn btn-sm btn-outline-primary ml-lg-4">S'inscrire</a>
         <?php }?>
         <?php 
-          if (isset($_SESSION['client_active']) && $_SESSION['client_active']) {
+          if ((isset($_SESSION['client']) && $_SESSION['client_active']) || (isset($_SESSION['medecin']) && $_SESSION['medecin_active'])) {
         ?>
             <a href="index.php?action=deconnecter" class="btn btn-sm btn-outline-primary ml-lg-4">Deconnecter</a>
         <?php 

@@ -5,7 +5,7 @@
   if (isset($_SESSION)) {
     //session_unset();
   }
-
+  
   include "layouts/navbar.php";
 ?>   
 

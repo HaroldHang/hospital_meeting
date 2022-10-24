@@ -178,9 +178,11 @@ async function properHandeDays(startDate, type="left") {
         convertedDate = new Date (startDate);
         const payload = {
             //startDate : [convertedDate.getFullYear(), (convertedDate.getMonth() + 1), convertedDate.getDate()].join("-"),
-            startDate : [date.getFullYear(), (date.getMonth() + 1), date.getDate()].join("-")
+            startDate : [date.getFullYear(), (date.getMonth() + 1), date.getDate()].join("-"),
+            id : document.getElementById("id_spec").value
         }
         console.log(payload.startDate)
+        // Obtenir les rendez-vous sans recharger la page
         const requestResponse = await ajaxRequest(url, "POST", payload);
         console.log(requestResponse);
         const hoursDate = document.getElementsByClassName(`date-day-${index + 1}`)
@@ -193,12 +195,19 @@ async function properHandeDays(startDate, type="left") {
                 let curDate = new Date();
                 hourTime.classList.remove("hour-gone");
 
-                if (curDate.getDate() > date.getDate()) {
+                /*if (curDate.getFullYear() > date.getFullYear()) {
                     //console.log("yeah date");
-                    if (curDate.getMonth() >= date.getMonth()) {
-                        hourTime.classList.add("hour-gone");
-                    }
-                }
+                    hourTime.classList.add("hour-gone");
+                    //if (curDate.getMonth() >= date.getMonth()) {
+                    //    hourTime.classList.add("hour-gone");
+                    //}
+                } else if ((curDate.getFullYear() <= date.getFullYear()) && (curDate.getMonth() > date.getMonth())) {
+                    hourTime.classList.add("hour-gone");
+                } else if ((curDate.getFullYear() <= date.getFullYear()) && (curDate.getMonth() <= date.getMonth()) && (curDate.getDate() > date.getDate())) {
+                    hourTime.classList.add("hour-gone");
+                }*/
+                
+                
                 if (k % 2 == 0) {
                     hourTime.classList.remove("hour-filled");
                 } else {
@@ -219,6 +228,11 @@ async function properHandeDays(startDate, type="left") {
                             }
                         }
                     });
+                }
+
+                if ((curDate >= date)) {
+                    if ((curDate.getDate() == date.getDate()) && curDate.getMonth() == date.getMonth() && curDate.getFullYear() == date.getFullYear()) continue
+                    hourTime.classList.add("hour-gone");
                 }
             }
         }

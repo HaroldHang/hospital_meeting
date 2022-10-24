@@ -10,10 +10,20 @@
     
     <section class="section pb-0">
           <div class="container">
-            <h2 class="section-title">Nom du Service</h2>
+            <h2 class="section-title"><?= $service['nom'] ?></h2>
             <h3 class="section-title">Veuillez prendre votre rendez-vous</h3>
             <div class="row">
                 <!-- table -->
+                <?php 
+                    if ($service['nom'] == "Cardiologie") {
+                ?>
+                    <p>
+                        La cardio
+                    </p>
+                <?php 
+                    
+                }
+                ?>
             </div>
             <div class="content">
                 <h5 id="tables">Tables</h5>
@@ -26,6 +36,7 @@
                     <?php }?>
                 <p>Colons can be used to align columns.</p>
                 <div class="calendar-container" id="calendar">
+                    <input type="hidden" id="id_spec" value="<?= $service['id_specialite'] ?>" />
                     <div>
                         <button id="monthLeft">
                             <i class="ti-angle-left ml-auto"></i>
