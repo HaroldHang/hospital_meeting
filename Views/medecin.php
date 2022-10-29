@@ -20,9 +20,9 @@
   <section class="section pb-0">
     <div class="container">
         <div>
-          <h4><?= $_SESSION['medecin']['email'] ?></h4>
+          <!-- <h4><?= $_SESSION['medecin']['email'] ?></h4> -->
 
-          <h4><?= $_SESSION['medecin']['nom'] ?> <?= $_SESSION['medecin']['prenom'] ?></h4>
+          <!-- <h4><?= $_SESSION['medecin']['nom'] ?> <?= $_SESSION['medecin']['prenom'] ?></h4> -->
         
         </div>
         <h2 class="section-title"><?= $service['nom'] ?></h2>
@@ -69,17 +69,15 @@
                                 Description
                                 
                             </th>
+                            
+                            <th align="center">
+                                Consultation
+                            </th>
+                            
+                            <th align="center">
+                                Prix
+                            </th>
                             <!--
-                            <th align="center">
-                                Jeudi
-                                <br>
-                                <span class="days">0</span>
-                            </th>
-                            <th align="center">
-                                Vendredi
-                                <br>
-                                <span class="days">0</span>
-                            </th>
                             <th align="center">
                                 Samedi
                                 <br>
@@ -133,5 +131,4 @@
 
 
 </div>
-
 

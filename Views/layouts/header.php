@@ -18,6 +18,8 @@
 </head>
 <body >
     <script src="public/js/script.js"></script>
+    <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+    <script src="public/js/jQuery/jquery.min.js"></script>
     <?php if ($pageTitle == "Service") {?>
     <script src="public/js/calendar.js"></script>
     <script src="public/js/rendezvous.js"></script>

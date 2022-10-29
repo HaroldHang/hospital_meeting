@@ -15,14 +15,14 @@
           <button class="border-0 bg-white" type="submit"><i class="ti-search"></i></button>
         </form>-->
         <?php if ($pageTitle == "Inscription") {?>
-            <a href="index.php?action=seconnecter" class="btn btn-sm btn-outline-primary ml-lg-4">Se connecter</a>
+            <a href="connexion" class="btn btn-sm btn-outline-primary ml-lg-4">Se connecter</a>
         <?php } else if ($pageTitle == "Connexion") {?>
-            <a href="index.php" class="btn btn-sm btn-outline-primary ml-lg-4">S'inscrire</a>
+            <a href="./" class="btn btn-sm btn-outline-primary ml-lg-4">S'inscrire</a>
         <?php }?>
         <?php 
           if ((isset($_SESSION['client']) && $_SESSION['client_active']) || (isset($_SESSION['medecin']) && $_SESSION['medecin_active'])) {
         ?>
-            <a href="index.php?action=deconnecter" class="btn btn-sm btn-outline-primary ml-lg-4">Deconnecter</a>
+            <a href="deconnexion" class="btn btn-sm btn-outline-primary ml-lg-4">Deconnecter</a>
         <?php 
           }
         ?>

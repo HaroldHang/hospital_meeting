@@ -55,10 +55,22 @@ function insertRdv($conn, $api) {
 
 
       if ($query-> rowCount() > 0) {
-        return [
-          "success" => true,
-          "message" => "Rendez vous pris avec success"
-        ];
+        $lastId = $conn -> lastInsertId();
+        $motif = $data -> mot;
+        $prix = $data -> price;
+
+        $sql="INSERT INTO `paiement`(`id_rendezvous`,`motif`, `prix`) VALUES(:id_rendezvous,:motif, :prix )";
+        $query=$conn->prepare($sql);
+        $query->bindValue(":id_rendezvous",$lastId , PDO::PARAM_STR);
+        $query->bindValue(":motif", $motif, PDO::PARAM_STR);
+        $query->bindValue(":prix", $prix, PDO::PARAM_STR);
+        $query -> execute();
+        if ($query -> rowCount() > 0) {
+          return [
+            "success" => true,
+            "message" => "Rendez vous pris avec success"
+          ];
+        }
       }
     }
 }
@@ -80,7 +92,7 @@ function getRendezVous($conn, $startDate = null, $endDate = null, $id, $api) {
     //exit;
     //$sql="INSERT INTO `rendezvous`(`description`,`date_rdv`, `heure_rdv`, `id_patient`, `id_specialite`) VALUES(:description,:date_rdv, :heure_rdv, :id_patient, :id_specialite)";
     //$sql = "SELECT * FROM rendezvous WHERE date_rdv BETWEEN $startDate AND $endDate";
-    $sql = "SELECT * FROM rendezvous LEFT JOIN (SELECT id_client, Nom as nom, Prenom as prenom, Sexe as sexe FROM clients) AS client ON rendezvous.id_patient = client.id_client WHERE rendezvous.date_rdv=:date_rdv AND rendezvous.id_specialite=:id_specialite";
+    $sql = "SELECT * FROM rendezvous LEFT JOIN (SELECT id_client, Nom as nom, Prenom as prenom, Sexe as sexe FROM clients) AS client ON rendezvous.id_patient = client.id_client LEFT JOIN (SELECT id_rendezvous, motif, prix FROM paiement) AS paie ON rendezvous.id_rdv = paie.id_rendezvous WHERE rendezvous.date_rdv=:date_rdv AND rendezvous.id_specialite=:id_specialite";
 
     $query=$conn->prepare($sql);
     $query->bindValue(":date_rdv",$startDate , PDO::PARAM_STR);

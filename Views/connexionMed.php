@@ -24,7 +24,7 @@ include "layouts/navbar.php";
         <div class="col-lg-8">
           <div class="p-5 shadow rounded content">
             <h2 class="section-title">Connectez-vous</h2>
-            <form method="POST" action="index.php?action=connmed">
+            <form method="POST" action="medconnect">
                 <?php
                 if (!empty($messageErreur)) {
                 ?>

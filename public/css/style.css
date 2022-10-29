@@ -691,6 +691,10 @@ body {
   .navbar-ly .btn-ctn {
     max-width: 300px; }
 
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 100%; } }
+
 .med-brand > span, #med > span {
   font-size: 32px !important;
   font-weight: bolder;

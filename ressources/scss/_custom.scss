@@ -2,6 +2,8 @@
 body {
     min-height: 100vh;
 }
+
+
 .navbar-ly {
     width: 100%;
     display: flex;
@@ -10,6 +12,12 @@ body {
     background-color: $white !important;
     .btn-ctn {
         max-width: 300px;
+    }
+}
+
+.container {
+    @media screen and (min-width:992px) {
+        max-width: 100%;
     }
 }
 

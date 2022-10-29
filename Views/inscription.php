@@ -36,7 +36,7 @@
             <div class="col-lg-8">
               <div class="p-5 shadow rounded content">
                 <h2 class="section-title">Inscrivez-vous</h2>
-                <form method="POST" action="index.php?action=inscription">
+                <form method="POST" action="inscription">
                     <?php
                       if (!empty($messageErreur)) {
                     ?>

@@ -19,12 +19,12 @@
             require './Views/medecin.php';
         }
         else {
-            header("Location: ./index?action=connexionmed");
+            header("Location: medecin");
         }
     }
 
     function deconnecter () {
         session_unset();
         session_destroy();
-        header("Location: ./index.php?action=seconnecter");
+        header("Location: connexion");
     }

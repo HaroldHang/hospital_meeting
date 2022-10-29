@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase "/OnlineRDV"
+RewriteRule "^acceuil"  "index.php?action=acceuil"
+RewriteRule "^tableau-de-bord"  "index.php?action=acceuilmed"
+RewriteRule "^connexion"  "index.php?action=seconnecter"
+RewriteRule "^deconnexion"  "index.php?action=deconnecter"
+RewriteRule "^medecin"  "index.php?action=connexionmed"
+RewriteRule "^inscription"  "index.php?action=inscription"
+RewriteRule "^connect"  "index.php?action=connecter"
+RewriteRule "^medconnect"  "index.php?action=connmed" [QSA]
+RewriteRule "^services?(.*)"  "index.php?action=services&$1" [QSA]
+RewriteRule "^rendezvous?(.*)"  "index.php?action=rendezvous&$1" [QSA]
+RewriteRule "^rendezvous/create?(.*)"  "index.php?action=rendezvous/create&$1" [QSA]
+#RewriteRule "/"  "index.php"

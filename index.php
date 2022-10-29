@@ -25,9 +25,10 @@
             deconnecter();
         } else if ($action == "services") {
             if (isset($_GET['id'])) {
+                //echo "yesy";
                 $id = $_GET['id'];
                 pageService($conn, $id);
-            }
+            } 
         } else if ($action == "rendezvous") {
             
             if (isset($_GET['dateStart']) && isset($_GET['dateEnd'])) {
@@ -42,8 +43,11 @@
             } 
             insertRendezvous($conn, $api);
         } else if ($action == "connexionmed") {
+            
+            
             pageConnMed($conn);
         } else if ($action == "connmed") {
+            
             connexionMed($conn);
         }
         

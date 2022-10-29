@@ -2,10 +2,10 @@
     require './Models/connexions.php';
     require './Models/deconnexion.php';
 
-
+    
     function inscriptionPage() {
         if (isset($_SESSION['client'])) {
-            header("Location: index.php?action=acceuil");
+            header("Location: acceuil");
             exit;
         }
         $messageErreur = "";
@@ -30,7 +30,7 @@
 
     function pageconnexion() {
         if (isset($_SESSION['client'])) {
-            header("Location: index.php?action=acceuil");
+            header("Location: acceuil");
             exit;
         }
         $messageErreur = "";
@@ -45,12 +45,12 @@
             exit;
         }
         $_SESSION['client'] = $connexion['client'];
-        header("Location: index.php?action=acceuil");
+        header("Location: acceuil");
     }
     
     function pageConnMed($conn) {
         if (isset($_SESSION['medecin'])) {
-            header("Location: index.php?action=acceuilmed");
+            header("Location: tableau-de-bord");
             exit;
         }
         $messageErreur = "";
@@ -67,7 +67,7 @@
             exit;
         }
         $_SESSION['medecin'] = $connMed['medecin'];
-        header("Location: index.php?action=acceuilmed");
+        header("Location: tableau-de-bord");
         //echo "Okay";
     }
 

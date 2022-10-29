@@ -38,6 +38,8 @@ window.addEventListener("load",async ()=> {
     const medLeft = document.getElementById("medLeft")
     const medRight = document.getElementById("medRight")
     const medWeek = document.getElementById("medWeek")
+    let date = new Date();
+    medWeek.innerText = days[date.getDay()] + " " + date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
     medLeft.addEventListener("click", async ()=> {
         dayCount--;
         let date = (new Date()).valueOf() + (dayCount * aDay);
@@ -79,12 +81,12 @@ async function getRdv(date = null, id) {
     return requestResponse
 }
 
-function createRdvLine(obj, even = false) {
+function createRdvLine(obj, index = 1, even = false) {
     let line = document.createElement("tr");
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 7; i++) {
         let lineChild = document.createElement("td");
         if (i == 0) {
-            lineChild.innerText = i + 1;
+            lineChild.innerText = index;
         } else if (i == 1) {
             lineChild.innerText = obj.nom;
         } else if ( i == 2) {
@@ -93,6 +95,10 @@ function createRdvLine(obj, even = false) {
             lineChild.innerText = obj.heure_rdv;
         } else if (i == 4) {
             lineChild.innerText = obj.description;
+        } else if (i == 5) {
+            lineChild.innerText = obj.motif;
+        } else if (i == 6) {
+            lineChild.innerText = obj.prix;
         }
         line.appendChild(lineChild);
     }
@@ -113,9 +119,9 @@ function appendRdv(elm, objArray) {
     for (let i = 0; i < objArray.length; i++) {
         let rdvLine = null;
         if ((i % 2) != 0) {
-            rdvLine = createRdvLine(objArray[i], true);
+            rdvLine = createRdvLine(objArray[i], i + 1, true);
         } else {
-            rdvLine = createRdvLine(objArray[i]);
+            rdvLine = createRdvLine(objArray[i], i + 1);
         }
 
         elm.appendChild(rdvLine);

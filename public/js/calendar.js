@@ -59,12 +59,14 @@ function handleWeeks(type= 'right', weekElm, monthElm) {
     let currentWeek = getCurWeek(weekElm);
     if (type == 'right') {
         currentWeek++;
-        updateWeek(weekElm, currentWeek);
         handleDays("right", currentWeek)
+        updateWeek(weekElm, currentWeek);
     } else if (type == 'left') {
         currentWeek--;
+        let error = handleDays("left", currentWeek);
+        if (error == -1)
+        return;
         updateWeek(weekElm, currentWeek);
-        handleDays("left", currentWeek)
 
     }
     //updateWeek(weekElm, currentWeek);
@@ -148,6 +150,7 @@ function handleDays(type = "current", weekStateNum) {
         let weekElm = weekStateNum;
         let curWeek = getCurrentWeek();
         let numberOfLastDay = ((date.getDay() ) + (((curWeek - weekElm))) * 7) * aDay;
+        
         numberOfLastDay = date.valueOf() - numberOfLastDay;
         properHandeDays(numberOfLastDay, "left");
         numberOfLastDay = new Date(numberOfLastDay)
