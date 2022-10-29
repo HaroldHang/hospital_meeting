@@ -4,7 +4,7 @@
             <a href="acceuil">Services</a>
             <ul>
               <?php 
-                if (isset($services)) {
+                if (isset($services) && isset($service)) {
                   foreach ($services as $serv) {
               ?>
                 <li class="sidelist <?= $service['nom'] == $serv['nom'] ? "parent active" : ""; ?>">
