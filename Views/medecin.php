@@ -10,7 +10,6 @@
     include "layouts/navbar.php";
 ?>
 
-    
 
 
 

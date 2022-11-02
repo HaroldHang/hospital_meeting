@@ -491,8 +491,17 @@
                         <?php
                     }
                     ?>
-                    <div class="content">
-                        <h2 id="tables">Le planning des rendez-vous</h2>
+                    <br>
+                    <div class="options">
+                        <h3>Que vouliez vous faire ?</h3>
+                        <div>
+                            <button class="btn  btn-outline-primary" id="rdv-opt">Prendre un rendez-vous</button>
+                            <button class="btn  btn-outline-primary" id="rdv-paie">Faire un paiement</button>
+                        </div>
+                    </div>
+                    <br> <br>
+                    <div class="content calend-sup " id="calendar-section">
+                        <h3 id="tables">Le planning des rendez-vous</h3>
                         <?php
                             if (!empty($messageErreur)) { 
                             ?>
@@ -500,7 +509,7 @@
                                 <?= $messageErreur ?>
                             </div>
                             <?php }?>
-                        <h3 class="section-title">Veuillez prendre votre rendez-vous</h3>
+                        <h4 class="section-title">Veuillez prendre votre rendez-vous</h4>
     
                         <div class="calendar-container" id="calendar">
                             <input type="hidden" id="id_spec" value="<?= $service['id_specialite'] ?>" />
@@ -670,6 +679,7 @@
                             </table>
                         </div>
                     </div>
+                    
                     <div id="formulaire-rdv" class="form-rdv">
                         <div class="container">
                             <div class="row justify-content-center">
@@ -712,7 +722,57 @@
                             </div>
                         </div>
                     </div>
+                    <div id="formulaire-paie" class="form-rdv">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="p-5 shadow rounded content">
+                                    <div class="row d-flex justify-content-end">
+                                        <button class="col-1" id="close-paie">
+                                            <i class="ti-close ml-auto"></i>
+                                        </button>
+                                    </div>
+                                <h3 class="section-title">Effectuez votre paiement</h3>
+                                <!-- <p>Payer pour prendre votre rendez-vous</p> -->
+                                
+                                <form method="POST" >
+                                    <div class="notices tip success-box" id="success-box">
+                                        <p>This is a simple tip.</p>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="date">Consultation</label>
+                                            <input type="text"  id="form-consult" class="form-control"  required disabled>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="hour">Prix</label>
+                                            <input type="text" class="form-control" id="form-prix"  disabled>
 
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="nom">Nom</label>
+                                            <input type="text"  id="form-name" class="form-control">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="prenom">Prenom</label>
+                                            <input type="text" class="form-control" id="form-prenom" >
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="object">Object</label>
+                                        <textarea type="text" class="form-control" id="object" name="objet" placeholder="Decrivez  pourquoi vous preniez ce rendez-vous" required> </textarea>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary" id="btn-rdv" name="submit">Soumettre</button>
+                                </form>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             

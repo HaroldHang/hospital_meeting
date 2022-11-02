@@ -1,6 +1,7 @@
 @use "sass:color";
 body {
     min-height: 100vh;
+    padding-bottom: 200px;
 }
 
 
@@ -73,6 +74,37 @@ body {
         height: 150px;
         margin: 0 auto;
         margin-bottom: 5px;
+    }
+}
+
+.options {
+    width : 100%;
+    & h3 {
+        width: 100%;
+        text-align: center;
+    }
+
+    & > div {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
+.calend-sup {
+    display: none;
+    margin-top: 30px;
+    width: 100%;
+    &-active {
+        display: unset;
+
+        & h3, h4 {
+            width: 100%;
+            text-align: center;
+            margin: 5px 0;
+        }
     }
 }
 

@@ -126,6 +126,24 @@ window.addEventListener("load", ()=> {
           });
           widget.open();
     })
+
+
+    //Toggle Paiement/RDV
+    const calendar = document.querySelector("#calendar-section");
+    const rdvOpt = document.querySelector("#rdv-opt");
+    rdvOpt.addEventListener("click", ()=> {
+        calendar.classList.toggle("calend-sup-active")
+    })
+
+    const rdvFormPaie = document.getElementById("formulaire-paie")
+    const rdvPaie = document.querySelector("#rdv-paie");
+    const closePaie = document.getElementById("close-paie")
+    rdvPaie.addEventListener("click", ()=> {
+        rdvFormPaie.classList.add("form-rdv--open")
+    })
+    closePaie.addEventListener("click", ()=> {
+        rdvFormPaie.classList.remove("form-rdv--open")
+    })
 })
 
 

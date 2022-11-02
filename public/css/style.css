@@ -680,7 +680,8 @@ pre {
 
 @use "sass:color";
 body {
-  min-height: 100vh; }
+  min-height: 100vh;
+  padding-bottom: 200px; }
 
 .navbar-ly {
   width: 100%;
@@ -737,6 +738,29 @@ body {
   height: 150px;
   margin: 0 auto;
   margin-bottom: 5px; }
+
+.options {
+  width: 100%; }
+  .options h3 {
+    width: 100%;
+    text-align: center; }
+  .options > div {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; }
+
+.calend-sup {
+  display: none;
+  margin-top: 30px;
+  width: 100%; }
+  .calend-sup-active {
+    display: unset; }
+    .calend-sup-active h3, .calend-sup-active h4 {
+      width: 100%;
+      text-align: center;
+      margin: 5px 0; }
 
 .calendar-container > div {
   width: 100%;
