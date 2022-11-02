@@ -7,7 +7,7 @@
     <title>Soins fournie</title>
 </head>
 <body>
-<h1>Presentation des consultations effectués dans le service d'Ophtamologie</h1>
+<h3>Presentation des consultations effectués dans le service d'Ophtamologie</h3>
 <table>
         <tr>
         <td><h4>NEUROLOGIE</h4></td>

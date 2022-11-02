@@ -83,7 +83,7 @@ window.addEventListener("load", ()=> {
         console.log(payload)
         let widget = FedaPay.init({
             //public_key: 'pk_live_uCOXQDXnAdtUVXhcwh3_CQs3',
-            public_key : 'pk_sandbox_VVRaYSRg85II3NvAVYYMNvzO',
+            public_key : 'pk_sandbox_9SUMvWkY3q_xydj-8hCB4x8I',
             transaction: {
                 //amount: this.beforePay.package[1],
                 amount: payPrice,

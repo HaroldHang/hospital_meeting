@@ -7,7 +7,7 @@
     <title>Soins fournie</title>
 </head>
 <body>
-<h1>Presentation des consultations effectués dans le service de stomatologie</h1>
+<h3>Presentation des consultations effectués dans le service de stomatologie</h3>
 <table>
    <tr>
    <td><h4>STOMATOLOGIE</h4></td>

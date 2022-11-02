@@ -14,8 +14,8 @@ include "layouts/navbar.php";
 
 
 <div class="welcome">
-<h2>Bienvenue cher specialiste sur MeetMed</h2>
-<p>Sur MeetMed, la perte de temps est reduite</p>
+<h2>Bienvenue chère specialiste sur MeetMed</h2>
+
 </div>
 <div class="banner-inscription banner-connexion">
 <section class="section">
