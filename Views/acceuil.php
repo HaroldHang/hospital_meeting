@@ -16,7 +16,7 @@
   <!-- topics -->
   <section class="section pb-0">
     <div class="container">
-        <!-- <h1><p>Choisir le type de spécialiter pour la consultation médical voulu</p></h1> -->
+        
         
         <!-- <h3><?= $_SESSION['client']['identifiant'] ?></h3> -->
         
@@ -34,7 +34,6 @@
               <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
                 <div class="card match-height">
                   <div class="card-body ">
-                    <!-- <i class="card-icon ti-panel mb-4"></i> -->
                     <img src="public/image/<?= $service['url_image'] ?>" class="img-service"/>
                     <h3 class="card-title h4"><?= $service['nom'] ?></h3>
                     <p class="card-text"><?= $service['description']?></p>

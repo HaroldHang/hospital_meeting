@@ -25,7 +25,7 @@
         
         </div>
         <h2 class="section-title"><?= $service['nom'] ?></h2>
-        <h3 class="section-title">Choisir le type de spécialiter pour la consultation médical voulu</h3>
+        
         <input type="hidden" id="id_spec" value="<?= $service['id_specialite'] ?>" />
         <div class="row">
           
@@ -33,7 +33,7 @@
         <div class="content">
                 <h3 id="tables">Mes Rendez-vous</h3>
                 
-                <p>Colons can be used to align columns.</p>
+                
                 <div class="medecin-container" >
                     <input type="hidden" id="id_spec" value="" />
                     
@@ -76,50 +76,12 @@
                             <th align="center">
                                 Prix
                             </th>
-                            <!--
-                            <th align="center">
-                                Samedi
-                                <br>
-                                <span class="days">0</span>
-                            </th>
-                            -->
+                         
                         </tr>
                       </thead>
                       <tbody id="rdv-med">
-                        <!--
-                        <tr>
-                            <td>1</td>
-                            <td align="center" class="">
-                                Jean
-                            </td>
-                            <td align="center" class="">
-                                Paul
-                            </td>
-                            <td align="center" class="">
-                                8h
-                            </td>
-                            <td align="center" class="">
-                                Descript
-                            </td>
-                            
-                        </tr>
-                        <tr class="line-even">
-                            <td>1</td>
-                            <td align="center" class="">
-                                Jean
-                            </td>
-                            <td align="center" class="">
-                                Paul
-                            </td>
-                            <td align="center" class="">
-                                8h
-                            </td>
-                            <td align="center" class="">
-                                Descript
-                            </td>
-                            
-                        </tr>
-                        -->
+                       
+              
 
                       </tbody>
                     </table>

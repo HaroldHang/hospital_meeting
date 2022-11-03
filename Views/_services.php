@@ -11,7 +11,7 @@
     <section class="section pb-0">
         <div class="container">
             <div class="row">
-                <!-- table -->
+              
                 <?php include "layouts/sidenav.php";?>
                 
                 <div class="col-lg-8">

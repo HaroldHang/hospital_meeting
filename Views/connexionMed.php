@@ -62,7 +62,6 @@ include "layouts/navbar.php";
     </div>
 </section>
 <div>
-  <!-- <img src="public/image/Doc2.svg"/> -->
 </div>
 </div>
 </body>

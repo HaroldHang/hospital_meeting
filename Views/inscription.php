@@ -10,7 +10,7 @@
 ?>   
 
     
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
+    
 
     
     <?php 
@@ -88,24 +88,7 @@
                         </span>
                     </div>
                   </div>
-                  <!--<div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email Address"
-                      required>
-                  </div>
-                  <div class="form-group">
-                    <label for="reason">Reason of Contact</label>
-                    <select id="reason" class="form-control custom-select" name="reason" required>
-                      <option selected disabled>Choose Your Reason</option>
-                      <option value="business">Business</option>
-                      <option value="ticket">Ticket</option>
-                      <option value="project">Project</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="message">Start Writing From Here</label>
-                    <textarea name="message" id="message" class="form-control" placeholder="Your Text here ..."></textarea>
-                  </div>-->
+                
                   <button type="submit" class="btn btn-primary" name="submit">S'inscrire</button>
                 </form>
               </div>
