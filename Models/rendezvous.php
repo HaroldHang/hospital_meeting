@@ -107,3 +107,47 @@ function getRendezVous($conn, $startDate = null, $endDate = null, $id, $api) {
     }
   }
 }
+
+
+function fairePaiement($conn, $api) {
+  if (isset($_POST['submit']) || $api) {
+    //echo "Second";
+    if ($api) {
+      $data = json_decode(file_get_contents("php://input"));
+      
+      $idPatient = (int) $data->id_patient;
+      //$description = $data->objet;
+      $prix = (int) $data->price;
+      $motif = $data->mot;
+      $id = (int) $data->id;
+      $nom = $data->nom;
+      $prenom = $data->prenom;
+    } else {
+      $rdvDate = $_POST['rdv_date'];
+      $rdvHour = $_POST['rdv_hour'];
+      $idPatient = $_POST['id_patient'];
+      $description = $_POST['objet'];
+      $id = $_POST['id_spec'];
+    }
+    $payment = "paiement";
+    $sql="INSERT INTO `paiement`(`motif`, `prix`, `id_specialite`, `id_patient`, `paytype` `nom`, `prenom`) VALUES(:motif, :prix, :id_specialite, :id_patient, :paytype, :nom, :prenom)";
+    //$sql="INSERT INTO `paiement`(`id_paiement`, `id_rendezvous`,`motif`, `prix`, `id_specialite`, `id_patient`, `paytype` `nom`, `prenom`) VALUES(NULL, NULL, $motif, $prix, $id, $idPatient, 'paiement', $nom, $prenom)";
+        $query=$conn->prepare($sql);
+        $query->bindValue(":motif", $motif, PDO::PARAM_STR);
+        $query->bindValue(":prix", $prix, PDO::PARAM_STR);
+        $query->bindValue(":id_specialite", $id, PDO::PARAM_STR);
+        $query->bindValue(":id_patient", $idPatient, PDO::PARAM_STR);
+        $query->bindValue(":paytype", $payment, PDO::PARAM_STR);
+        $query->bindValue(":nom", $nom, PDO::PARAM_STR);
+        $query->bindValue(":prenom", $prenom, PDO::PARAM_STR);
+        $query -> execute();
+      //$sql = "INSERT INTO `paiement` (`id_paiement`, `id_rendezvous`, `motif`, `prix`, `id_specialite`, `id_patient`, `paytype`, `nom`, `prenom`) VALUES (NULL, NULL, $motif, $prix, $id, $idPatient, 'paiement', $nom, $prenom);";
+        if ($query -> rowCount() > 0) {
+          return [
+            "success" => true,
+            "message" => "Paiement effectue avec success"
+          ];
+        }
+        
+  }
+}

@@ -736,7 +736,7 @@
                                 <!-- <p>Payer pour prendre votre rendez-vous</p> -->
                                 
                                 <form method="POST" >
-                                    <div class="notices tip success-box" id="success-box">
+                                    <div class="notices tip success-box" id="success-box-paie">
                                         <p>This is a simple tip.</p>
                                     </div>
                                     <div class="form-row">
@@ -763,10 +763,10 @@
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="object">Object</label>
-                                        <textarea type="text" class="form-control" id="object" name="objet" placeholder="Decrivez  pourquoi vous preniez ce rendez-vous" required> </textarea>
+                                        <textarea type="text" class="form-control" id="object-paie" name="objet" placeholder="Decrivez  pourquoi vous preniez ce rendez-vous" required> </textarea>
                                     </div>
                                     
-                                    <button type="submit" class="btn btn-primary" id="btn-rdv" name="submit">Soumettre</button>
+                                    <button type="submit" class="btn btn-primary" id="btn-paie" name="submit">Soumettre</button>
                                 </form>
                                 </div>
                             </div>

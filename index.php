@@ -42,6 +42,12 @@
                 $api = true;
             } 
             insertRendezvous($conn, $api);
+        } else if ($action == "paiement") {
+            $api = false;
+            if (isset($_REQUEST['api'])) {
+                $api = true;
+            }
+            paiement($conn, $api);
         } else if ($action == "connexionmed") {
             
             

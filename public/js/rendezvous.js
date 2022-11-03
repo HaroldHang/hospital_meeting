@@ -138,11 +138,102 @@ window.addEventListener("load", ()=> {
     const rdvFormPaie = document.getElementById("formulaire-paie")
     const rdvPaie = document.querySelector("#rdv-paie");
     const closePaie = document.getElementById("close-paie")
+    const submitPaie = document.getElementById("btn-paie");
     rdvPaie.addEventListener("click", ()=> {
+        let formConsult = document.getElementById("form-consult")
+        let formPrice = document.getElementById("form-prix")
+        
+        let price = document.querySelector('input[name="prix"]:checked');
+        if (!price || price.value <= 0) {
+            alert("Veuillez choisir votre consultation")
+            return
+            
+        }
+        let payPrice = price.value
+        console.log(payPrice)
+        let motif = "";
+        let motifs = document.querySelectorAll('input[name="motif"]');
+        for (let motInd = 0; motInd < motifs.length; motInd++) {
+            const element = motifs[motInd];
+            let motElm = element.value.split(" ");
+            console.log(motElm)
+            if (motElm[motElm.length - 1] == payPrice.toString()) {
+                motElm.pop()
+                motif = motElm.join(" ");
+                formConsult.value = motif
+                formPrice.value = payPrice.toString()
+            }
+            
+        }
         rdvFormPaie.classList.add("form-rdv--open")
     })
     closePaie.addEventListener("click", ()=> {
         rdvFormPaie.classList.remove("form-rdv--open")
+    })
+
+    submitPaie.addEventListener("click", (e)=> {
+        e.preventDefault();
+        let formConsult = document.getElementById("form-consult")
+        let formPrice = document.getElementById("form-prix")
+        let idElm = document.getElementById("client-id");
+        let objetElm = document.getElementById("object-paie");
+        let name = document.querySelector("#form-name");
+        let lastname = document.querySelector("#form-prenom");
+        let payload = {
+            id_patient : idElm.value,
+            objet : objetElm.value,
+            id : document.getElementById("id_spec").value,
+            mot : formConsult.value,
+            price : formPrice.value,
+            nom : name.value,
+            prenom : lastname.value
+        }
+        console.log(payload);
+
+        let widget = FedaPay.init({
+            //public_key: 'pk_live_uCOXQDXnAdtUVXhcwh3_CQs3',
+            public_key : 'pk_sandbox_9SUMvWkY3q_xydj-8hCB4x8I',
+            transaction: {
+                //amount: this.beforePay.package[1],
+                amount: formPrice.value,
+                description: 'Paiement'
+            },
+            customer: {
+                email: "test@gmail.com",
+                lastname: "Lastname",
+                firstname : "firstname"
+            },
+            //container: '#payment-modal'
+            onComplete : (obj)=> {
+                console.log(obj);
+                
+                if (obj.reason == "CHECKOUT COMPLETE") {
+                
+                    let url = "index.php?action=paiement&api=true";
+                    let xmlhttp = new XMLHttpRequest();
+                    xmlhttp.open('POST', url);
+                    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    xmlhttp.send(JSON.stringify(payload));
+                    xmlhttp.onreadystatechange = function() {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            //callback(xmlhttp.responseText);
+                            let successBox = document.querySelector("#success-box-paie");
+                            console.log(xmlhttp.responseText)
+                            let result = JSON.parse(xmlhttp.responseText);
+                            //console.log(successBox.firstChild);
+                            successBox.firstChild.nextSibling.innerText = result.message;
+                            successBox.classList.add("success-box--active")
+                        } else {
+                            // the preloder here
+                        }
+                    };
+                } else {
+                    
+
+                }
+            }
+          });
+          widget.open();
     })
 })
 

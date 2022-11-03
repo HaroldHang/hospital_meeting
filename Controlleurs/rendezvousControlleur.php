@@ -22,3 +22,14 @@
         }
         
     }
+
+    function paiement($connect, $api=false) {
+        $result = fairePaiement($connect, $api); 
+        
+        if ($api) {
+            echo json_encode($result);
+            exit;
+        } else {
+            header("Location: index.php?action=services");
+        }
+    }
