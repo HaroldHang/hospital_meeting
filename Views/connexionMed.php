@@ -10,9 +10,6 @@ include "layouts/navbar.php";
 
 
 
-
-
-
 <div class="welcome">
 <h2>Bienvenue chère specialiste sur MeetMed</h2>
 

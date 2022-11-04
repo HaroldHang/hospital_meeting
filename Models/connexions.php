@@ -26,7 +26,9 @@
             ];
           }
           //Genere l'identifiant de l'utilisateur;
-          $uid = uniqid();
+          //$uid = uniqid();
+          $uid = getUid($conn);
+          
           // Inserer le client
           $sql="INSERT INTO `clients`(`identifiant`, `nom`,`prenom`,`date`,`quatier`,`numero`,`profession`, `sexe`) VALUES(:identifiant, :nom, :prenom, :date, :quatier, :numero, :profession, :sexe)";
             
@@ -50,10 +52,12 @@
           return [
             "success" => true,
             "user" => [
-              "nom" => $nom,
-              "prenom" => $prenom,
-              "profession" => $profession,
+              "new" => true,
+              "Nom" => $nom,
+              "Prenom" => $prenom,
+              "Profession" => $profession,
               "identifiant" => $uid,
+              "Date" => $date
             ]
           ];
           //header("Location: ./views/acceuil.php");
@@ -126,4 +130,27 @@
             }
       }
     }
-      
+    
+    function getUid($conn) {
+      $uid = mt_rand(0, 9999);
+      $numTemp = $uid;
+      $num = 0;
+      while ($numTemp != 0) {
+        $numTemp = (int) ($numTemp / 10);
+        $num++;
+      }
+      if ($num < 4) {
+        return getUid($conn);
+      } else {
+        $sql = "SELECT identifiant FROM clients WHERE identifiant=:identifiant";
+        
+        $query=$conn->prepare($sql);
+        $query->bindValue(":identifiant",$uid , PDO::PARAM_STR);
+        $query->execute();
+        if ($query -> rowCount() > 0) {
+          return getUid($conn);
+        } else {
+          return $uid;
+        }
+      }
+    }

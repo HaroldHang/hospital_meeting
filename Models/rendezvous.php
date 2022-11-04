@@ -122,6 +122,8 @@ function fairePaiement($conn, $api) {
       $id = (int) $data->id;
       $nom = $data->nom;
       $prenom = $data->prenom;
+
+      //var_dump($data);
     } else {
       $rdvDate = $_POST['rdv_date'];
       $rdvHour = $_POST['rdv_hour'];
@@ -130,7 +132,8 @@ function fairePaiement($conn, $api) {
       $id = $_POST['id_spec'];
     }
     $payment = "paiement";
-    $sql="INSERT INTO `paiement`(`motif`, `prix`, `id_specialite`, `id_patient`, `paytype` `nom`, `prenom`) VALUES(:motif, :prix, :id_specialite, :id_patient, :paytype, :nom, :prenom)";
+    $date = date("Y-m-d");
+    $sql="INSERT INTO `paiement` (`motif`, `prix`, `id_specialite`, `id_patient`, `paytype`, `nom`, `prenom`, `date_created`) VALUES (:motif, :prix, :id_specialite, :id_patient, :paytype, :nom, :prenom, :date_created)";
     //$sql="INSERT INTO `paiement`(`id_paiement`, `id_rendezvous`,`motif`, `prix`, `id_specialite`, `id_patient`, `paytype` `nom`, `prenom`) VALUES(NULL, NULL, $motif, $prix, $id, $idPatient, 'paiement', $nom, $prenom)";
         $query=$conn->prepare($sql);
         $query->bindValue(":motif", $motif, PDO::PARAM_STR);
@@ -140,6 +143,7 @@ function fairePaiement($conn, $api) {
         $query->bindValue(":paytype", $payment, PDO::PARAM_STR);
         $query->bindValue(":nom", $nom, PDO::PARAM_STR);
         $query->bindValue(":prenom", $prenom, PDO::PARAM_STR);
+        $query->bindValue(":date_created", $date, PDO::PARAM_STR);
         $query -> execute();
       //$sql = "INSERT INTO `paiement` (`id_paiement`, `id_rendezvous`, `motif`, `prix`, `id_specialite`, `id_patient`, `paytype`, `nom`, `prenom`) VALUES (NULL, NULL, $motif, $prix, $id, $idPatient, 'paiement', $nom, $prenom);";
         if ($query -> rowCount() > 0) {

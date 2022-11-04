@@ -14,21 +14,21 @@
               
                 <?php include "layouts/sidenav.php";?>
                 
-                <div class="col-lg-8">
+                <div class="col-lg-8 other-side">
                     <h2 class="section-title"><?= $service['nom'] ?></h2>
                     <?php 
                         if ($service['nom'] == "Cardiologie") {
                     ?>
                         <div class="content">
-                            <h3>Voici les consultations effectués dans le service de cardiologie avec leur option de prix</h3>
+                            <h5>Voici les consultations effectués dans le service de cardiologie avec leur option de prix</h5>
                             <table>
                                 <tr>
-                                <td><h4>CARDIOLOGIE</h4></td>
-                                <td><h4>Acte</h4></td>
-                                <td><h4>Qté</h4></td>
-                                <td><h4>P.U(F CFA)</h4></td>
-                                <td><h4>Montant(F CFA)</h4></td>
-                                <td><h4>Choix</h4></td>
+                                <td><h6>CARDIOLOGIE</h6></td>
+                                <td><h6>Acte</h6></td>
+                                <td><h6>Qté</h6></td>
+                                <td><h6>P.U(F CFA)</h6></td>
+                                <td><h6>Montant(F CFA)</h6></td>
+                                <td><h6>Choix</h6></td>
                                 </tr>
                                 <tr>
                                     <td>CONSULTATION D'URGENCE</td>
@@ -83,14 +83,14 @@
                     } else if ($service['nom'] == "Orphtamologie") {
                     ?>
                         <div class="content">
-                            <h3>Voici les consultations effectués dans le service d'Ophtamologie avec leur option de prix</h3>
+                            <h5>Voici les consultations effectués dans le service d'Ophtamologie avec leur option de prix</h5> <br>
                             <table>
                                 <tr>
-                                    <td><h4>SERVICE D'OPHTAMOLOGIE</h4></td>
-                                    <td><h4>Acte</h4></td>
-                                    <td><h4>Qté</h4></td>
-                                    <td><h4>P.U(F CFA)</h4></td>
-                                    <td><h4>Montant(F CFA)</h4></td>
+                                    <td><h6>SERVICE D'OPHTAMOLOGIE</h6></td>
+                                    <td><h6>Acte</h6></td>
+                                    <td><h6>Qté</h6></td>
+                                    <td><h6>P.U(F CFA)</h6></td>
+                                    <td><h6>Montant(F CFA)</h6></td>
                                 </tr>
                                 <tr>
                                    <td>ABLATION DE CORPS ETRANGER</td>
@@ -230,14 +230,14 @@
                     } else if ($service['nom'] == "Stomatologie") {
                     ?>
                         <div class="content">
-                        <h3>Voici les consultations effectués dans le service de stomatologie avec leur option de prix</h3>
+                        <h5>Voici les consultations effectués dans le service de stomatologie avec leur option de prix</h5> <br>
                         <table>
                              <tr>
-                                <td><h4>STOMATOLOGIE</h4></td>
-                                     <td><h4>Acte</h4></td>
-                                     <td><h4>Qté</h4></td>
-                                     <td><h4>P.U(F CFA)</h4></td>
-                                     <td><h4>Montant(F CFA)</h4></td>
+                                <td><h6>STOMATOLOGIE</h6></td>
+                                     <td><h6>Acte</h6></td>
+                                     <td><h6>Qté</h6></td>
+                                     <td><h6>P.U(F CFA)</h6></td>
+                                     <td><h6>Montant(F CFA)</h6></td>
                                 </tr>
                             <tr>
                                <td>CONSULTATION STOMATO AFRICAINE</td>
@@ -466,14 +466,15 @@
                     } else if ($service['nom'] == "Neurologie"){
                         ?>
                             <div class="content">
-                            <h3> consultations neurologique</h3>
+                            <h5> consultations neurologique</h5>
+                            <br>
                                 <table>
                                     <tr>
-                                        <td><h4>NEUROLOGIE</h4></td>
-                                        <td><h4>Acte</h4></td>
-                                        <td><h4>Qté</h4></td>
-                                        <td><h4>P.U(F CFA)</h4></td>
-                                        <td><h4>Montant(F CFA)</h4></td>
+                                        <td><h6>NEUROLOGIE</h6></td>
+                                        <td><h6>Acte</h6></td>
+                                        <td><h6>Qté</h6></td>
+                                        <td><h6>P.U(F CFA)</h6></td>
+                                        <td><h6>Montant(F CFA)</h6></td>
                                     </tr>
                                     <tr>
                                             <td>CONSULTATION NEUROLOGIQUE</td>
@@ -495,7 +496,11 @@
                     <div class="options">
                         <h3>Que vouliez vous faire ?</h3>
                         <div>
+                            <?php 
+                                if ($service['type'] == "tout") {
+                            ?>
                             <button class="btn  btn-outline-primary" id="rdv-opt">Prendre un rendez-vous</button>
+                            <?php  } ?>
                             <button class="btn  btn-outline-primary" id="rdv-paie">Faire un paiement</button>
                         </div>
                     </div>

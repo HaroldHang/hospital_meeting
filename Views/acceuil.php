@@ -18,13 +18,22 @@
     <div class="container">
         
         
-        <!-- <h3><?= $_SESSION['client']['identifiant'] ?></h3> -->
+        
         
         <!-- <h3><?= $_SESSION['client']['Nom'] ?> <?= $_SESSION['client']['Prenom'] ?></h3> -->
         <div class="row">
           <!-- topic -->
           <?php include "layouts/sidenav.php";?>
-          <div class="col-lg-8">
+          <div class="col-lg-8 other-side">
+            <?php 
+              if (isset($_SESSION['client']['new'])) {
+            ?>
+                <div class="content">
+                  <div class="notices note success-box" id="success-box-paie">
+                        <p>Veuillez noter votre identifiant <strong><?= $_SESSION['client']['identifiant'] ?></strong></p>
+                  </div>
+                </div>
+            <?php }?>
             <h2 class="section-title">Services</h2>
             <h3 class="section-title">Choisir le type de spécialiter pour la consultation médical voulu</h3>
             <div class="row">

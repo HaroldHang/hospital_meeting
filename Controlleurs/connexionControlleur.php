@@ -23,17 +23,19 @@
         //Demarrer une session
         //session_start();
         $_SESSION['client'] = $inscrire['user'];
-        $estInscrit = true;
+        //$estInscrit = true;
+        $services = getServices($connect);
         require './Views/acceuil.php';
         exit;
     }
 
-    function pageconnexion() {
+    function pageconnexion($conn) {
         if (isset($_SESSION['client'])) {
             header("Location: acceuil");
             exit;
         }
         $messageErreur = "";
+        $services = getServices($conn);
         require './views/pageconnexion.php';
     }
 
@@ -55,7 +57,8 @@
         }
         $messageErreur = "";
         $services = getServices($conn);
-        require './views/connexionMed.php';
+        require './views/pageconnexion.php';
+        exit;
     }
 
     function connexionMed($connect) {
@@ -63,7 +66,7 @@
         if (isset($connMed['erreur'])) {
             $messageErreur = $connMed['message'];
             $services = getServices($connect);
-            require './views/connexionMed.php';
+            require './views/pageconnexion.php';
             exit;
         }
         $_SESSION['medecin'] = $connMed['medecin'];

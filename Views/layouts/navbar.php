@@ -14,13 +14,19 @@
           <input id="search-by" name="s" type="search" class="form-control" placeholder="Search here ...">
           <button class="border-0 bg-white" type="submit"><i class="ti-search"></i></button>
         </form>-->
+        <div class="info-user">
+          <?php if(isset($_SESSION['client'])) { ?>
+            <div><?= $_SESSION['client']['Nom'] ?> | <?= $_SESSION['client']['Prenom'] ?></div>
+            <div><?= $_SESSION['client']['identifiant'] ?> | <?= (((new DateTime($_SESSION['client']['Date']))->diff((new DateTime()))))->y ?> ans</div>
+          <?php } ?>
+        </div>
         <?php if ($pageTitle == "Inscription") {?>
             <a href="connexion" class="btn btn-sm btn-outline-primary ml-lg-4">Se connecter</a>
         <?php } else if ($pageTitle == "Connexion") {?>
             <a href="./" class="btn btn-sm btn-outline-primary ml-lg-4">S'inscrire</a>
         <?php }?>
         <?php 
-          if ((isset($_SESSION['client']) && $_SESSION['client_active']) || (isset($_SESSION['medecin']) && $_SESSION['medecin_active'])) {
+          if ((isset($_SESSION['client']) && isset($_SESSION['client_active'])) || (isset($_SESSION['medecin']) && isset($_SESSION['medecin_active']))) {
         ?>
             <a href="deconnexion" class="btn btn-sm btn-outline-primary ml-lg-4">Deconnecter</a>
         <?php 

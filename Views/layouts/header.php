@@ -27,3 +27,5 @@
     <?php } else if ($pageTitle == "Medecin Acceuil") {?>
     <script src="public/js/medecin.js"></script>
     <?php }?>
+    <script src="public/js/main.js"></script>
+

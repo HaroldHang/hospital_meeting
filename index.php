@@ -14,7 +14,7 @@
         
             inscrire($conn);
         } else if ($action == "seconnecter") {
-            pageconnexion();
+            pageconnexion($conn);
         } else if($action== "connecter"){
                 connexion($conn);
         } else if ($action == "acceuil") {
