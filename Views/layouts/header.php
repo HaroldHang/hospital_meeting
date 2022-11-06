@@ -26,6 +26,8 @@
     <script src="public/js/rendezvous.js"></script>
     <?php } else if ($pageTitle == "Medecin Acceuil") {?>
     <script src="public/js/medecin.js"></script>
-    <?php }?>
+    <?php } else if ($pageTitle == "Connexion") {?>
     <script src="public/js/main.js"></script>
+    <?php }?>
+
 

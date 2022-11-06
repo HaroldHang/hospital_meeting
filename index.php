@@ -20,7 +20,11 @@
         } else if ($action == "acceuil") {
             acceuil($conn);
         } else if ($action == "acceuilmed") {
-            acceuilMed($conn);
+            if (isset($_GET['view'])) {
+                $view = $_GET['view'];
+            }
+            
+            acceuilMed($conn, $view);
         } else if ($action == "deconnecter") {
             deconnecter();
         } else if ($action == "services") {
@@ -42,6 +46,12 @@
                 $api = true;
             } 
             insertRendezvous($conn, $api);
+        } else if ($action == "fetchPaiement") {
+            if (isset($_GET['dateStart'])) {
+                fetchPaiement($conn, $_GET['dateStart'], $_GET['id'], false);
+            } else if (isset($_GET['api'])) {
+                fetchPaiement($conn, null, null, true);
+            }
         } else if ($action == "paiement") {
             $api = false;
             if (isset($_REQUEST['api'])) {

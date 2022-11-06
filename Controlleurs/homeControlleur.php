@@ -12,10 +12,11 @@
         }
     }
 
-    function acceuilMed($conn) {
+    function acceuilMed($conn, $view) {
         if (isset($_SESSION['medecin'])) {
             $services = getServices($conn);
             $service = getService($conn, $_SESSION['medecin']['id_specialite']);
+            $currentView = $view;
             require './Views/medecin.php';
         }
         else {

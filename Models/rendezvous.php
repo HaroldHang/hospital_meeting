@@ -92,12 +92,12 @@ function getRendezVous($conn, $startDate = null, $endDate = null, $id, $api) {
     //exit;
     //$sql="INSERT INTO `rendezvous`(`description`,`date_rdv`, `heure_rdv`, `id_patient`, `id_specialite`) VALUES(:description,:date_rdv, :heure_rdv, :id_patient, :id_specialite)";
     //$sql = "SELECT * FROM rendezvous WHERE date_rdv BETWEEN $startDate AND $endDate";
-    $sql = "SELECT * FROM rendezvous LEFT JOIN (SELECT id_client, Nom as nom, Prenom as prenom, Sexe as sexe FROM clients) AS client ON rendezvous.id_patient = client.id_client LEFT JOIN (SELECT id_rendezvous, motif, prix FROM paiement) AS paie ON rendezvous.id_rdv = paie.id_rendezvous WHERE rendezvous.date_rdv=:date_rdv AND rendezvous.id_specialite=:id_specialite";
+    $sql = "SELECT * FROM rendezvous LEFT JOIN (SELECT id_client, Nom as nom, Prenom as prenom, Sexe as sexe FROM clients) AS client ON rendezvous.id_patient = client.id_client LEFT JOIN (SELECT id_rendezvous, motif, prix, paytype FROM paiement) AS paie ON rendezvous.id_rdv = paie.id_rendezvous WHERE rendezvous.date_rdv=:date_rdv AND rendezvous.id_specialite=:id_specialite AND paie.paytype=:paytype";
 
     $query=$conn->prepare($sql);
     $query->bindValue(":date_rdv",$startDate , PDO::PARAM_STR);
     $query->bindValue(":id_specialite", $id, PDO::PARAM_STR);
-    //$query->bindValue(":heure_rdv", $rdvHour, PDO::PARAM_STR);
+    $query->bindValue(":paytype", "rendezvous", PDO::PARAM_STR);
     //$query->bindValue(":id_patient", $idPatient, PDO::PARAM_STR);
     //$query->bindValue(":id_specialite", 1, PDO::PARAM_STR);
     $query -> execute();
@@ -153,5 +153,34 @@ function fairePaiement($conn, $api) {
           ];
         }
         
+  }
+}
+
+function getPaiement($conn, $startDate = null, $id, $api) {
+  if (isset($_POST['submit']) || $api) {
+    
+    if ($api) {
+      $data = json_decode(file_get_contents("php://input"));
+      $startDate = $data->startDate;
+      
+      $id = $data -> id;
+    } else {
+      $startDate = $_POST['start_date'];
+      //$endDate = $_POST['end_date'];
+    }
+    
+    $sql = "SELECT * FROM paiement LEFT JOIN (SELECT id_client, Nom as nom_client, Prenom as prenom_client, Sexe as sexe FROM clients) AS client ON paiement.id_patient = client.id_client  WHERE paiement.date_created=:date_created AND paiement.id_specialite=:id_specialite AND paiement.paytype=:paytype";
+
+    $query=$conn->prepare($sql);
+    $query->bindValue(":date_created",$startDate , PDO::PARAM_STR);
+    $query->bindValue(":id_specialite", $id, PDO::PARAM_STR);
+    $query->bindValue(":paytype", "paiement", PDO::PARAM_STR);
+    //$query->bindValue(":id_patient", $idPatient, PDO::PARAM_STR);
+    //$query->bindValue(":id_specialite", 1, PDO::PARAM_STR);
+    $query -> execute();
+    $result = $query -> fetchAll(PDO::FETCH_ASSOC);
+    if ($result) {
+      return $result;
+    }
   }
 }

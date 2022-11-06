@@ -1,7 +1,7 @@
 RewriteEngine On
 RewriteBase "/OnlineRDV"
 RewriteRule "^acceuil"  "index.php?action=acceuil"
-RewriteRule "^tableau-de-bord"  "index.php?action=acceuilmed"
+RewriteRule "^tableau-de-bord?(.*)"  "index.php?action=acceuilmed$1"[QSA]
 RewriteRule "^connexion"  "index.php?action=seconnecter"
 RewriteRule "^deconnexion"  "index.php?action=deconnecter"
 RewriteRule "^medecin"  "index.php?action=connexionmed"

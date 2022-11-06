@@ -29,11 +29,20 @@ window.addEventListener("load",async ()=> {
     const aDay = 24 * 60 * 60 * 1000;
     
     let  id = document.getElementById("id_spec").value
-    
-    const requestResponse = await getRdv(null, id);
-    console.log(requestResponse)
-    let bodyContent = document.getElementById("rdv-med");
-    appendRdv(bodyContent, requestResponse);
+    const rdvSection = document.querySelector("#rdv-section");
+    const paieSection = document.querySelector("#paie-section");
+    if (rdvSection) {
+        const requestResponse = await getRdv(null, id);
+        console.log(requestResponse)
+        let bodyContent = document.getElementById("rdv-med");
+        appendRdv(bodyContent, requestResponse);
+    }
+    if (paieSection) {
+        const requestResponse = await getPaie(null, id);
+        console.log(requestResponse)
+        let bodyContent = document.getElementById("paie-med");
+        appendPaie(bodyContent, requestResponse);
+    }
 
     const medLeft = document.getElementById("medLeft")
     const medRight = document.getElementById("medRight")
@@ -44,19 +53,31 @@ window.addEventListener("load",async ()=> {
         dayCount--;
         let date = (new Date()).valueOf() + (dayCount * aDay);
         date = new Date(date);
-        const response = await getRdv(date, id);
-        appendRdv(bodyContent, response);
-
+        if (rdvSection) {
+            let bodyContent = document.getElementById("rdv-med");
+            const response = await getRdv(date, id);
+            appendRdv(bodyContent, response);
+        }
+        if (paieSection) {
+            let bodyContent = document.getElementById("paie-med");
+            const response = await getPaie(date, id);
+            appendPaie(bodyContent, response);
+        }
         medWeek.innerText = days[date.getDay()] + " " + date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
     })
 
     medRight.addEventListener("click", async ()=> {
         dayCount++;
-        let date = (new Date()).valueOf() + (dayCount * aDay);
-        date = new Date(date);
-        const response = await getRdv(date, id);
-        appendRdv(bodyContent, response);
-        medWeek.innerText = days[date.getDay()] + " " + date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
+        if (rdvSection) {
+            let bodyContent = document.getElementById("rdv-med");
+            const response = await getRdv(date, id);
+            appendRdv(bodyContent, response);
+        }
+        if (paieSection) {
+            let bodyContent = document.getElementById("paie-med");
+            const response = await getPaie(date, id);
+            appendPaie(bodyContent, response);
+        }
 
     })
     
@@ -67,6 +88,25 @@ async function getRdv(date = null, id) {
         date = new Date ();
     }
     let url = "index.php?action=rendezvous&api=true"
+    const payload = {
+        
+        startDate : [date.getFullYear(), (date.getMonth() + 1), date.getDate()].join("-"),
+        id : id
+    }
+    console.log(payload.startDate)
+    // Obtenir les rendez-vous sans recharger la page
+    const requestResponse = await ajaxRequest(url, "POST", payload);
+    if (!requestResponse) {
+        return [];
+    }
+    return requestResponse
+}
+
+async function getPaie(date = null, id) {
+    if (!date) {
+        date = new Date ();
+    }
+    let url = "index.php?action=fetchPaiement&api=true"
     const payload = {
         
         startDate : [date.getFullYear(), (date.getMonth() + 1), date.getDate()].join("-"),
@@ -110,6 +150,35 @@ function createRdvLine(obj, index = 1, even = false) {
     return line;
 }
 
+function createPaieLine(obj, index = 1, even = false) {
+    let line = document.createElement("tr");
+    for (let i = 0; i < 7; i++) {
+        let lineChild = document.createElement("td");
+        if (i == 0) {
+            lineChild.innerText = index;
+        } else if (i == 1) {
+            lineChild.innerText = obj.nom_client;
+        } else if ( i == 2) {
+            lineChild.innerText = obj.prenom_client;
+        } else if (i == 3) {
+            lineChild.innerText = obj.nom;
+        } else if (i == 4) {
+            lineChild.innerText = obj.prenom;
+        } else if (i == 5) {
+            lineChild.innerText = obj.motif;
+        } else if (i == 6) {
+            lineChild.innerText = obj.prix;
+        }
+        line.appendChild(lineChild);
+    }
+
+    if (even) {
+        line.classList.add("line-even")
+    }
+
+    return line;
+}
+
 function appendRdv(elm, objArray) {
     elm.innerHTML = "";
     if (objArray.length == 0) {
@@ -128,6 +197,24 @@ function appendRdv(elm, objArray) {
     }
 }
 
+function appendPaie(elm, objArray) {
+    elm.innerHTML = "";
+    if (objArray.length == 0) {
+        elm.innerHTML = "Aucun resultat trouve";
+        return
+    }
+    for (let i = 0; i < objArray.length; i++) {
+        let rdvLine = null;
+        if ((i % 2) != 0) {
+            rdvLine = createPaieLine(objArray[i], i + 1, true);
+        } else {
+            rdvLine = createPaieLine(objArray[i], i + 1);
+        }
+
+        elm.appendChild(rdvLine);
+    }
+}
+
 function ajaxRequest(url, verb, payload = false) {
     return new Promise((resolve, reject)=> {
         let xmlhttp = new XMLHttpRequest();
@@ -140,7 +227,7 @@ function ajaxRequest(url, verb, payload = false) {
             }
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    //console.log(xmlhttp.responseText);
+                    console.log(xmlhttp.responseText);
                     resolve (JSON.parse(xmlhttp.responseText));
                     
                 } else {

@@ -33,3 +33,12 @@
             header("Location: index.php?action=services");
         }
     }
+
+    function fetchPaiement($connect, $dateStart, $id, $api) {
+        $result = getPaiement($connect, $dateStart, $id, $api);
+        if ($api) {
+            echo json_encode($result);
+        } else {
+            header("Location: tableau-de-bord?view=paiements");
+        }
+    }

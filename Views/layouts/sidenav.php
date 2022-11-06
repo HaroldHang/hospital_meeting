@@ -40,11 +40,11 @@
             <a href="acceuil">Tableau de bord</a>
             <ul>
               
-                <li class="sidelist ">
-                  <a href="#>">Mes Rendez-vous</a>
+                <li class="sidelist <?= $currentView == "rendezvous" ? "parent active" : ""; ?>">
+                  <a href="tableau-de-bord?view=rendezvous">Mes Rendez-vous</a>
                 </li>
-                <li class="sidelist ">
-                  <a href="#>">Mes paiements</a>
+                <li class="sidelist <?= $currentView == "paiements" ? "parent active" : ""; ?>">
+                  <a href="tableau-de-bord?view=paiements">Paiements</a>
                 </li>
               
             </ul>

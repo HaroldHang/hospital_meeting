@@ -7,6 +7,9 @@
         if (isset($_SESSION['client'])) {
             header("Location: acceuil");
             exit;
+        } else if (isset($_SESSION['medecin'])) {
+            header("Location: tableau-de-bord/rendezvous");
+            exit;
         }
         $messageErreur = "";
         require './Views/inscription.php';
@@ -52,7 +55,7 @@
     
     function pageConnMed($conn) {
         if (isset($_SESSION['medecin'])) {
-            header("Location: tableau-de-bord");
+            header("Location: tableau-de-bord?view=rendezvous");
             exit;
         }
         $messageErreur = "";
@@ -70,7 +73,7 @@
             exit;
         }
         $_SESSION['medecin'] = $connMed['medecin'];
-        header("Location: tableau-de-bord");
+        header("Location: tableau-de-bord?view=rendezvous");
         //echo "Okay";
     }
 
