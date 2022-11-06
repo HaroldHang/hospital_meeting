@@ -177,39 +177,67 @@
         <td>120000</td>
      </tr>
      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>LARYNGOSCOPIE EN SUSPENSION</td>
+        <td>K4</td>
+        <td>68</td>
+        <td>750</td>
+        <td>51000</td>
      </tr>
      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>LARYNGOSCOPIE EN SUSPENSION<</td>
+        <td>K4</td>
+        <td>90</td>
+        <td>750</td>
+        <td>67000</td>
      </tr>
      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>LAVAGE OU ASPIRATION OREILLE</td>
+        <td>K4</td>
+        <td>3</td>
+        <td>750</td>
+        <td>2250</td>
      </tr>
      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>POLYPE DU MEAT NASAL</td>
+        <td>K1</td>
+        <td>150</td>
+        <td>750</td>
+        <td>112500</td>
      </tr>
      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>SINUSITE MAXILLAIRE</td>
+        <td>K1</td>
+        <td>80</td>
+        <td>750</td>
+        <td>60000</td>
+     </tr>
+     <tr>
+        <td>SOUS MAXILECTOMIE</td>
+        <td>K4</td>
+        <td>160</td>
+        <td>750</td>
+        <td>120000</td>
+     </tr>
+     <tr>
+        <td>TEMPONEMENT INTERIEUR DU NEZ</td>
+        <td>K4</td>
+        <td>16</td>
+        <td>750</td>
+        <td>12000</td>
+     </tr>
+     <tr>
+        <td>THYRODECTOMIE</td>
+        <td>K1</td>
+        <td>240</td>
+        <td>750</td>
+        <td>180000</td>
+     </tr>
+     <tr>
+        <td>TRACHEOCTOMIE</td>
+        <td>K4</td>
+        <td>60</td>
+        <td>750</td>
+        <td>45000</td>
      </tr>
    </table>
     
