@@ -67,7 +67,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="numero">Telephone</label>
-                      <input type="number" class="form-control" id="numero" name="numero" placeholder="+229 ........" required>
+                      <input type="number" class="form-control" id="numero" name="numero" placeholder="229 ........" required>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="profession">Profession</label>
@@ -100,6 +100,9 @@
       <img src="public/image/Doc.svg"/>
     </div>
   </div>
+  <?php 
+    include "layouts/footer.php";
+  ?>
 </body>
 </html>
 

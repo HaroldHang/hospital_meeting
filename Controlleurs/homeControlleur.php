@@ -8,7 +8,7 @@
             require './Views/acceuil.php';
         }
         else {
-            header("Location: ./index");
+            header("Location: index");
         }
     }
 

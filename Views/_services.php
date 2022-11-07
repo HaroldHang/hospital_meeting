@@ -873,7 +873,7 @@
                     </div>
                     <br> <br>
                     <div class="content calend-sup " id="calendar-section">
-                        <h3 id="tables">Le planning des rendez-vous</h3>
+                        <h3 id="tables mt-2 section-title">Le planning des rendez-vous</h3>
                         <?php
                             if (!empty($messageErreur)) { 
                             ?>
@@ -881,7 +881,7 @@
                                 <?= $messageErreur ?>
                             </div>
                             <?php }?>
-                        <h4 class="section-title">Veuillez prendre votre rendez-vous</h4>
+                        <h4 class="text-left my-3">Veuillez prendre votre rendez-vous</h4>
     
                         <div class="calendar-container" id="calendar">
                             <input type="hidden" id="id_spec" value="<?= $service['id_specialite'] ?>" />
@@ -907,7 +907,7 @@
                                     <i class="ti-angle-right ml-auto"></i>
                                 </button>
                             </div>
-                            <table>
+                            <table class="services-table">
                             <thead>
                                 <tr>
                                     <th align="center">Horaires</th>
@@ -950,7 +950,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>col 3 is</td>
+                                    <td>Matinee</td>
                                     <td align="center" class="date-day-1">
                                         <div class="hour-ctrl" data-hour="08h">08h</div>
                                         <div class="hour-even hour-ctrl" data-hour="09h">09h</div>
@@ -1002,7 +1002,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>col 3 is</td>
+                                    <td>Soiree</td>
                                     <td align="center" class="date-day-1">
                                         <div class="hour-ctrl" data-hour="14h">14h</div>
                                         <div class="hour-even hour-ctrl" data-hour="15h">15h</div>
@@ -1151,3 +1151,8 @@
           </div>
     </section>
 </div>
+
+<?php 
+    include "layouts/footer.php";
+
+?>

@@ -8,7 +8,7 @@
             header("Location: acceuil");
             exit;
         } else if (isset($_SESSION['medecin'])) {
-            header("Location: tableau-de-bord/rendezvous");
+            header("Location: tableau-de-bord?view=rendezvous");
             exit;
         }
         $messageErreur = "";

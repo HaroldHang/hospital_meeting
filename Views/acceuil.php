@@ -35,7 +35,7 @@
                 </div>
             <?php }?>
             <h2 class="section-title">Services</h2>
-            <h3 class="section-title">Choisir le type de spécialiter pour la consultation médical voulu</h3>
+            <h4 class="">Choisir le type de spécialiter pour la consultation médical voulu</h4>
             <div class="row">
               <?php 
               foreach ($services as $service) {
@@ -62,4 +62,6 @@
 
 </div>
 
-
+<?php 
+    include "layouts/footer.php";
+?>

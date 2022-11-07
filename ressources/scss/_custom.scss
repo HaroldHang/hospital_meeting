@@ -1,7 +1,7 @@
 @use "sass:color";
 body {
     min-height: 100vh;
-    padding-bottom: 200px;
+    //padding-bottom: 200px;
 }
 
 
@@ -124,7 +124,6 @@ body {
                 }
                 &:nth-child(even) {
                     background-color: $text-color-light-2;
-
                 }
                 &:first-child {
                     td {
@@ -137,6 +136,7 @@ body {
         }
     }
 }
+
 .options {
     width : 100%;
     & h3 {
@@ -162,14 +162,26 @@ body {
 
         & h3, h4 {
             width: 100%;
-            text-align: center;
+            text-align: left;
             margin: 5px 0;
         }
+        
+        h3 {
+            width: fit-content;
+            border-bottom: 5px solid $primary-color;
+        }
+        h4 {
+            margin-top: 15px;
+        }
+    }
+
+    & > .content {
+
     }
 }
-
 .calendar-container {
-
+    width: 100%;
+    
     & > div {
         width: 100%;
         height: 50px;
@@ -195,7 +207,10 @@ body {
             }
         }
     }
-    table {
+    .services-table {
+        thead {
+            color: $text-color-green;
+        }
         tbody {
             & > tr {
                 height: 250px;
@@ -233,10 +248,15 @@ body {
                         opacity: .3;
                     }
                 }
+
+                &:nth-child(even) {
+                    background-color: unset;
+                }
             }
         }
     }
 }
+
 
 .form-rdv {
     display : none;

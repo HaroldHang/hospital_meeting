@@ -2,7 +2,7 @@
   <div class=container>
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent navbar-ly">
       <!-- <a class=navbar-brand href="index.html"><img class="img-fluid" src="images/logo.png" alt="godocs"></a> -->
-      <a class="navbar-brand med-brand" id="med" href="index.php"><span class="">Meet</span><span>Med</span></a>
+      <a class="navbar-brand med-brand" id="med" href="acceuil"><span class="">Meet</span><span>Med</span></a>
       <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="ti-align-right h4 text-dark"></i></button>
       <div class="collapse navbar-collapse text-center btn-ctn" id=navigation>

@@ -81,6 +81,9 @@
       <img src="public/image/Doc2.svg"/>
     </div>
   </div>
+  <?php 
+    include "layouts/footer.php";
+  ?>
 </body>
 </html>
 
