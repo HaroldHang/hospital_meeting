@@ -33,6 +33,10 @@
     }
 
     function pageconnexion($conn) {
+        if (isset($_SESSION['medecin'])) {
+            header("Location: tableau-de-bord?view=rendezvous");
+            exit;
+        }
         if (isset($_SESSION['client'])) {
             header("Location: acceuil");
             exit;
@@ -54,6 +58,10 @@
     }
     
     function pageConnMed($conn) {
+        if (isset($_SESSION['client'])) {
+            header("Location: acceuil");
+            exit;
+        }
         if (isset($_SESSION['medecin'])) {
             header("Location: tableau-de-bord?view=rendezvous");
             exit;

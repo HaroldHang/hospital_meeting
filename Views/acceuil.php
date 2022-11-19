@@ -35,7 +35,7 @@
                 </div>
             <?php }?>
             <h2 class="section-title">Services</h2>
-            <h4 class="">Choisir le type de spécialiter pour la consultation médical voulu</h4>
+            <h4 class="">Veillez choisir le type de spécialiter pour la consultation médical à effectuer </h4>
             <div class="row">
               <?php 
               foreach ($services as $service) {

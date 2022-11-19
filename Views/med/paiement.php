@@ -3,7 +3,7 @@
                 <div class="content">
                     <h2 class="section-title"><?= $service['nom'] ?></h2>
                     
-                    <h3 id="tables">Paiements Effectues</h3>
+                    <h3 id="tables">Paiements Effectués</h3>
                     
                     <div class="medecin-container" >
                             <input type="hidden" id="id_spec" value="" />

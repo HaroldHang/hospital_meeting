@@ -20,7 +20,7 @@
                         if ($service['nom'] == "Cardiologie") {
                     ?>
                         <div class="content">
-                            <h5>Voici les consultations effectués dans le service de cardiologie avec leur option de prix</h5>
+                            <h5>Voici les consultations effectués dans le service de cardiologie avec leur options de prix</h5>
                             <table>
                                 <tr>
                                 <td><h6>CARDIOLOGIE</h6></td>
@@ -857,11 +857,1379 @@
     
                         </div>
                         <?php
+                    } else if ($service['nom'] == "Dermatologie"){
+                        ?>
+                            <div class="content">
+                            <h5> Voici les consultations effectués dans le service de dermatologie avec leur option de prix</h5>
+                            <br>
+                                <table>
+                                    <tr>
+                                        <td><h6>DERMATOLOGIE</h6></td>
+                                        <td><h6>Acte</h6></td>
+                                        <td><h6>Qté</h6></td>
+                                        <td><h6>P.U(F CFA)</h6></td>
+                                        <td><h6>Montant(F CFA)</h6></td>
+                                    </tr>
+                                    <tr>
+                                            <td>CONSULTATION DERMATOLOGIE </td>
+                                            <td>C010</td>
+                                            <td>1</td>
+                                            <td>7500</td>
+                                            <td>7500</td>
+                                            <td>
+                                              <input type="radio" value="7500" name="prix"/>
+                                              <input type="hidden" value="CONSULTATION DERMATOLOGIE 7500"  name="motif"/>
+                                            </td>
+                                    </tr>       
+                                </table>
+                            </div>
+                        <?php
+                    }else if ($service['nom'] == "Imagerie medical"){
+                        ?>
+                            <div class="content">
+                            <h5>Voici les consultations effectués dans le service de dermatologie avec leur option de prix</h5>
+                            <br>
+                                <table>
+                                    <tr>
+                                        <td><h6>IMAGERIE MEDICAL</h6></td>
+                                        <td><h6>Acte</h6></td>
+                                        <td><h6>Qté</h6></td>
+                                        <td><h6>P.U(F CFA)</h6></td>
+                                        <td><h6>Montant(F CFA)</h6></td>
+                                    </tr>
+                                    <tr>
+                                            <td>ECHOGRAPHIE ABDOMINAL</td>
+                                            <td>Z2</td>
+                                            <td>16</td>
+                                            <td>750</td>
+                                            <td>12000</td>
+                                            <td>
+                                              <input type="radio" value="12000" name="prix"/>
+                                              <input type="hidden" value="ECHOGRAPHIE ABDOMINAL 12000"  name="motif"/>
+                                            </td>
+                                    </tr>    
+                                    <tr>
+                                            <td>ECHOGRAPHIE ABDOMINO-PELVIENN</td>
+                                            <td>Z2</td>
+                                            <td>28</td>
+                                            <td>750</td>
+                                            <td>21000</td>
+                                            <td>
+                                              <input type="radio" value="21000" name="prix"/>
+                                              <input type="hidden" value="ECHOGRAPHIE ABDOMINO-PELVIENN 21000"  name="motif"/>
+                                            </td>
+                                    </tr>       
+                                    <tr>
+                                            <td>ECHOGRAPHIE MAMAIRE</td>
+                                            <td>Z2</td>
+                                            <td>16</td>
+                                            <td>750</td>
+                                            <td>12000</td>
+                                            <td>
+                                              <input type="radio" value="12000" name="prix"/>
+                                              <input type="hidden" value="ECHOGRAPHIE MAMAIRE 12000"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>ECHOGRAPHIE OBSTETRICALE</td>
+                                            <td>Z2</td>
+                                            <td>12</td>
+                                            <td>750</td>
+                                            <td>9000</td>
+                                            <td>
+                                              <input type="radio" value="9000" name="prix"/>
+                                              <input type="hidden" value="ECHOGRAPHIE OBSTETRICALE 9000"  name="motif"/>
+                                            </td>
+                                    </tr>   
+                                    <tr>
+                                            <td>ECHOGRAPHIE PELVIENNE</td>
+                                            <td>Z2</td>
+                                            <td>12</td>
+                                            <td>750</td>
+                                            <td>9000</td>
+                                            <td>
+                                              <input type="radio" value="9000" name="prix"/>
+                                              <input type="hidden" value="ECHOGRAPHIE PELVIENNE 9000"  name="motif"/>
+                                            </td>
+                                    </tr>   
+                                    <tr>
+                                            <td>ECHOGRAPHIE PROSTATIQUE</td>
+                                            <td>Z2</td>
+                                            <td>22</td>
+                                            <td>750</td>
+                                            <td>16500</td>
+                                            <td>
+                                              <input type="radio" value="16500" name="prix"/>
+                                              <input type="hidden" value="ECHOGRAPHIE PROSTATIQUE 16500"  name="motif"/>
+                                            </td>
+                                    </tr>   
+                                    <tr>
+                                            <td>ECHOGRAPHIE TESTICULAIRE</td>
+                                            <td>Z2</td>
+                                            <td>18</td>
+                                            <td>750</td>
+                                            <td>13500</td>
+                                            <td>
+                                              <input type="radio" value="13500" name="prix"/>
+                                              <input type="hidden" value="CHOGRAPHIE TESTICULAIRE 13500"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>ECHOGRAPHIE THYROIDIENNE</td>
+                                            <td>Z2</td>
+                                            <td>18</td>
+                                            <td>750</td>
+                                            <td>13500</td>
+                                            <td>
+                                              <input type="radio" value="13500" name="prix"/>
+                                              <input type="hidden" value="CHOGRAPHIE HYROIDIENNE 13500"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>ECHOGRAPHIE SOUS MANDIBULAIRE</td>
+                                            <td>Z2</td>
+                                            <td>16</td>
+                                            <td>750</td>
+                                            <td>12000</td>
+                                            <td>
+                                              <input type="radio" value="12000" name="prix"/>
+                                              <input type="hidden" value="CHOGRAPHIE SOUS MANDIBULAIRE 12000"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>ECHOGRAPHIE TRANS-FRONTANELL</td>
+                                            <td>Z2</td>
+                                            <td>18</td>
+                                            <td>750</td>
+                                            <td>13500</td>
+                                            <td>
+                                              <input type="radio" value="13500" name="prix"/>
+                                              <input type="hidden" value="CHOGRAPHIE TRANS-FRONTANEL 13500"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>ECHOGRAPHIE DES PARTIES MOLL</td>
+                                            <td>Z2</td>
+                                            <td>18</td>
+                                            <td>750</td>
+                                            <td>13500</td>
+                                            <td>
+                                              <input type="radio" value="13500" name="prix"/>
+                                              <input type="hidden" value="ECHOGRAPHIE DES PARTIES MOLL 13500"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>ECHOGRAPHIE PELVIENNE AND VA</td>
+                                            <td>Z2</td>
+                                            <td>18</td>
+                                            <td>750</td>
+                                            <td>13500</td>
+                                            <td>
+                                              <input type="radio" value="13500" name="prix"/>
+                                              <input type="hidden" value="ECHOGRAPHIE PELVIENNE AND VA 13500"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>ECHOGRAPHIE VEINEUX D'UN MEMB</td>
+                                            <td>Z2</td>
+                                            <td>30</td>
+                                            <td>750</td>
+                                            <td>22500</td>
+                                            <td>
+                                              <input type="radio" value="22500" name="prix"/>
+                                              <input type="hidden" value="CHOGRAPHIE VEINEUX D'UN MEMB 22500"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>ECHOGRAPHIE VEINEUX D'UN DES 2 MEM</td>
+                                            <td>Z2</td>
+                                            <td>60</td>
+                                            <td>750</td>
+                                            <td>45000</td>
+                                            <td>
+                                              <input type="radio" value="45000" name="prix"/>
+                                              <input type="hidden" value="CHOGRAPHIE VEINEUX D'UN MEMB 45000"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>ECHOGRAPHIE VEINEUX ARTERIO-VEINEUX</td>
+                                            <td>Z2</td>
+                                            <td>60</td>
+                                            <td>750</td>
+                                            <td>45000</td>
+                                            <td>
+                                              <input type="radio" value="45000" name="prix"/>
+                                              <input type="hidden" value="ECHOGRAPHIE VEINEUX ARTERIO-VEINEUX 45000"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>ECHOGRAPHIE VEINEUX ARTERIO-VEINEUX</td>
+                                            <td>Z2</td>
+                                            <td>120</td>
+                                            <td>750</td>
+                                            <td>90000</td>
+                                            <td>
+                                              <input type="radio" value="90000" name="prix"/>
+                                              <input type="hidden" value="ECHOGRAPHIE VEINEUX ARTERIO-VEINEUX 90000"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>ECHO DOPPLER DU TRONC SUPPRA A</td>
+                                            <td>Z2</td>
+                                            <td>60</td>
+                                            <td>750</td>
+                                            <td>45000</td>
+                                            <td>
+                                              <input type="radio" value="45000" name="prix"/>
+                                              <input type="hidden" value="ECHO DOPPLER DU TRONC SUPPRA A 45000"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>ARTICULATION ACROMIO-CLAVICULA</td>
+                                            <td>Z1</td>
+                                            <td>11</td>
+                                            <td>750</td>
+                                            <td>8250</td>
+                                            <td>
+                                              <input type="radio" value="8250" name="prix"/>
+                                              <input type="hidden" value="ARTICULATION ACROMIO-CLAVICULA 8250"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO ARCADE ZYGOMATIQUE</td>
+                                            <td>Z1</td>
+                                            <td>12</td>
+                                            <td>750</td>
+                                            <td>9000</td>
+                                            <td>
+                                              <input type="radio" value="9000" name="prix"/>
+                                              <input type="hidden" value="RADIO ARCADE ZYGOMATIQUE 9000"  name="motif"/>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                            <td>RADIO ARTICULATION STERNO-CLAV</td>
+                                            <td>Z1</td>
+                                            <td>1</td>
+                                            <td>750</td>
+                                            <td>8250</td>
+                                            <td>
+                                              <input type="radio" value="8250" name="prix"/>
+                                              <input type="hidden" value="RADIO ARTICULATION STERNO-CLAV 8250"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>ABDOMEN SANS PREPARATION</td>
+                                            <td>Z1</td>
+                                            <td>13</td>
+                                            <td>750</td>
+                                            <td>9750</td>
+                                            <td>
+                                              <input type="radio" value="9750" name="prix"/>
+                                              <input type="hidden" value="ABDOMEN SANS PREPARATION 9750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>ARTICULATION TEMPORO-MAXILLAIRE</td>
+                                            <td>Z1</td>
+                                            <td>17</td>
+                                            <td>750</td>
+                                            <td>12750</td>
+                                            <td>
+                                              <input type="radio" value="12750" name="prix"/>
+                                              <input type="hidden" value="ARTICULATION TEMPORO-MAXILLAIRE 9750"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO BASSIN DE FACE</td>
+                                            <td>Z1</td>
+                                            <td>17</td>
+                                            <td>750</td>
+                                            <td>8250</td>
+                                            <td>
+                                              <input type="radio" value="8250" name="prix"/>
+                                              <input type="hidden" value="RADIO BASSIN DE FACE 8250"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO BASSIN F ET 2 OBLIQUE</td>
+                                            <td>Z1</td>
+                                            <td>25</td>
+                                            <td>750</td>
+                                            <td>18750</td>
+                                            <td>
+                                              <input type="radio" value="18750" name="prix"/>
+                                              <input type="hidden" value="RADIO BASSIN F ET 2 OBLIQUE 18750"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO BASSIN F ET 1 OBLIQUE</td>
+                                            <td>Z1</td>
+                                            <td>19</td>
+                                            <td>750</td>
+                                            <td>14250</td>
+                                            <td>
+                                              <input type="radio" value="14250" name="prix"/>
+                                              <input type="hidden" value="RADIO BASSIN F ET 1 OBLIQUE 14250"  name="motif"/>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                            <td>BLONDEAU (RADIO DES SINUS)</td>
+                                            <td>Z1</td>
+                                            <td>12</td>
+                                            <td>750</td>
+                                            <td>9000</td>
+                                            <td>
+                                              <input type="radio" value="9000" name="prix"/>
+                                              <input type="hidden" value="BLONDEAU (RADIO DES SINUS)9000"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO AVANT BRAS F/P</td>
+                                            <td>Z1</td>
+                                            <td>10</td>
+                                            <td>750</td>
+                                            <td>7500</td>
+                                            <td>
+                                              <input type="radio" value="7500" name="prix"/>
+                                              <input type="hidden" value="RADIO AVANT BRAS F/P 7500"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO BRAS(HUMERUS)</td>
+                                            <td>Z1</td>
+                                            <td>10</td>
+                                            <td>750</td>
+                                            <td>7500</td>
+                                            <td>
+                                              <input type="radio" value="7500" name="prix"/>
+                                              <input type="hidden" value="RADIO BRAS(HUMERUS) 7500"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO CONDUIT AUDITIF INTERNE</td>
+                                            <td>Z1</td>
+                                            <td>13</td>
+                                            <td>750</td>
+                                            <td>9750</td>
+                                            <td>
+                                              <input type="radio" value="9750" name="prix"/>
+                                              <input type="hidden" value="RADIO CONDUIT AUDITIF INTERNE 9750"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO CALCANEUM F/P</td>
+                                            <td>Z1</td>
+                                            <td>11</td>
+                                            <td>750</td>
+                                            <td>6750</td>
+                                            <td>
+                                              <input type="radio" value="6750" name="prix"/>
+                                              <input type="hidden" value="RADIO CALCANEUM F/P 6750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO CHEVILLE OU COUP DE PIED</td>
+                                            <td>Z1</td>
+                                            <td>8</td>
+                                            <td>750</td>
+                                            <td>6000</td>
+                                            <td>
+                                              <input type="radio" value="6000" name="prix"/>
+                                              <input type="hidden" value="RADIO CHEVILLE OU COUP DE PIED 6000"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO CLAVICULE</td>
+                                            <td>Z1</td>  
+                                            <td>8</td>
+                                            <td>750</td>
+                                            <td>6000</td>
+                                            <td>
+                                              <input type="radio" value="6000" name="prix"/>
+                                              <input type="hidden" value="RADIO CLAVICULE 6000"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO COCCYX F/P</td>
+                                            <td>Z1</td>  
+                                            <td>17</td>
+                                            <td>750</td>
+                                            <td>12750</td>
+                                            <td>
+                                              <input type="radio" value="12750" name="prix"/>
+                                              <input type="hidden" value="RADIO COCCYX F/P 12750"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO COUDE F/P</td>
+                                            <td>Z1</td>  
+                                            <td>10</td>
+                                            <td>750</td>
+                                            <td>7500</td>
+                                            <td>
+                                              <input type="radio" value="7500" name="prix"/>
+                                              <input type="hidden" value="RADIO COUDE F/P 7500"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO DE CRANE</td>
+                                            <td>Z1</td>  
+                                            <td>13</td>
+                                            <td>750</td>
+                                            <td>9750</td>
+                                            <td>
+                                              <input type="radio" value="9750" name="prix"/>
+                                              <input type="hidden" value="RADIO DE CRANE 9750"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO CONTENU UTERIN</td>
+                                            <td>Z1</td>  
+                                            <td>13</td>
+                                            <td>750</td>
+                                            <td>9750</td>
+                                            <td>
+                                              <input type="radio" value="9750" name="prix"/>
+                                              <input type="hidden" value="RADIO CONTENU UTERIN 9750"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO DE CUISSE F/P (FEMUR)</td>
+                                            <td>Z1</td>  
+                                            <td>13</td>
+                                            <td>750</td>
+                                            <td>9750</td>
+                                            <td>
+                                              <input type="radio" value="9750" name="prix"/>
+                                              <input type="hidden" value="RADIO DE CUISSE F/P (FEMUR) 9750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO DOIGT F/P</td>
+                                            <td>Z1</td>  
+                                            <td>6</td>
+                                            <td>750</td>
+                                            <td>4500</td>
+                                            <td>
+                                              <input type="radio" value="4500" name="prix"/>
+                                              <input type="hidden" value="RADIO DOIGT F/P (FEMUR) 4500"  name="motif"/>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                            <td>RADIO EPAULE F/P</td>
+                                            <td>Z1</td>  
+                                            <td>10</td>
+                                            <td>750</td>
+                                            <td>7500</td>
+                                            <td>
+                                              <input type="radio" value="7500" name="prix"/>
+                                              <input type="hidden" value="RADIO EPAULE F/P 7500"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO EPAULE F ET TRANSTHORACIQUE</td>
+                                            <td>Z1</td>  
+                                            <td>13</td>
+                                            <td>750</td>
+                                            <td>9750</td>
+                                            <td>
+                                              <input type="radio" value="9750" name="prix"/>
+                                              <input type="hidden" value="RADIO EPAULE F ET TRANSTHORACIQUE 9750"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO GENOU F/P</td>
+                                            <td>Z1</td>  
+                                            <td>11</td>
+                                            <td>750</td>
+                                            <td>8250</td>
+                                            <td>
+                                              <input type="radio" value="8250" name="prix"/>
+                                              <input type="hidden" value="RADIO GENOU F/P 8250"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>GRILL COSTRAL</td>
+                                            <td>Z1</td>  
+                                            <td>18</td>
+                                            <td>750</td>
+                                            <td>13500</td>
+                                            <td>
+                                              <input type="radio" value="13500" name="prix"/>
+                                              <input type="hidden" value="GRILL COSTRAL 13500"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>GRILL COSTAL F/OBLIQUE</td>
+                                            <td>Z1</td>  
+                                            <td>21</td>
+                                            <td>750</td>
+                                            <td>15750</td>
+                                            <td>
+                                              <input type="radio" value="15750" name="prix"/>
+                                              <input type="hidden" value="GRILL COSTAL F/OBLIQUE 15750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>HANCHE PROFIL+BASSIN DE FACE</td>
+                                            <td>Z1</td>  
+                                            <td>21</td>
+                                            <td>750</td>
+                                            <td>15750</td>
+                                            <td>
+                                              <input type="radio" value="15750" name="prix"/>
+                                              <input type="hidden" value="HANCHE PROFIL+BASSIN DE FACE 15750"  name="motif"/>
+                                            </td>
+                                    </tr>   
+                                    <tr>
+                                            <td>HANCHE F/OBLIQUE</td>
+                                            <td>Z1</td>  
+                                            <td>13</td>
+                                            <td>750</td>
+                                            <td>9750</td>
+                                            <td>
+                                              <input type="radio" value="9750" name="prix"/>
+                                              <input type="hidden" value="HANCHE F/OBLIQUE 9750"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO HEMITHORAX</td>
+                                            <td>Z1</td>  
+                                            <td>12</td>
+                                            <td>750</td>
+                                            <td>9000</td>
+                                            <td>
+                                              <input type="radio" value="9000" name="prix"/>
+                                              <input type="hidden" value="RADIO HEMITHORAX 9000"  name="motif"/>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                            <td>RADIO HIRTZ</td>
+                                            <td>Z1</td>  
+                                            <td>12</td>
+                                            <td>750</td>
+                                            <td>9000</td>
+                                            <td>
+                                              <input type="radio" value="9000" name="prix"/>
+                                              <input type="hidden" value="RADIO HIRTZ 9000"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>H S G</td>
+                                            <td>Z1</td>  
+                                            <td>33</td>
+                                            <td>750</td>
+                                            <td>24750</td>
+                                            <td>
+                                              <input type="radio" value="24750" name="prix"/>
+                                              <input type="hidden" value="H S G 24750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO JAMBE F/P</td>
+                                            <td>Z1</td>  
+                                            <td>12</td>
+                                            <td>750</td>
+                                            <td>9000</td>
+                                            <td>
+                                              <input type="radio" value="9000" name="prix"/>
+                                              <input type="hidden" value="RADIO JAMBE F/P 9000"  name="motif"/>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                            <td>LAVEMENT BARYTE</td>
+                                            <td>Z1</td>  
+                                            <td>41</td>
+                                            <td>750</td>
+                                            <td>30750</td>
+                                            <td>
+                                              <input type="radio" value="30750" name="prix"/>
+                                              <input type="hidden" value="LAVEMENT BARYTE 30750"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO LOMBAIRE F ET + OBLIQUE 3/4</td>
+                                            <td>Z1</td>  
+                                            <td>23</td>
+                                            <td>750</td>
+                                            <td>17250</td>
+                                            <td>
+                                              <input type="radio" value="17250" name="prix"/>
+                                              <input type="hidden" value="RADIO LOMBAIRE F ET + OBLIQUE 3/4 17250"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO MAIN F/OBLIQUE</td>
+                                            <td>Z1</td>  
+                                            <td>8</td>
+                                            <td>750</td>
+                                            <td>6000</td>
+                                            <td>
+                                              <input type="radio" value="6000" name="prix"/>
+                                              <input type="hidden" value="RADIO MAIN F/OBLIQUE 6000"  name="motif"/>
+                                            </td>
+                                    </tr>   
+                                    <tr>
+                                            <td>RADIO MASTOIDE (SHULLER)</td>
+                                            <td>Z1</td>  
+                                            <td>20</td>
+                                            <td>750</td>
+                                            <td>15000</td>
+                                            <td>
+                                              <input type="radio" value="15000" name="prix"/>
+                                              <input type="hidden" value="RADIO MASTOIDE (SHULLER)15000"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO MAXILLAIRE DEFILE D'UN COTE</td>
+                                            <td>Z1</td>  
+                                            <td>11</td>
+                                            <td>750</td>
+                                            <td>8250</td>
+                                            <td>
+                                              <input type="radio" value="8250" name="prix"/>
+                                              <input type="hidden" value="RADIO MAXILLAIRE DEFILE D'UN COTE 8250"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO MAXILLAIRE DEFILE DEUX COTE</td>
+                                            <td>Z1</td>  
+                                            <td>19</td>
+                                            <td>750</td>
+                                            <td>14250</td>
+                                            <td>
+                                              <input type="radio" value="14250" name="prix"/>
+                                              <input type="hidden" value="RADIO MAXILLAIRE DEFILE DEUX COTE 14250"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO DES DEUX MEMBRE INFERIEURS</td>
+                                            <td>Z1</td>  
+                                            <td>53</td>
+                                            <td>750</td>
+                                            <td>39750</td>
+                                            <td>
+                                              <input type="radio" value="39750" name="prix"/>
+                                              <input type="hidden" value="RADIO DES DEUX MEMBRE INFERIEURS 39750"  name="motif"/>
+                                            </td>
+                                    </tr>   
+                                    <tr>
+                                            <td>RADIO OMOPLATE</td>
+                                            <td>Z1</td>  
+                                            <td>13</td>
+                                            <td>750</td>
+                                            <td>9750</td>
+                                            <td>
+                                              <input type="radio" value="9750" name="prix"/>
+                                              <input type="hidden" value="RADIO OMOPLATE 9750"  name="motif"/>
+                                            </td>
+                                    </tr>    
+                                    <tr>
+                                            <td>RADIO ORTEILS</td>
+                                            <td>Z1</td>  
+                                            <td>8</td>
+                                            <td>750</td>
+                                            <td>6000</td>
+                                            <td>
+                                              <input type="radio" value="6000" name="prix"/>
+                                              <input type="hidden" value="RADIO ORTEILS 6000"  name="motif"/>
+                                            </td>
+                                    </tr>    
+                                    <tr>
+                                            <td>RADIO DES OS PROPRE DU NEZ</td>
+                                            <td>Z1</td>  
+                                            <td>11</td>
+                                            <td>750</td>
+                                            <td>8250</td>
+                                            <td>
+                                              <input type="radio" value="8250" name="prix"/>
+                                              <input type="hidden" value="RADIO DES OS PROPRE DU NEZ 8250"  name="motif"/>
+                                            </td>
+                                    </tr>  
+                                    <tr>
+                                            <td>RADIO PIED F/OBLIQUE</td>
+                                            <td>Z1</td>  
+                                            <td>11</td>
+                                            <td>750</td>
+                                            <td>8250</td>
+                                            <td>
+                                              <input type="radio" value="8250" name="prix"/>
+                                              <input type="hidden" value="RADIO PIED F/OBLIQUE 8250"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO POIGNET F/P</td>
+                                            <td>Z1</td>  
+                                            <td>6</td>
+                                            <td>750</td>
+                                            <td>6000</td>
+                                            <td>
+                                              <input type="radio" value="6000" name="prix"/>
+                                              <input type="hidden" value="RADIO POIGNET F/P 6000"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO PULMONAIRE DE FACE</td>
+                                            <td>Z1</td>  
+                                            <td>12</td>
+                                            <td>750</td>
+                                            <td>9000</td>
+                                            <td>
+                                              <input type="radio" value="9000" name="prix"/>
+                                              <input type="hidden" value="RADIO PULMONAIRE DE FACE 9000"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO PULMONAIRE F/P</td>
+                                            <td>Z1</td>  
+                                            <td>14</td>
+                                            <td>750</td>
+                                            <td>10500</td>
+                                            <td>
+                                              <input type="radio" value="10500" name="prix"/>
+                                              <input type="hidden" value="RADIO PULMONAIRE F/P 10500"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO PULMONAIRE F</td>
+                                            <td>Z1</td>  
+                                            <td>7</td>
+                                            <td>750</td>
+                                            <td>5250</td>
+                                            <td>
+                                              <input type="radio" value="5250" name="prix"/>
+                                              <input type="hidden" value="RADIO PULMONAIRE F 5250"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO RACHIS DORSO-LOMBAIRE</td>
+                                            <td>Z1</td>  
+                                            <td>34</td>
+                                            <td>750</td>
+                                            <td>25000</td>
+                                            <td>
+                                              <input type="radio" value="25000" name="prix"/>
+                                              <input type="hidden" value="RADIO RACHIS DORSO-LOMBAIRE 25000"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO RACHIS LOMBAIRE F/P 3/4</td>
+                                            <td>Z1</td>  
+                                            <td>26</td>
+                                            <td>750</td>
+                                            <td>19500</td>
+                                            <td>
+                                              <input type="radio" value="19500" name="prix"/>
+                                              <input type="hidden" value="RADIO RACHIS LOMBAIRE F/P 3/4 19500"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO RACHIS CERVICAL F/P ET OBLIQUE 3/4</td>
+                                            <td>Z1</td>  
+                                            <td>17</td>
+                                            <td>750</td>
+                                            <td>12750</td>
+                                            <td>
+                                              <input type="radio" value="12750" name="prix"/>
+                                              <input type="hidden" value="RADIO RACHIS CERVICAL F/P ET OBLIQUE 3/4 12750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO RACHIS CERVICAL F/P </td>
+                                            <td>Z1</td>  
+                                            <td>13</td>
+                                            <td>750</td>
+                                            <td>9750</td>
+                                            <td>
+                                              <input type="radio" value="9750" name="prix"/>
+                                              <input type="hidden" value="RADIO RACHIS CERVICAL F/P 9750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO RACHIS CERVICAL ATLAS AXIS</td>
+                                            <td>Z1</td>  
+                                            <td>17</td>
+                                            <td>750</td>
+                                            <td>12750</td>
+                                            <td>
+                                              <input type="radio" value="12750" name="prix"/>
+                                              <input type="hidden" value="RADIO RACHIS CERVICAL ATLAS AXIS 12750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO RACHIS DORSAL F/P</td>
+                                            <td>Z1</td>  
+                                            <td>17</td>
+                                            <td>750</td>
+                                            <td>12750</td>
+                                            <td>
+                                              <input type="radio" value="12750" name="prix"/>
+                                              <input type="hidden" value="RADIO RACHIS DORSAL F/P  12750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO RACHIS LOMBAIRE F/P</td>
+                                            <td>Z1</td>  
+                                            <td>17</td>
+                                            <td>750</td>
+                                            <td>12750</td>
+                                            <td>
+                                              <input type="radio" value="12750" name="prix"/>
+                                              <input type="hidden" value="RADIO RACHIS LOMBAIRE F/P 12750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO ROTULE F/P</td>
+                                            <td>Z1</td>  
+                                            <td>13</td>
+                                            <td>750</td>
+                                            <td>9750</td>
+                                            <td>
+                                              <input type="radio" value="9750" name="prix"/>
+                                              <input type="hidden" value="RADIO ROTULE F/P 9750"  name="motif"/>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                            <td>RADIO SACRUM F/P</td>
+                                            <td>Z1</td>  
+                                            <td>20</td>
+                                            <td>750</td>
+                                            <td>15000</td>
+                                            <td>
+                                              <input type="radio" value="15000" name="prix"/>
+                                              <input type="hidden" value="RADIO SACRUM F/P 15000"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>SELLE TURCIQUE UN COTE</td>
+                                            <td>Z1</td>  
+                                            <td>8</td>
+                                            <td>750</td>
+                                            <td>6000</td>
+                                            <td>
+                                              <input type="radio" value="6000" name="prix"/>
+                                              <input type="hidden" value="SELLE TURCIQUE UN COTE 6000"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO STERNUM P ET OBLIQUE 3/4</td>
+                                            <td>Z1</td>  
+                                            <td>19</td>
+                                            <td>750</td>
+                                            <td>14250</td>
+                                            <td>
+                                              <input type="radio" value="14250" name="prix"/>
+                                              <input type="hidden" value="RADIO STERNUM P ET OBLIQUE 3/4 14250"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>TELECOEUR F</td>
+                                            <td>Z1</td>  
+                                            <td>13</td>
+                                            <td>750</td>
+                                            <td>9750</td>
+                                            <td>
+                                              <input type="radio" value="9750" name="prix"/>
+                                              <input type="hidden" value="TELECOEUR F 9750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO TELE CRANE</td>
+                                            <td>Z1</td>  
+                                            <td>19</td>
+                                            <td>750</td>
+                                            <td>14250</td>
+                                            <td>
+                                              <input type="radio" value="14250" name="prix"/>
+                                              <input type="hidden" value="RADIO TELE CRANE 14250"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>TRANSIT GRASTRO DUODENAL</td>
+                                            <td>Z1</td>  
+                                            <td>42</td>
+                                            <td>750</td>
+                                            <td>31500</td>
+                                            <td>
+                                              <input type="radio" value="31500" name="prix"/>
+                                              <input type="hidden" value="TRANSIT GRASTRO DUODENAL 31500"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>RADIO THORAX OSSEUX</td>
+                                            <td>Z1</td>  
+                                            <td>18</td>
+                                            <td>750</td>
+                                            <td>13500</td>
+                                            <td>
+                                              <input type="radio" value="13500" name="prix"/>
+                                              <input type="hidden" value="RADIO THORAX OSSEUX 13500"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>TRANSIT OESOPHAGIEN</td>
+                                            <td>Z1</td>  
+                                            <td>36</td>
+                                            <td>750</td>
+                                            <td>27000</td>
+                                            <td>
+                                              <input type="radio" value="27000" name="prix"/>
+                                              <input type="hidden" value="TRANSIT OESOPHAGIEN 27000"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>TRANSIT OESO GRASTRO DUODENAL</td>
+                                            <td>Z1</td>  
+                                            <td>50</td>
+                                            <td>750</td>
+                                            <td>37500</td>
+                                            <td>
+                                              <input type="radio" value="37500" name="prix"/>
+                                              <input type="hidden" value="TRANSIT OESO GRASTRO DUODENAL 37500"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>U C R</td>
+                                            <td>Z1</td>  
+                                            <td>39</td>
+                                            <td>750</td>
+                                            <td>29250</td>
+                                            <td>
+                                              <input type="radio" value="29250" name="prix"/>
+                                              <input type="hidden" value="U C R 29250"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                    <tr>
+                                            <td>U I V</td>
+                                            <td>Z1</td>  
+                                            <td>53</td>
+                                            <td>750</td>
+                                            <td>39750</td>
+                                            <td>
+                                              <input type="radio" value="39750" name="prix"/>
+                                              <input type="hidden" value="U I V 39750"  name="motif"/>
+                                            </td>
+                                    </tr> 
+                                </table>
+                            </div>
+                        <?php
+                    }else if ($service['nom'] == "Urgence") {
+                        ?>
+                            <div class="content">
+                                     <h5>Voici les consultations effectués dans le service de dermatologie avec leur option de prix</h5>
+                                     <br>
+                                    <table>
+                                             <tr>
+                                                 <td><h6>URGENCE</h6></td>
+                                                 <td><h6>Acte</h6></td>
+                                                 <td><h6>Qté</h6></td>
+                                                 <td><h6>P.U(F CFA)</h6></td>
+                                                 <td><h6>Montant(F CFA)</h6></td>
+                                             </tr>
+                                             <tr>
+                                                     <td>THORACO-BRACHIAL</td>
+                                                     <td>K1</td>
+                                                     <td>40</td>
+                                                     <td>750</td>
+                                                     <td>30000</td>
+                                                     <td>
+                                                       <input type="radio" value="30000" name="prix"/>
+                                                       <input type="hidden" value="THORACO-BRACHIAL 30000"           name="motif"/>
+                                                     </td>
+                                             </tr>  
+                                             <tr>
+                                                     <td>ABLATION DE CORPS ETRANGER SO</td>
+                                                     <td>K1</td>
+                                                     <td>60</td>
+                                                     <td>750</td>
+                                                     <td>45000</td>
+                                                     <td>
+                                                       <input type="radio" value="45000" name="prix"/>
+                                                       <input type="hidden" value="ABLATION DE CORPS          ETRANGER SO 45000"  name="motif"/>
+                                                     </td>
+                                             </tr>       
+                                             <tr>
+                                                     <td>ABLATION DE KYSTE</td>
+                                                     <td>K1</td>
+                                                     <td>20</td>
+                                                     <td>750</td>
+                                                     <td>15000</td>
+                                                     <td>
+                                                       <input type="radio" value="15000" name="prix"/>
+                                                       <input type="hidden" value="ABLATION DE KYSTE           15000"  name="motif"/>
+                                                     </td>
+                                             </tr>  
+                                             <tr>
+                                                     <td>ABLATION D'ONGLE INCARNE</td>
+                                                     <td>K1</td>
+                                                     <td>30</td>
+                                                     <td>750</td>
+                                                     <td>22500</td>
+                                                     <td>
+                                                       <input type="radio" value="22500" name="prix"/>
+                                                       <input type="hidden" value="ABLATION D'ONGLE INCARNE           22500"  name="motif"/>
+                                                     </td>
+                                             </tr>   
+                                             <tr>
+                                                     <td>ABLATION DE LIPONE</td>
+                                                     <td>K1</td>
+                                                     <td>20</td>
+                                                     <td>750</td>
+                                                     <td>15000</td>
+                                                     <td>
+                                                       <input type="radio" value="15000" name="prix"/>
+                                                       <input type="hidden" value="ABLATION DE LIPONE           15000"  name="motif"/>
+                                                     </td>
+                                             </tr>
+                                             <tr>
+                                                     <td>ABLATION DE NODULE</td>
+                                                     <td>K1</td>
+                                                     <td>20</td>
+                                                     <td>750</td>
+                                                     <td>15000</td>
+                                                     <td>
+                                                       <input type="radio" value="15000" name="prix"/>
+                                                       <input type="hidden" value="ABLATION DE NODULE           15000"  name="motif"/>
+                                                     </td>
+                                             </tr>      
+                                             <tr>
+                                                     <td>ABLATION DE PLATRE</td>
+                                                     <td>K1</td>
+                                                     <td>2</td>
+                                                     <td>750</td>
+                                                     <td>1500</td>
+                                                     <td>
+                                                       <input type="radio" value="1500" name="prix"/>
+                                                       <input type="hidden" value="ABLATION DE PLATRE           1500"  name="motif"/>
+                                                     </td>
+                                             </tr>    
+                                             <tr>
+                                                     <td>ANNEAU DE TANTOU</td>
+                                                     <td>K1</td>
+                                                     <td>16</td>
+                                                     <td>750</td>
+                                                     <td>12000</td>
+                                                     <td>
+                                                       <input type="radio" value="12000" name="prix"/>
+                                                       <input type="hidden" value="ANNEAU DE TANTOU 12000"           name="motif"/>
+                                                     </td>
+                                             </tr>  
+                                             <tr>
+                                                     <td>ILLIRI SEPTIQUE + LAVA</td>
+                                                     <td>K1</td>
+                                                     <td>40</td>
+                                                     <td>750</td>
+                                                     <td>30000</td>
+                                                     <td>
+                                                       <input type="radio" value="30000" name="prix"/>
+                                                       <input type="hidden" value="ILLIRI SEPTIQUE + LAVA          30000"  name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>BOTTE PLATRE</td>
+                                                     <td>K1</td>
+                                                     <td>16</td>
+                                                     <td>750</td>
+                                                     <td>12000</td>
+                                                     <td>
+                                                       <input type="radio" value="12000" name="prix"/>
+                                                       <input type="hidden" value="BOTTE PLATRE 12000"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>BRACHIO PALMERE</td>
+                                                     <td>K1</td>
+                                                     <td>20</td>
+                                                     <td>750</td>
+                                                     <td>15000</td>
+                                                     <td>
+                                                       <input type="radio" value="15000" name="prix"/>
+                                                       <input type="hidden" value="BRACHIO PALMERE 15000"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>CIRCONCISION</td>
+                                                     <td>K1</td>
+                                                     <td>20</td>
+                                                     <td>750</td>
+                                                     <td>22500</td>
+                                                     <td>
+                                                       <input type="radio" value="22500" name="prix"/>
+                                                       <input type="hidden" value="CIRCONCISION 22500"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>CONSULTATION URGENCE</td>
+                                                     <td>C1</td>
+                                                     <td>1</td>
+                                                     <td>4500</td>
+                                                     <td>4500</td>
+                                                     <td>
+                                                       <input type="radio" value="4500" name="prix"/>
+                                                       <input type="hidden" value="CONSULTATION URGENCE          4500"  name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>COMPLEMENT CONSULTATION REFE</td>
+                                                     <td>C7</td>
+                                                     <td>1</td>
+                                                     <td>100</td>
+                                                     <td>100</td>
+                                                     <td>
+                                                       <input type="radio" value="100" name="prix"/>
+                                                       <input type="hidden" value="COMPLEMENT CONSULTATION          REFE 100"  name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>CULOTTE PLATREE</td>
+                                                     <td>K1</td>
+                                                     <td>40</td>
+                                                     <td>750</td>
+                                                     <td>30000</td>
+                                                     <td>
+                                                       <input type="radio" value="30000" name="prix"/>
+                                                       <input type="hidden" value="CULOTTE PLATREE 30000"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>EXCISION</td>
+                                                     <td>K1</td>
+                                                     <td>60</td>
+                                                     <td>750</td>
+                                                     <td>45000</td>
+                                                     <td>
+                                                       <input type="radio" value="45000" name="prix"/>
+                                                       <input type="hidden" value="CULOTTE PLATREE 45000"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>GANT PLATRE</td>
+                                                     <td>K1</td>
+                                                     <td>10</td>
+                                                     <td>750</td>
+                                                     <td>7500</td>
+                                                     <td>
+                                                       <input type="radio" value="7500" name="prix"/>
+                                                       <input type="hidden" value="ANT PLATRE 7500"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>GERDY PLATRE</td>
+                                                     <td>K1</td>
+                                                     <td>40</td>
+                                                     <td>750</td>
+                                                     <td>30000</td>
+                                                     <td>
+                                                       <input type="radio" value="30000" name="prix"/>
+                                                       <input type="hidden" value="GERDY PLATRE 30000"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>GLYCEMIE CAPILLAIRE</td>
+                                                     <td>B1</td>
+                                                     <td>7</td>
+                                                     <td>150</td>
+                                                     <td>1050</td>
+                                                     <td>
+                                                       <input type="radio" value="1050" name="prix"/>
+                                                       <input type="hidden" value="GLYCEMIE CAPILLAIRE          1050"  name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>INCISION D'ABCES</td>
+                                                     <td>K1</td>
+                                                     <td>10</td>
+                                                     <td>750</td>
+                                                     <td>7500</td>
+                                                     <td>
+                                                       <input type="radio" value="7500" name="prix"/>
+                                                       <input type="hidden" value="INCISION D'ABCES 7500"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>INCISION DE PANARIE</td>
+                                                     <td>K1</td>
+                                                     <td>4</td>
+                                                     <td>750</td>
+                                                     <td>3000</td>
+                                                     <td>
+                                                       <input type="radio" value="3000" name="prix"/>
+                                                       <input type="hidden" value="INCISION DE PANARIE          3000"  name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>INCISION DE PHLEGNON ABCES</td>
+                                                     <td>K1</td>
+                                                     <td>10</td>
+                                                     <td>750</td>
+                                                     <td>7500</td>
+                                                     <td>
+                                                       <input type="radio" value="7500" name="prix"/>
+                                                       <input type="hidden" value="INCISION DE PHLEGNON          ABCES 7500"  name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>LOMBOSTAT</td>
+                                                     <td>K1</td>
+                                                     <td>30</td>
+                                                     <td>750</td>
+                                                     <td>22500</td>
+                                                     <td>
+                                                       <input type="radio" value="22500" name="prix"/>
+                                                       <input type="hidden" value="LOMBOSTAT 22500"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>MAGNO-CLINIQUE</td>
+                                                     <td>K1</td>
+                                                     <td>20</td>
+                                                     <td>750</td>
+                                                     <td>15000</td>
+                                                     <td>
+                                                       <input type="radio" value="15000" name="prix"/>
+                                                       <input type="hidden" value="MAGNO-CLINIQUE 15000"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>MANCHETTE-PLATREE</td>
+                                                     <td>K1</td>
+                                                     <td>20</td>
+                                                     <td>750</td>
+                                                     <td>15000</td>
+                                                     <td>
+                                                       <input type="radio" value="15000" name="prix"/>
+                                                       <input type="hidden" value="MANCHETTE-PLATREEE          15000"  name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>MAXIBOTTE</td>
+                                                     <td>K1</td>
+                                                     <td>20</td>
+                                                     <td>750</td>
+                                                     <td>15000</td>
+                                                     <td>
+                                                       <input type="radio" value="15000" name="prix"/>
+                                                       <input type="hidden" value="MAXIBOTTE 15000"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>MINERVE PLATREE</td>
+                                                     <td>K1</td>
+                                                     <td>30</td>
+                                                     <td>750</td>
+                                                     <td>22500</td>
+                                                     <td>
+                                                       <input type="radio" value="22500" name="prix"/>
+                                                       <input type="hidden" value="MINERVE PLATREE 22500"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>OXYGENE A LUNETTE PAR HEURE</td>
+                                                     <td>O1</td>
+                                                     <td>1</td>
+                                                     <td>3000</td>
+                                                     <td>3000</td>
+                                                     <td>
+                                                       <input type="radio" value="3000" name="prix"/>
+                                                       <input type="hidden" value="OXYGENE A LUNETTE PAR          HEURE 3000"  name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>OXYGENE PAR HEURE</td>
+                                                     <td>O1</td>
+                                                     <td>1</td>
+                                                     <td>3000</td>
+                                                     <td>3000</td>
+                                                     <td>
+                                                       <input type="radio" value="3000" name="prix"/>
+                                                       <input type="hidden" value="OXYGENE PAR HEURE 3000"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>PANSEMENTS DIVERS</td>
+                                                     <td>S1</td>
+                                                     <td>1</td>
+                                                     <td>750</td>
+                                                     <td>750</td>
+                                                     <td>
+                                                       <input type="radio" value="750" name="prix"/>
+                                                       <input type="hidden" value="PANSEMENTS DIVERS 750"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>PELVI-PEDIEUX</td>
+                                                     <td>K1</td>
+                                                     <td>40</td>
+                                                     <td>750</td>
+                                                     <td>30000</td>
+                                                     <td>
+                                                       <input type="radio" value="30000" name="prix"/>
+                                                       <input type="hidden" value="PELVI-PEDIEUX 30000"           name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>PLATRE CUIRO PEDIEUX</td>
+                                                     <td>K1</td>
+                                                     <td>35</td>
+                                                     <td>750</td>
+                                                     <td>26250</td>
+                                                     <td>
+                                                       <input type="radio" value="26250" name="prix"/>
+                                                       <input type="hidden" value="PLATRE CUIRO PEDIEUX          26250"  name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>SECTION FREIN DE LANGUE</td>
+                                                     <td>K1</td>
+                                                     <td>2</td>
+                                                     <td>750</td>
+                                                     <td>1500</td>
+                                                     <td>
+                                                       <input type="radio" value="1500" name="prix"/>
+                                                       <input type="hidden" value="SECTION FREIN DE LANGUE          1500"  name="motif"/>
+                                                     </td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>URGENCE SOINS</td>
+                                                     <td>S1</td>
+                                                     <td>3</td>
+                                                     <td>1500</td>
+                                                     <td>4500</td>
+                                                     <td>
+                                                       <input type="radio" value="4500" name="prix"/>
+                                                       <input type="hidden" value="URGENCE SOINS 4500"           name="motif"/>
+                                                     <td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>URGENCE SOINS</td>
+                                                     <td>S2</td>
+                                                     <td>3</td>
+                                                     <td>1500</td>
+                                                     <td>4500</td>
+                                                     <td>
+                                                       <input type="radio" value="4500" name="prix"/>
+                                                       <input type="hidden" value="URGENCE SOINS 4500"           name="motif"/>
+                                                     <td>
+                                             </tr> 
+                                             <tr>
+                                                     <td>SUTURE DES PLAIES(LE POINT)</td>
+                                                     <td>S2</td>
+                                                     <td>1</td>
+                                                     <td>1500</td>
+                                                     <td>1500</td>
+                                                     <td>
+                                                       <input type="radio" value="1500" name="prix"/>
+                                                       <input type="hidden" value="SUTURE DES PLAIES(LE          POINT) 1500"  name="motif"/>
+                                                     <td>
+                                             </tr> 
+                                    </table>
+                            </div>
+                        <?php 
                     }
                     ?>
                     <br>
                     <div class="options">
-                        <h3>Que vouliez vous faire ?</h3>
+                        <h3>Que desirez vous faire ?</h3>
                         <div>
                             <?php 
                                 if ($service['type'] == "tout") {
@@ -873,7 +2241,7 @@
                     </div>
                     <br> <br>
                     <div class="content calend-sup " id="calendar-section">
-                        <h3 id="tables mt-2 section-title">Le planning des rendez-vous</h3>
+                      <!--  <h3 id="tables mt-2 section-title">Le planning des rendez-vous</h3>-->
                         <?php
                             if (!empty($messageErreur)) { 
                             ?>
@@ -911,11 +2279,11 @@
                             <thead>
                                 <tr>
                                     <th align="center">Horaires</th>
-                                    <th align="center">
+                                   <!-- <th align="center">
                                         Dimanche
                                         <br>
                                         <span class="days">0</span>
-                                    </th>
+                                    </th> -->
                                     <th align="center">
                                         Lundi
                                         <br>
@@ -950,7 +2318,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Matinee</td>
+                                    <td>Matiner</td>
                                     <td align="center" class="date-day-1">
                                         <div class="hour-ctrl" data-hour="08h">08h</div>
                                         <div class="hour-even hour-ctrl" data-hour="09h">09h</div>
@@ -1002,7 +2370,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Soiree</td>
+                                    <td>Soirer</td>
                                     <td align="center" class="date-day-1">
                                         <div class="hour-ctrl" data-hour="14h">14h</div>
                                         <div class="hour-even hour-ctrl" data-hour="15h">15h</div>
