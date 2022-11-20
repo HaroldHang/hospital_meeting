@@ -17,6 +17,9 @@
               ?>
             </ul>
           </li>
+          <li title="Basic Startup" class="sidelist <?= $pageTitle == "Examens" ? "parent" : ""; ?>">
+            <a href="examens">Mes examens</a>
+          </li>
           
           <li class="sidelist">
             <a href="deconnexion">Deconnexion</a>
@@ -45,6 +48,9 @@
                 </li>
                 <li class="sidelist <?= $currentView == "paiements" ? "parent active" : ""; ?>">
                   <a href="tableau-de-bord?view=paiements">Paiements</a>
+                </li>
+                <li class="sidelist <?= $currentView == "examens" ? "parent active" : ""; ?>">
+                  <a href="tableau-de-bord?view=examens">Examens</a>
                 </li>
               
             </ul>

@@ -272,7 +272,7 @@ body {
             background: transparent;
         }
     }
-    z-index : 500;
+    z-index : 700;
     
     .success-box {
         display  : none;
@@ -341,4 +341,9 @@ body {
 
 .sup-container {
     margin-bottom: 100px;
+}
+
+.btn-action {
+    border: none;
+    outline: none;
 }

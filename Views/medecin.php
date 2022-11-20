@@ -29,6 +29,8 @@
                 
                 } else if ($currentView == "paiements") {
                     include "med/paiement.php";
+                } else if ($currentView == "examens") {
+                    include "med/examens.php";
                 }
             ?>
                 

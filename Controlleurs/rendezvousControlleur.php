@@ -33,7 +33,7 @@
             header("Location: index.php?action=services");
         }
     }
-
+    
     function fetchPaiement($connect, $dateStart, $id, $api) {
         $result = getPaiement($connect, $dateStart, $id, $api);
         if ($api) {

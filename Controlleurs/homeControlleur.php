@@ -24,6 +24,13 @@
         }
     }
 
+    function examens($conn) {
+        if (isset($_SESSION['client'])) {
+            $exams = getPatientExam($conn, $_SESSION['client']['id_client']);
+            require './Views/examens.php';
+        }
+    }
+
     function deconnecter () {
         session_unset();
         session_destroy();

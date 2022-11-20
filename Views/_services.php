@@ -2279,11 +2279,11 @@
                             <thead>
                                 <tr>
                                     <th align="center">Horaires</th>
-                                   <!-- <th align="center">
+                                    <th align="center">
                                         Dimanche
                                         <br>
                                         <span class="days">0</span>
-                                    </th> -->
+                                    </th>
                                     <th align="center">
                                         Lundi
                                         <br>

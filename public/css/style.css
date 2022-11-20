@@ -860,7 +860,7 @@ body {
   left: 50%;
   width: 70%;
   transform: translate(-50%, -50%);
-  z-index: 500; }
+  z-index: 700; }
   .form-rdv .content {
     background-color: #fff; }
     .form-rdv .content button {
@@ -907,3 +907,7 @@ body {
 
 .sup-container {
   margin-bottom: 100px; }
+
+.btn-action {
+  border: none;
+  outline: none; }

@@ -19,6 +19,8 @@
                 connexion($conn);
         } else if ($action == "acceuil") {
             acceuil($conn);
+        } else if ($action == "examens") {
+            examens($conn);
         } else if ($action == "acceuilmed") {
             if (isset($_GET['view'])) {
                 $view = $_GET['view'];
@@ -58,13 +60,26 @@
                 $api = true;
             }
             paiement($conn, $api);
+        } else if ($action == "fetchExam") {
+            if (isset($_GET['api'])) {
+                fetchExam($conn, true);
+            }
+        } else if ($action == "terminExam") {
+            if (isset($_GET['api'])) {
+                terminExam($conn, true);
+            }
         } else if ($action == "connexionmed") {
-            
             
             pageConnMed($conn);
         } else if ($action == "connmed") {
             
             connexionMed($conn);
+        } else if ($action == "examen") {
+            $api = false;
+            if (isset($_REQUEST['api'])) {
+                $api = true;
+            } 
+            insertExamen($conn, $api);
         }
         
 

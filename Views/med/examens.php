@@ -1,21 +1,22 @@
 
-<div class="col-lg-8 other-side" id="paie-section">
+<div class="col-lg-8 other-side" id="exam-section">
                 <div class="content">
                     <h2 class="section-title"><?= $service['nom'] ?></h2>
                     
-                    <h3 id="tables">Paiements Effectués</h3>
+                    <h3 id="tables">Examens</h3>
                     
                     <div class="medecin-container" >
-                            <input type="hidden" id="id_spec" value="" />
+                            <input type="hidden" id="id_spec" value="<?= $service['id_specialite'] ?>"/>
+                            <input type="hidden" id="id_med" value="<?= $_SESSION['medecin']['id_med'] ?>"/>
                             
                             <div>
-                                <button id="medLeft" data-view="paie">
+                                <button id="medLeft" data-view="exam">
                                     <i class="ti-angle-left ml-auto"></i>
                                 </button>
                                 <span id="medWeek">
                                     Lundi 24 Octobre 2022
                                 </span>
-                                <button id="medRight" data-view="paie">
+                                <button id="medRight" data-view="exam">
                                     <i class="ti-angle-right ml-auto"></i>
                                 </button>
                             </div>
@@ -24,38 +25,43 @@
                                 <tr>
                                     <th align="center">N°</th>
                                     <th align="center">
-                                        Nom Client
+                                        Nom
                                         
                                     </th>
                                     <th align="center">
-                                        Prenom Client
+                                        Description
                                         
                                     </th>
                                     <th align="center">
-                                        Nom Patient
+                                        Patient
                                         
                                     </th>
                                     <th align="center">
-                                        Prenom Patient
+                                        Status
                                         
                                     </th>
                                     
                                     <th align="center">
-                                        Consultation
+                                        Actions
                                     </th>
                                     
-                                    <th align="center">
+                                    <!--<th align="center">
                                         Prix
                                     </th>
+
+                                    <th align="center">
+                                        Actions
+                                    </th>-->
                                  
                                 </tr>
                               </thead>
-                              <tbody id="paie-med">
+                              <tbody id="exam-med">
                                
                       
         
                               </tbody>
                             </table>
                         </div>
-                    </div>
-            </div>
+                </div>
+                
+</div>
