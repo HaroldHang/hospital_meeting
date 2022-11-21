@@ -52,7 +52,7 @@
             if ($query -> rowCount() > 0) {
                 return [
                     "success" => true,
-                    "message" => "Nouvel examen ajoute"
+                    "message" => "Nouvelle examen ajouter"
                 ];
             }
         }
