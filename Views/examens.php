@@ -25,12 +25,12 @@
           <div class="col-lg-8 other-side">
             
             <h2 class="section-title">Mes examens</h2>
-            <h4 class="">Veillez choisir le type de spécialiter pour la consultation médical à effectuer </h4>
+           
             <div class="row">
                 <div class="content">
 
-                    <table>
-                                      <thead>
+                        <table>
+                                <thead>
                                         <tr>
                                             <th align="center">N°</th>
                                             <th align="center">
@@ -63,8 +63,8 @@
                                             </th>-->
                                          
                                         </tr>
-                                      </thead>
-                                      <tbody id="exam-med">
+                                </thead>
+                                    <tbody id="exam-med">
                                     
                                         <?php $i = 1; foreach ($exams as $exam) {?>
                                             <tr>
@@ -77,13 +77,13 @@
                                         <?php $i++; }?>
                               
                 
-                                      </tbody>
-                                    </table>
+                                    </tbody>
+                        </table>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
     </section>
 
 
