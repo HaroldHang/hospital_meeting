@@ -75,7 +75,7 @@
                                 <h3 class="section-title">Ajouter un examen</h3>
                                 <!-- <p>Payer pour prendre votre rendez-vous</p> -->
                                 
-                                <form method="POST" >
+                                <form method="POST" id="form-exam-submit">
                                     <div class="notices tip success-box" id="success-box-paie">
                                         <p>This is a simple tip.</p>
                                     </div>

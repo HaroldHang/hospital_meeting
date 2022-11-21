@@ -211,22 +211,28 @@ function createRdvLine(obj, index = 1, even = false) {
 
 function createPaieLine(obj, index = 1, even = false) {
     let line = document.createElement("tr");
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 8; i++) {
         let lineChild = document.createElement("td");
         if (i == 0) {
             lineChild.innerText = index;
         } else if (i == 1) {
-            lineChild.innerText = obj.nom_client;
-        } else if ( i == 2) {
-            lineChild.innerText = obj.prenom_client;
-        } else if (i == 3) {
             lineChild.innerText = obj.nom;
-        } else if (i == 4) {
+        } else if ( i == 2) {
             lineChild.innerText = obj.prenom;
+        } else if (i == 3) {
+            lineChild.innerText = obj.nom_client;
+        } else if (i == 4) {
+            lineChild.innerText = obj.prenom_client;
         } else if (i == 5) {
             lineChild.innerText = obj.motif;
         } else if (i == 6) {
             lineChild.innerText = obj.prix;
+        } else if ( i == 7) {
+            lineChild.innerHTML = `
+                <button class="btn-action btn-exam" data-patient="${obj.id_patient}">
+                    <i class="ti-plus ml-auto"></i>
+                </button>
+            `
         }
         line.appendChild(lineChild);
     }
@@ -249,7 +255,7 @@ function createExamLine(obj, index = 1, even = false) {
         } else if ( i == 2) {
             lineChild.innerText = obj.description;
         } else if (i == 3) {
-            lineChild.innerText = obj.nom_patient + obj.prenom_patient;
+            lineChild.innerText = obj.nom_patient + " " + obj.prenom_patient;
         } else if (i == 4) {
             lineChild.innerText = obj.status;
         } else if (i == 5) {
@@ -281,39 +287,7 @@ function appendRdv(elm, objArray) {
 
         elm.appendChild(rdvLine);
     }
-    let rdvExam = document.getElementById("formulaire-examen")
-    let closeExam = document.getElementById("close-exam")
-
-    let btnExams = document.querySelectorAll(".btn-exam");
-    
-    let idPatient = document.getElementById("patientId")
-    for (let j = 0; j < btnExams.length; j++) {
-        //console.log("okay")
-        const btnExam = btnExams[j];
-        btnExam.addEventListener("click", ()=> {
-            rdvExam.classList.add("form-rdv--open")
-            let patientId = btnExam.getAttribute("data-patient")
-            idPatient.value =  patientId;
-            return
-        })
-        
-    }
-    let examSubmit = document.querySelector("#btn-submit-exam");
-    examSubmit.removeEventListener("click", ()=> {
-        console.log("removed");
-    })
-    examSubmit.addEventListener("click", async (event) => {
-        event.preventDefault(); 
-        examSubmit.setAttribute("disabled", true)
-        let idPatient = document.getElementById("patientId")
-        await submitExam(idPatient.value);
-        return
-    }, "once")
-    closeExam.addEventListener("click", ()=> {
-        let examSubmit = document.querySelector("#btn-submit-exam");
-        examSubmit.removeAttribute("disabled", false)
-        rdvExam.classList.remove("form-rdv--open")
-    })
+    examControl();
 }
 
 function appendPaie(elm, objArray) {
@@ -332,6 +306,7 @@ function appendPaie(elm, objArray) {
 
         elm.appendChild(rdvLine);
     }
+    examControl()
 }
 
 function appendExam(elm, objArray) {
@@ -375,13 +350,13 @@ async function submitExam(idPatient) {
         medecin : medId,
         currDate : [date.getFullYear(), (date.getMonth() + 1), date.getDate()].join("-")
     }
+    console.log(payload);
     let url = "index.php?action=examen&api=true"
     const response = await ajaxRequest(url, "POST", payload);
     if (response.success) {
         let successBox = document.querySelector("#success-box-paie");
         successBox.firstChild.nextSibling.innerText = response.message;
         successBox.classList.add("success-box--active")
-
     }
     
 }
@@ -400,6 +375,46 @@ async function finishExam(idExam) {
         return [];
     }
     return requestResponse
+}
+
+function examControl() {
+    let rdvExam = document.getElementById("formulaire-examen")
+    let closeExam = document.getElementById("close-exam")
+
+    let btnExams = document.querySelectorAll(".btn-exam");
+    
+    let idPatient = document.getElementById("patientId")
+    for (let j = 0; j < btnExams.length; j++) {
+        //console.log("okay")
+        const btnExam = btnExams[j];
+        btnExam.addEventListener("click", ()=> {
+            rdvExam.classList.add("form-rdv--open")
+            let patientId = btnExam.getAttribute("data-patient")
+            idPatient.value =  patientId;
+            return
+        })
+        
+    }
+    let examSubmit = document.querySelector("#btn-submit-exam");
+    
+    examSubmit.addEventListener("click", async (event) => {
+        event.preventDefault();
+        event.stopImmediatePropagation(); 
+        examSubmit.setAttribute("disabled", true)
+        let idPatient = document.getElementById("patientId")
+        await submitExam(idPatient.value);
+        examSubmit.removeEventListener("click", ()=> {
+            console.log("removed");
+        }, true)
+        return
+    }, true)
+    closeExam.addEventListener("click", ()=> {
+        let examSubmit = document.querySelector("#btn-submit-exam");
+        examSubmit.removeAttribute("disabled", false)
+        document.querySelector("#form-exam-submit").reset();
+        document.querySelector("#success-box-paie").classList.remove("success-box--active");
+        rdvExam.classList.remove("form-rdv--open");
+    })
 }
 
 function ajaxRequest(url, verb, payload = false) {
