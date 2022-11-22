@@ -66,7 +66,7 @@
                         <div class="container">
                             <div class="row justify-content-center">
                             <div class="col-lg-8">
-                                <div class="p-5 shadow rounded content">
+                                <div class="p-3 shadow rounded content">
                                     <div class="row d-flex justify-content-end">
                                         <button class="col-1 btn-action" id="close-exam">
                                             <i class="ti-close ml-auto"></i>

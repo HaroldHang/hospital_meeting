@@ -109,7 +109,8 @@
         $query -> execute();
         if ($query -> rowCount() > 0) {
             return [
-                "success" => true
+                "success" => true,
+                "status" => "Terminé"
             ];
         }
     }

@@ -35,7 +35,7 @@
                                             <th align="center">N°</th>
                                             <th align="center">
                                                 Nom
-                                                
+                                                de l'examen
                                             </th>
                                             <th align="center">
                                                 Service
@@ -72,7 +72,7 @@
                                                 <td><?= $exam['nom'] ?></td>
                                                 <td> <?= $exam['nom_service'] ?> </td>
                                                 <td> <?= $exam['date'] ?> </td>
-                                                <td> <?= $exam['status'] ?> </td>
+                                                <td> <span class="badge <?= $exam['status'] == 'En cours' ? 'depricated' : 'changed' ?>"><?= $exam['status'] ?></span> </td>
                                             </tr>
                                         <?php $i++; }?>
                               

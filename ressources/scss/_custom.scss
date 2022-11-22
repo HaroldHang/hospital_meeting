@@ -114,7 +114,8 @@ body {
     margin-left: 350px;
     .section-title {
         width: fit-content;
-        border-bottom: 5px solid $primary-color;
+        //border-bottom: 5px solid $primary-color;
+        color:  $primary-color;
     }
     & > .content {
         table {
@@ -272,7 +273,7 @@ body {
             background: transparent;
         }
     }
-    z-index : 700;
+    z-index : 1021;
     
     .success-box {
         display  : none;

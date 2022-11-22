@@ -48,9 +48,9 @@
                                         Prix
                                     </th>
 
-                                    <th align="center">
+                                    <!--<th align="center">
                                         Actions
-                                    </th>
+                                    </th>-->
                                  
                                 </tr>
                               </thead>

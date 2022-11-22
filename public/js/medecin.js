@@ -211,7 +211,7 @@ function createRdvLine(obj, index = 1, even = false) {
 
 function createPaieLine(obj, index = 1, even = false) {
     let line = document.createElement("tr");
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 7; i++) {
         let lineChild = document.createElement("td");
         if (i == 0) {
             lineChild.innerText = index;
@@ -227,13 +227,13 @@ function createPaieLine(obj, index = 1, even = false) {
             lineChild.innerText = obj.motif;
         } else if (i == 6) {
             lineChild.innerText = obj.prix;
-        } else if ( i == 7) {
+        } /*else if ( i == 7) {
             lineChild.innerHTML = `
                 <button class="btn-action btn-exam" data-patient="${obj.id_patient}">
                     <i class="ti-plus ml-auto"></i>
                 </button>
             `
-        }
+        }*/
         line.appendChild(lineChild);
     }
 
@@ -257,7 +257,8 @@ function createExamLine(obj, index = 1, even = false) {
         } else if (i == 3) {
             lineChild.innerText = obj.nom_patient + " " + obj.prenom_patient;
         } else if (i == 4) {
-            lineChild.innerText = obj.status;
+            let statusClass = obj.status == "En cours" ? "depricated" : "changed"
+            lineChild.innerHTML = `<span class="badge ${statusClass} exam-status">${obj.status}</span>`;
         } else if (i == 5) {
             lineChild.innerHTML = `<button class="btn btn-primary exam-finish" data-exam="${obj.id}">Termine</button>`;
         } 
@@ -306,7 +307,7 @@ function appendPaie(elm, objArray) {
 
         elm.appendChild(rdvLine);
     }
-    examControl()
+    //examControl()
 }
 
 function appendExam(elm, objArray) {
@@ -326,10 +327,18 @@ function appendExam(elm, objArray) {
         elm.appendChild(rdvLine);
     }
     let examTermin = document.querySelectorAll(".exam-finish");
+    let examStatus = document.querySelectorAll(".exam-status")
     for (let e = 0; e < examTermin.length; e++) {
         const examTerm = examTermin[e];
-        examTerm.addEventListener("click", ()=> {
-            finishExam(examTerm.getAttribute("data-exam"))
+        examTerm.addEventListener("click", async ()=> {
+            const resfinal = await finishExam(examTerm.getAttribute("data-exam"))
+            console.log(resfinal)
+            if (!resfinal) {
+                return;
+            }
+            examStatus[e].classList.remove("depricated")
+            examStatus[e].classList.add("changed")
+            examStatus[e].innerText = resfinal.status;
         })
         
     }
@@ -362,19 +371,17 @@ async function submitExam(idPatient) {
 }
 
 async function finishExam(idExam) {
-    
     let url = "index.php?action=terminExam&api=true"
     const payload = {
         
         id : idExam
     }
-    console.log(payload)
+    //console.log(payload)
     // Obtenir les rendez-vous sans recharger la page
-    const requestResponse = await ajaxRequest(url, "POST", payload);
-    if (!requestResponse) {
-        return [];
-    }
-    return requestResponse
+    const requestResponse = await ajaxRequest(url, "POST", payload)
+    console.log(requestResponse)
+    return (requestResponse)
+    
 }
 
 function examControl() {

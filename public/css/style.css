@@ -767,7 +767,7 @@ body {
   margin-left: 350px; }
   .other-side .section-title {
     width: fit-content;
-    border-bottom: 5px solid #0616f8; }
+    color: #0616f8; }
   .other-side > .content table tr td {
     text-align: center; }
   .other-side > .content table tr:nth-child(even) {
@@ -860,7 +860,7 @@ body {
   left: 50%;
   width: 70%;
   transform: translate(-50%, -50%);
-  z-index: 700; }
+  z-index: 1021; }
   .form-rdv .content {
     background-color: #fff; }
     .form-rdv .content button {
