@@ -331,14 +331,27 @@ function appendExam(elm, objArray) {
     for (let e = 0; e < examTermin.length; e++) {
         const examTerm = examTermin[e];
         examTerm.addEventListener("click", async ()=> {
-            const resfinal = await finishExam(examTerm.getAttribute("data-exam"))
+            let rdvExam = document.getElementById("formulaire-examen-termine")
+            let closeExam = document.getElementById("close-exam")
+            let idExam = document.getElementById("examId")
+            let examId = examTerm.getAttribute("data-exam")
+            idExam.value =  examId;
+            rdvExam.classList.add("form-rdv--open")
+            closeExam.addEventListener("click", ()=> {
+                let examSubmit = document.querySelector("#btn-submit-exam");
+                examSubmit.removeAttribute("disabled", false)
+                document.querySelector("#form-exam-submit").reset();
+                document.querySelector("#success-box-paie").classList.remove("success-box--active");
+                rdvExam.classList.remove("form-rdv--open");
+            })
+            /*const resfinal = await finishExam(examTerm.getAttribute("data-exam"))
             console.log(resfinal)
             if (!resfinal) {
                 return;
             }
             examStatus[e].classList.remove("depricated")
             examStatus[e].classList.add("changed")
-            examStatus[e].innerText = resfinal.status;
+            examStatus[e].innerText = resfinal.status;*/
         })
         
     }
@@ -386,6 +399,46 @@ async function finishExam(idExam) {
 
 function examControl() {
     let rdvExam = document.getElementById("formulaire-examen")
+    let closeExam = document.getElementById("close-exam")
+
+    let btnExams = document.querySelectorAll(".btn-exam");
+    
+    let idPatient = document.getElementById("patientId")
+    for (let j = 0; j < btnExams.length; j++) {
+        //console.log("okay")
+        const btnExam = btnExams[j];
+        btnExam.addEventListener("click", ()=> {
+            rdvExam.classList.add("form-rdv--open")
+            let patientId = btnExam.getAttribute("data-patient")
+            idPatient.value =  patientId;
+            return
+        })
+        
+    }
+    let examSubmit = document.querySelector("#btn-submit-exam");
+    
+    examSubmit.addEventListener("click", async (event) => {
+        event.preventDefault();
+        event.stopImmediatePropagation(); 
+        examSubmit.setAttribute("disabled", true)
+        let idPatient = document.getElementById("patientId")
+        await submitExam(idPatient.value);
+        examSubmit.removeEventListener("click", ()=> {
+            console.log("removed");
+        }, true)
+        return
+    }, true)
+    closeExam.addEventListener("click", ()=> {
+        let examSubmit = document.querySelector("#btn-submit-exam");
+        examSubmit.removeAttribute("disabled", false)
+        document.querySelector("#form-exam-submit").reset();
+        document.querySelector("#success-box-paie").classList.remove("success-box--active");
+        rdvExam.classList.remove("form-rdv--open");
+    })
+}
+
+function examControlTermin() {
+    let rdvExam = document.getElementById("formulaire-examen-termine")
     let closeExam = document.getElementById("close-exam")
 
     let btnExams = document.querySelectorAll(".btn-exam");

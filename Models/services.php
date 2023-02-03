@@ -94,16 +94,38 @@
         }
     }
 
-    function finishExam($conn, $api) {
+    function finishExam($conn, $api = false) {
         if ($api) {
             $data = json_decode(file_get_contents("php://input"));
             $idExam = $data -> id;
+        } else {
+            if (isset($_POST['exam-id']) && isset($_FILES['exam-file'])) {
+                $idExam = $_POST['exam-id'];
+                $file =  $_FILES['exam-file'];
+                $fileTmp = $file['tmp_name'];
+                $fileOrgName = $file['name'];
+                $fileExt = (explode(".", $fileOrgName))[1];
+                $fileNewName = "exam-file-$idExam.$fileExt";
+                $pathToUpload = "./ressources/storage/$fileNewName";
+                
+                
+                $upload = move_uploaded_file($fileTmp, $pathToUpload);
+                /*if ($upload) {
+                    $uploadSuccess = true;
+                    print_r($uploadSuccess);
+                    exit;
+                } else {
+                    print_r($upload);
+                    exit;
+                }*/
+            }
         }
-
-        $sql = "UPDATE examens SET status=:stat WHERE id=:id";
+        //exit;
+        $sql = "UPDATE examens SET status=:stat, exam_file=:exam_file WHERE id=:id";
 
         $query=$conn->prepare($sql);
         $query->bindValue(":stat", "Terminé" , PDO::PARAM_STR);
+        $query->bindValue(":exam_file",$fileNewName , PDO::PARAM_STR);
         $query->bindValue(":id",$idExam , PDO::PARAM_STR);
         
         $query -> execute();

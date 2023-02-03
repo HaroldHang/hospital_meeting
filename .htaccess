@@ -3,6 +3,7 @@ RewriteBase "/OnlineRDV"
 RewriteRule "^acceuil"  "index.php?action=acceuil"
 RewriteRule "^examens"  "index.php?action=examens"
 RewriteRule "^tableau-de-bord?(.*)"  "index.php?action=acceuilmed$1"[QSA]
+RewriteRule "^download?(.*)"  "index.php?action=downloadExam&$1"[QSA]
 RewriteRule "^connexion"  "index.php?action=seconnecter"
 RewriteRule "^deconnexion"  "index.php?action=deconnecter"
 RewriteRule "^medecin"  "index.php?action=connexionmed"

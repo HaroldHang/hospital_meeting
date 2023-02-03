@@ -50,11 +50,11 @@
                                                 
                                             </th>
                                             
-                                            <!--<th align="center">
-                                                Actions
+                                            <th align="center">
+                                                Resultats
                                             </th>
                                             
-                                            <th align="center">
+                                            <!--<th align="center">
                                                 Prix
                                             </th>
         
@@ -73,6 +73,19 @@
                                                 <td> <?= $exam['nom_service'] ?> </td>
                                                 <td> <?= $exam['date'] ?> </td>
                                                 <td> <span class="badge <?= $exam['status'] == 'En cours' ? 'depricated' : 'changed' ?>"><?= $exam['status'] ?></span> </td>
+                                                <td> 
+                                                    <form method="GET" action="download?exam=<?= urlencode($exam['exam_file'])?>" target="_blank">
+                                                        <?php if ($exam['status'] == 'En cours') { ?>
+                                                        <span  class="badge <?= $exam['status'] == 'En cours' ? 'depricated' : 'changed' ?>"><?= $exam['status'] == 'En cours' ? 'Indisponible' : 'Telecharger' ?></span>
+                                                        <?php } else { ?>
+                                                            <button type="submit" class="btn btn-primary" id="exam-download" data-exam="<?= $exam['exam_file']?>">
+                                                                Telecharger
+                                                            </button>
+                                                            
+                                                        <?php } ?>
+
+                                                    </form>  
+                                                </td>
                                             </tr>
                                         <?php $i++; }?>
                               

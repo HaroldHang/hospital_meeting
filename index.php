@@ -67,6 +67,14 @@
         } else if ($action == "terminExam") {
             if (isset($_GET['api'])) {
                 terminExam($conn, true);
+            } else {
+                terminExam($conn);
+            }
+        } else if ($action == "downloadExam") {
+            //echo "Yesss";
+            if (isset($_GET["exam"])) {
+                //echo $_GET["exam"];
+                downloadExam($conn, $_GET["exam"]);
             }
         } else if ($action == "connexionmed") {
             
