@@ -76,7 +76,7 @@ COPY ./scripts/start.sh /start.sh
 RUN chmod +x start.sh
 RUN ls /etc/init.d && ps
 RUN cat ${nginx_vhost}
-RUN /etc/init.d/mysql restart
+#RUN /etc/init.d/mysql restart
 
 WORKDIR /var/www/meeting
 
