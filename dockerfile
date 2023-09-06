@@ -66,6 +66,7 @@ RUN chown -R www-data:www-data /var/www/html
 
 RUN mkdir -p /var/www/meeting
 COPY  . /var/www/meeting
+COPY env_file /var/www/meeting/.env
 RUN chown -R www-data:www-data /var/www/meeting
 RUN chown -R www-data.www-data /var/www/meeting/public
 # Volume configuration
@@ -86,7 +87,7 @@ RUN chmod +x ./scripts/build.sh
 WORKDIR /
 CMD ["./start.sh"]
 
-WORKDIR /var/www/winlearn
+WORKDIR /var/www/meeting
 #RUN /etc/init.d/mysql status
 RUN printenv
 
