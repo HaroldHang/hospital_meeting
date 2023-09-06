@@ -90,7 +90,7 @@ WORKDIR /var/www/winlearn
 #RUN /etc/init.d/mysql status
 RUN printenv
 
-RUN npm run build
+#RUN npm run build
 # Expose Port for the Application
 WORKDIR /
 EXPOSE 80
